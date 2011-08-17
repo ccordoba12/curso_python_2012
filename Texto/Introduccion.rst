@@ -109,8 +109,99 @@ corrido en la consola.
 |
 
 
-Mi primer programa
-------------------
+Mi primer programa en Python
+----------------------------
+
+El primer programa que todos realizamos es el "Hola Mundo". En Python este
+programa es extremadamente sencillo, pues sólo consiste en una línea::
+
+    print "Hola, mundo!"
+
+Para correr este programa, lo copiamos en el Editor, guardamos el archivo con
+el nombre que queramos y después oprimimos selecciones **Run** del menú *Run* o
+simplemente oprimimos **F5**.
+
+La ventaja de ``print`` es que puede imprimir distintos tipos de datos, tan
+sólo con separarlos con una coma. Por ejemplo, también es válido escribir::
+
+   print "El resultado de K es", 7+8
+
+
+Tipos de datos en Python
+------------------------
+
+Como la mayoría de lenguajes de programación, Python maneja varios tipos de
+datos. Los más importantes son:
+
+Números enteros y flotantes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Con los números uno puede realizar los siguientes tipos de operaciones:
+
+    =========   =========
+    Operación   Resultado
+    =========   =========
+    \+		Suma           
+    \-         	Resta          
+    \*         	Multiplicación 
+    /         	División       
+    =========   =========
+
+.. warning::
+
+   Al dividir dos números enteros, Python realiza por defecto la división
+   entera de ellos, tal como lo hacen C o C++. Es decir que el resultado de,
+   por ejemplo::
+   
+	1/2
+
+   no es, como uno esperaría, 0.5, sino **0**.
+
+   Para evitar esto, lo que usualmente se hace es convertir los números a
+   flotantes añadiéndoles un punto al final, de la siguiente forma::
+
+       1./2.
+
+   Python brinda una alternativa más sencilla para poder olvidarse de si los
+   números con los que estamos trabajando son enteros o flotantes. Para ello
+   debe introducirse la siguiente instrucción en la **primera línea** del
+   archivo en el que estemos programando::
+
+       from __future__ import division
+
+**Ejercicios**
+    Realizar las siguientes operaciones
+
+    * Calcular
+    
+      .. math::
+    
+         \frac{1}{20.7^2} + 3
+
+    * Calcular
+
+      .. math::
+
+      	 3.5 \times \left( 2.7 + 2^4 \right)
+
+    * Cuántos centímetros hay en 10.000 kilómetros?
+
+    * Cuántos segundos hay en un siglo?
+
+    * Cuál es el número más grande que puede calcularse con tres dígitos, los
+      paréntesis y los operadores +, -, *, / y **? (Tomado de *Introducción a
+      Mathematica* del Prof. Jurgen Tischer)
+
+      .. note::
+
+      	 Para interrumpir un cálculo en la consola debe oprimirse el botón
+      	 **Kill**. Después de hacerlo debe oprimirse el botón **Run** para
+      	 reiniciarla.
 
 
 
+
+
+
+..  LocalWords:  Python print Run LocalWords warning from future import math
+..  LocalWords:  division Mathematica
