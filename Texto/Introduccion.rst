@@ -201,11 +201,115 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
 
 	 .. |kill_img| image:: Imagenes/kill.png
 	 .. |run_img| image:: Imagenes/run_small.png
-             	      
 
 
+Strings o cadenas
+~~~~~~~~~~~~~~~~~
 
+Una cadena en Python se puede formar con comillas dobles o sencillas. Ejemplos
+de cadenas son:
 
+.. ipython::
+   
+   In [1]: fruta = "banano"
 
-..  LocalWords:  Python print Run LocalWords warning from future import math
-..  LocalWords:  division Mathematica image png kill img run
+   In [2]: dulce = 'bocadillo'
+
+Con las cadenas pueden realizarse las siguientes operaciones:
+
+    =========     ===============   =========
+    Operación     Uso	  	    Resultado
+    =========     ===============   =========
+    \+            cadena + cadena   Une dos cadenas
+    \* 	          cadena * número   Repite una cadena tantas veces como sea el número
+    =========     ===============   =========
+
+Ejemplos
+   Con las dos variables arriba definidas, podemos realizar las siguientes
+   operaciones:
+
+   .. ipython::
+
+      In [3]: fruta + dulce
+
+      In [4]: fruta * 3
+
+Las cadenas tienen varios métodos que pueden ser de gran utilidad. A ellos se
+puede acceder colocando un punto después del nombre de la variable a la que se
+le haya asignado una cadena. Por ejemplo, si después de ``fruta`` colocamos un
+punto, veremos que aparece:
+ 
+.. ipython::
+   
+   @verbatim
+   In [5]: fruta.
+   fruta.__add__                      fruta.__mod__                      fruta.decode                       fruta.partition
+   fruta.__class__                    fruta.__mul__                      fruta.encode                       fruta.replace
+   fruta.__contains__                 fruta.__ne__                       fruta.endswith                     fruta.rfind
+   fruta.__delattr__                  fruta.__new__                      fruta.expandtabs                   fruta.rindex
+   fruta.__doc__                      fruta.__reduce__                   fruta.find                         fruta.rjust
+   fruta.__eq__                       fruta.__reduce_ex__                fruta.format                       fruta.rpartition
+   fruta.__format__                   fruta.__repr__                     fruta.index                        fruta.rsplit
+   fruta.__ge__                       fruta.__rmod__                     fruta.isalnum                      fruta.rstrip
+   fruta.__getattribute__             fruta.__rmul__                     fruta.isalpha                      fruta.split
+   fruta.__getitem__                  fruta.__setattr__                  fruta.isdigit                      fruta.splitlines
+   fruta.__getnewargs__               fruta.__sizeof__                   fruta.islower                      fruta.startswith
+   fruta.__getslice__                 fruta.__str__                      fruta.isspace                      fruta.strip
+   fruta.__gt__                       fruta.__subclasshook__             fruta.istitle                      fruta.swapcase
+   fruta.__hash__                     fruta._formatter_field_name_split  fruta.isupper                      fruta.title
+   fruta.__init__                     fruta._formatter_parser            fruta.join                         fruta.translate
+   fruta.__le__                       fruta.capitalize                   fruta.ljust                        fruta.upper
+   fruta.__len__                      fruta.center                       fruta.lower                        fruta.zfill
+   fruta.__lt__                       fruta.count                        fruta.lstrip 
+
+.. warning::
+
+   Los métodos que aparecen con dos guiones abajo son métodos internos de la
+   clase, es decir que no han sido diseñados para ser usados directamente por
+   el programador, y por tanto no hay que tenerlos en cuenta.
+
+Entre los demás métodos, vamos a mirar que comportamiento tienen los
+siguientes:
+
+* **upper**: Convierte toda la cadena en mayúsculas
+
+  .. ipython::
+
+     In [2]: fruta.upper()
+
+* **count**: Cuenta cuantas veces se repite un carácter en una cadena
+
+  .. ipython::
+
+     In [2]: fruta.count('a')
+
+* **replace**: Reemplaza un carácter o parte de una cadena por otro carácter o
+  cadena
+
+  .. ipython::
+
+     In [2]: fruta.replace('a', 'o')
+
+     In [3]: fruta.replace('ban', 'en')
+
+* **split**: Divide una cadena según los espacios que tenga y genera una lista
+  de palabras.
+
+  .. ipython::
+
+      In [2]: s = "Hola, mundo!"
+
+      In [3]: s.split()
+
+  También puede dividir una cadena por un determinado carácter para partirla en
+  varias subcadenas:
+
+  .. ipython::
+
+     In [2]: dulce.split('d')
+
+**Ejercicios**
+  * Qué produce el método <<>>?
+
+..  LocalWords:  Python print Run LocalWords warning from future import math In
+..  LocalWords:  division Mathematica image png kill img run ipython verbatim
