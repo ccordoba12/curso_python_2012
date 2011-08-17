@@ -184,24 +184,28 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
 
       	 3.5 \times \left( 2.7 + 2^4 \right)
 
-    * Cuántos centímetros hay en 10.000 kilómetros?
+    * Cuántos milímetros hay en la distancia de la Tierra a la Luna, que es de
+      380.000 kilómetros?
 
     * Cuántos segundos hay en un siglo?
 
     * Cuál es el número más grande que puede calcularse con tres dígitos, los
-      paréntesis y los operadores +, -, *, / y **? (Tomado de *Introducción a
+      paréntesis y los operadores +, -, \*, / y \**? (Tomado de *Introducción a
       Mathematica* del Prof. Jurgen Tischer)
 
       .. note::
 
       	 Para interrumpir un cálculo en la consola debe oprimirse el botón
-      	 **Kill**. Después de hacerlo debe oprimirse el botón **Run** para
-      	 reiniciarla.
+      	 |kill_img| **Kill**. Después de hacerlo debe oprimirse el botón
+      	 |run_img| **Run** para reiniciarla.
 
+	 .. |kill_img| image:: Imagenes/kill.png
+	 .. |run_img| image:: Imagenes/run_small.png
+             	      
 
 
 
 
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math
-..  LocalWords:  division Mathematica
+..  LocalWords:  division Mathematica image png kill img run
