@@ -18,7 +18,8 @@ sencilla. Además, tiene excelente documentación de soporte, librerías
 científicas de primera calidad, capacidades de graficación en dos y tres
 dimensiones, y un enorme repertorio de librerías libres para realizar
 prácticamente cualquier tarea imaginable (creación de sitios web, interacción
-con bases de datos, creación de interfaces gráficas multi-plataforma, etc).
+con bases de datos, creación de interfaces gráficas multi-plataforma, etc,
+etc).
 
 En este curso vamos a utilizar `Python(x,y) <http://www.pythonxy.com/>`_, un
 programa que no sólo permite instalar fácilmente Python, sino que también viene
@@ -36,29 +37,80 @@ ventana, en la que oprimimos el botón que aparece justo debajo de **Spyder**.
 .. Colocar imagen
 
 Spyder_ es un Entorno de Desarrollo Integrado (o IDE por sus siglas en inglés)
-que ha sido creado para hacer más rápida y agradable la computación
-científica. Su diseño ha sido inspirado por *Matlab* pero se le han añadido
-características especiales para facilitar la programación en Python.
+que ha sido creado para hacer más sencilla y agradable la programación de
+simulaciones científicas. Su diseño ha sido inspirado por *Matlab* pero se le
+han añadido características especiales para facilitar el desarrollo de
+programas en Python. Durante el curso vamos a utilizar Spyder para realizar
+nuestras simulaciones.
 
 .. _Spyder: http://code.google.com/p/spyderlib/
 
 Al abrir Spyder vemos que está compuesto de cuatro paneles. En la mitad
 izquierda se encuentra el **Editor**, que es el lugar en el que vamos a
 escribir nuestro código. El editor además reporta errores de sintaxis y
-omisiones comunes, para que sean corregidas por el programador antes de
+omisiones comunes, para que puedan ser corregidas por el programador antes de
 intentar correr su código.
 
-.. Colocar imagen!!
+|
+
+.. figure:: Imagenes/editor.png
+   :align: center
+
+   Editor con varios archivos abiertos
+
+|
 
 La parte derecha está dividida en dos secciones, cada una de las cuales
 contiene varios paneles organizados en pestañas. En la parte de abajo se
-encuentra la **Consola** (Console), que sirve para correr un código
+encuentra la **Consola** (Console), que sirve para correr el código que se haya
+escrito en el editor. Su comportamiento es similar al de la terminal de
+comandos de Windows (cmd.exe). Además, permite interactuar con las variables del
+programa y correr directamente código de Python o porciones de código que se
+encuentren en el Editor.
 
+|
 
-Mientras que en la parte arriba está el **Inspector de Objetos** (Object
-Inspector) que
+.. figure:: Imagenes/consola.png
+   :align: center
 
+   Consola
 
+|
 
+A su lado se encuentra el **Historial de Comandos** (History Log), que guarda
+la historia de todos los comandos introducidos en la Consola.
 
+Por otro lado, en la parte superior está el **Inspector de Objetos** (Object
+Inspector) que se usa para obtener ayuda instantánea sobre la función o el
+comando de Python que se quiera utilizar. Este panel se actualiza
+automáticamente al escribir un paréntesis después del nombre de un comando, por
+lo que es bastante útil.
+
+|
+
+.. figure:: Imagenes/object_inspector.png
+   :align: center
+
+   Inspector de Objetos
+
+|
+
+A su lado se encuentra el **Explorador de Variables** (Variable Explorer) que
+permita revisar, editar y graficar las variables de los programas que se hayan
+corrido en la consola.
  
+|
+
+.. figure:: Imagenes/variable_explorer.png
+   :align: center
+
+   Explorador de Variables
+
+|
+
+
+Mi primer programa
+------------------
+
+
+
