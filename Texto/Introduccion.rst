@@ -526,6 +526,190 @@ Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:
        @verbatim
        In [2]: dulce.center(30)
 
+
+Tuplas
+~~~~~~
+
+Una tupla es un arreglo **inmutable** de distintos tipos de datos. Es decir, es
+como si fuera una lista y tiene sus mismas propiedades, pero al igual que las
+cadenas, no es posible modificar ninguno de sus valores.
+
+Las tuplas se definen con paréntesis ``( )`` en lugar de corchetes. Un ejemplo
+de tupla sería:
+
+.. ipython::
+
+   In [3]: tp = (1,2,3,4,'a')
+
+   In [6]: tp[3]
+
+   In [4]: tp[-1]
+
+   In [5]: tp[2:]
+
+Pero no podemos modificar sus valores mediante nuevas asignaciones:
+
+.. ipython::
+
+   In [3]: tp[2] = 'b'
+
+
+.. note::
+
+   Es posible omitir los paréntesis al momento de definir una tupla si así se
+   desea, lo cual es una práctica bastante extendida entre los programadores de
+   Python. Por ejemplo, una asignación válida es:
+
+   .. ipython::
+
+      In [3]: tp1 = 'a', 'b', 2
+
+      In [4]: tp1
+
+
+Diccionarios
+~~~~~~~~~~~~
+
+Los diccionarios son una estructura de datos muy usada en Python. Ya hemos
+visto que los elementos de listas, cadenas y tuplas están indexados por
+números, es decir, li[0], fruta[1] o tp[2]. En su lugar, los diccionarios están
+indexados por *claves* (o keys en inglés), que pueden ser no sólo números, sino
+también cadenas, tuplas o cualquier otro tipo de datos que sea
+**inmutable**.
+
+Lo interesante de los diccionarios es que nos sirven para relacionar dos tipos
+distintos de datos: las claves con sus *valores* (o values en inglés), que
+pueden ser mutables o inmutables.
+
+Por ejemplo, supongamos que queremos guardar las contraseñas que varias
+personas están utilizando para entrar a un servicio web. Esto lo podemos hacer
+muy fácilmente con un diccionario, en el que las claves sean el nombre de cada
+persona y sus valores sean las contraseñas que estén usando.
+
+Para ello, en Python podemos escribir algo como:
+
+.. ipython::
+
+   In [3]: codigos = {'Luis': 2257, 'Juan': 9739, 'Carlos': 5591}
+
+Como podemos ver, los diccionarios se definen con llaves (``{ }``). Las claves
+son los elementos que están a la izquierda de los ``:``, mientras que los que
+están a la derecha son los *valores*.
+
+Como ya se mencionó, para extraer un elemento del diccionario es necesario usar
+alguna de sus claves. En nuestro caso, las claves son los nombres de las
+personas. Por ejemplo, para extraer el código que le corresponde a ``Carlos``
+debemos escribir:
+
+.. ipython::
+
+   In [3]: codigos['Carlos']
+
+o para el de ``Juan``
+
+.. ipython::
+
+   In [3]: codigos['Juan']
+
+Si alguien cambia de contraseña, podemos actualizar nuestro diccionario
+fácilmente haciendo una nueva asignación, por ejemplo:
+
+.. ipython::
+
+   In [3]: codigos['Luis'] = 1627
+
+   In [4]: codigos
+
+.. note::
+
+   Los diccionarios no tienen un orden interno por defecto. En el último
+   ejemplo podemos ver como ``'Luis'`` aparece al final del diccionario,
+   mientras que en la primera definición de ``códigos`` aparecía al
+   principio. No hay que preocuparse por ello.
+
+O si una persona se retira del servicio, podemos eliminarla del diccionario
+usando el comando ``del``, así
+
+.. ipython::
+
+   In [3]: del codigos['Juan']
+
+   In [4]: codigos
+
+Si queremos introducir el nombre y la contraseña de una nueva persona, sólo es
+necesario usar una nueva clave y asignarle un valor, así
+
+.. ipython::
+
+   In [3]: codigos['Jorge'] = 6621
+
+   In [4]: codigos
+
+Para saber si una persona ya está en el diccionario o no, usamos el siguiente
+método:
+
+.. ipython::
+
+   In [3]: codigos.has_key('Carlos')
+
+   In [4]: codigos.has_key('José')
+
+Finalmente, para extraer todas las claves y los valores de un diccionario
+podemos usar los siguientes métodos:
+
+.. ipython::
+
+   In [3]: codigos.keys()
+
+   In [4]: codigos.values()
+
+
+Conversión entre tipos de datos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Para convertir entre unos y otros tipos de datos, en Python se usan los
+siguientes comandos:
+
+1. ``int``: Da la parte entera de un número flotante, y también covierte cadenas
+   que sean enteros.
+
+   .. ipython::
+
+      In [3]: int(3.99)
+
+      In [4]: int('6')
+
+2. ``float``: convierte enteros y cadenas a números flotantes.
+
+   .. ipython::
+
+      In [3]: float(12)
+
+      In [4]: float('4.23')
+
+3. ``list``: Convierte tuplas, diccionarios y cadenas a una lista.
+
+   .. ipython::
+
+      In [3]: list((3, 2, 4))
+
+      In [4]: list('1457')
+
+   Para los diccionarios, ``list`` sólo extrae las claves y no los valores
+
+   .. ipython::
+
+      In [3]: list({'a': 12, 'b': 5})
+
+4. ``dict``: Convierte una lista de listas, donde cada una tiene dos elementos,
+   a un diccionario.
+
+   .. ipython::
+
+      In [3]: dict([[10, 'a'], [15, 't']])
+
+
+
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing
