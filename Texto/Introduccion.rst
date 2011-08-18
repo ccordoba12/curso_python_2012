@@ -1,3 +1,5 @@
+.. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*- 
+
 =====================
 Introducción a Python
 =====================
@@ -202,6 +204,153 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
 	 .. |kill_img| image:: Imagenes/kill.png
 	 .. |run_img| image:: Imagenes/run_small.png
 
+Listas
+~~~~~~
+
+Las listas son arreglos de datos. Se definen con corchetes, y pueden contener
+datos de distintos tipos (números enteros y flotantes o también los tipos que
+veremos más abajo). Un ejemplo de una lista en Python es:
+
+.. ipython::
+
+   In [1]: li = [-5, 7, 4, 9, 1, 12, 2]
+
+La operación más importante que se hace con las listas es la extracción de sus
+elementos en distintas posiciones. Es muy importante tener en cuenta que las
+listas en Python siempre empiezan con el índice 0, como los arreglos de C y
+C++.
+
+.. ipython::
+
+   In [1]: li[0]
+
+   In [2]: li[3]
+
+Lo bueno de las listas en Python es que si usamos un índice más grande que
+*n-1*, donde *n* es el número de elementos, Python nos da un error (en lugar de
+darnos basura de la memoria)
+
+.. ipython::
+
+   In [1]: li[20]
+
+Las listas son objetos mutables, es decir, sus elementos pueden modificarse de
+acuerdo a la siguiente sintaxis:
+
+.. ipython::
+
+   In [1]: li[1] = 0
+
+   In [2]: li
+
+El manejo de listas en Python es muy elegante gracias a varias facilidades. En
+primer lugar pueden usarse índices negativos para extraer elementos del final
+de la lista hacia adelante, de esta forma:
+
+.. ipython::
+
+   In [1]: li[-1]
+
+   In [2]: li[-3]
+
+Además pueden seleccionarse fácilmente subconjuntos de una lista usando lo que
+se conoce como *rebanado* (o *slicing* en inglés), que consiste en usar dos
+índices separados por ``:`` al momento de tomar elementos de la lista. Al
+hacerlo, Python toma los elementos que van desde el primer índice hasta uno
+menos del último. Miremos un par de ejemplos:
+
+.. ipython::
+
+   In [1]: li[1:3]
+
+   In [2]: li[2:6]
+
+El rebanado también funciona si se usa un sólo índice, bien sea el superior o
+el inferior, siempre que vaya acompañado de los ``:``. En estos casos se
+obtiene el resultado que uno esperaría, es decir, que se tome desde el índice
+que uno quiera hasta el final:
+
+.. ipython::
+
+   In [1]: li[2:]
+
+o que se pare en un índice menos que el que se use como último:
+
+.. ipython::
+
+   In [2]: li[:-3]
+
+Finalmente, pueden usarse las operaciones aritméticas + para concatenar dos
+listas, y * para repetir varias veces los elementos de una lista, así:
+
+.. ipython::
+
+   In [1]: [0, 4, 7] + [2, 3]
+
+   In [2]: [0, 1] * 4
+
+**Ejercicios**:
+  * Calcular el promedio de la siguiente lista::
+
+      li = [3, 18, 11, 4, 14, 12, 2, 19, 4, 6, 17, 7, 14, 6, 8, 17, 7, 2, 6,\
+      19, 10, 10, 9, 17, 5, 15, 3, 14, 20, 12, 20, 7, 15, 2, 17, 1, 6, 17, 2,\
+      1, 12, 11, 62, 14, 9, 20, 3, 19, 4, 15]
+
+    *Sugerencia*: Usar el comando ``sum`` para obtener la suma de los elementos
+    de la lista, y el comando ``len`` para obtener cuantos elementos tiene.
+
+  * Calcular la mediana de la lista anterior. Recordar que para calcular la
+    mediana hay que organizar los datos de menor a mayor y después utilizar la
+    fórmula:
+
+    .. math::
+
+        \tilde{x}=
+	\begin{cases}
+   	x_{\frac{n+1}{2}}\quad, & \textrm{si n es impar}\\
+   	\frac{1}{2}\left(x_{\frac{n}{2}}+x_{\frac{n}{2}+1}\right)\quad, & \textrm{si
+   	n es par}
+   	\end{cases}
+
+    donde *n* es el número de elementos de la lista.
+
+    *Sugerencia*: Usar el comando ``sorted`` para organizar los elementos de la
+    lista de menor a mayor.
+
+  * La media móvil es un concepto usado en economía para tratar de observar si
+    existe una tendencia al alza o a la baja en los precios de las acciones de
+    una empresa. Para ello, lo que hace es crear una serie de promedios de
+    distintos subconjuntos del conjunto de datos original.
+
+    Por ejemplo, si en siete días las acciones de una empresa tuvieron los
+    siguientes precios:
+
+      *Precios*: 11, 12, 13, 14, 15, 16, 17
+
+    Podemos calcular la media móvil, en periodos de cinco días, de la siguiente
+    forma:
+
+      *Primera media móvil de 5 días*: (11 + 12 + 13 + 14 + 15) / 5 = 13
+
+      *Segunda media móvil de 5 días*: (12 + 13 + 14 + 15 + 16) / 5 = 14
+
+      *Tercera media móvil de 5 días*: (13 + 14 + 15 + 16 + 17) / 5 = 15
+
+
+    Con esta descripción, encontrar las primeras 12 medias móviles, en periodos
+    de 10 días, para los siguientes precios de las acciones de Intel
+    registrados entre el 24 de Marzo y el 5 de Mayo de 2010::
+
+      Intel = [22.27, 22.19, 22.08, 22.17, 22.18, 22.13, 22.23, 22.43, 22.24,\
+      22.29, 22.15, 22.39, 22.38, 22.61, 23.36, 24.05, 23.75, 23.83, 23.95,\
+      23.63, 23.82, 23.87, 23.65, 23.19, 23.10, 23.33, 22.68, 23.10, 22.40,\
+      22.17]
+
+   Las acciones de Intel están a la alza o a la baja en este periodo?
+
+   *Sugerencia* Utilizar las operaciones de rebanado descritas arriba.
+
+   
 
 Strings o cadenas
 ~~~~~~~~~~~~~~~~~
@@ -312,7 +461,7 @@ siguientes:
   * Tomar la variable ``dulce``, hacer que se repita 50 veces, y separar las
     palabras con un espacio, de tal forma que obtengamos algo como:
 
-    ``bocadillo bocadillo ...'``
+    ``'bocadillo bocadillo ...'``
 
   * Cuántas veces se repite la palabra ``banano`` en la siguiente cadena?::
 
@@ -367,3 +516,4 @@ siguientes:
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
+..  LocalWords:  slicing
