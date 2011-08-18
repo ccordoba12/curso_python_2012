@@ -355,8 +355,10 @@ listas, y * para repetir varias veces los elementos de una lista, así:
 Strings o cadenas
 ~~~~~~~~~~~~~~~~~
 
-Una cadena en Python se puede formar con comillas dobles o sencillas. Ejemplos
-de cadenas son:
+En Python las cadenas son definidas como listas de caracteres, por lo que es
+posible aplicarles rebanado y las demás operaciones que vimos en la sección
+anterior. Una cadena se puede formar usando comillas dobles o sencillas, de la
+siguiente manera:
 
 .. ipython::
    
@@ -364,7 +366,7 @@ de cadenas son:
 
    In [2]: dulce = 'bocadillo'
 
-Con las cadenas pueden realizarse las siguientes operaciones:
+En este caso, los operadores + y * dan los siguientes resultados:
 
     =========     ===============   =========
     Operación     Uso	  	    Resultado
@@ -373,15 +375,26 @@ Con las cadenas pueden realizarse las siguientes operaciones:
     \* 	          cadena * número   Repite una cadena tantas veces como sea el número
     =========     ===============   =========
 
-Ejemplos
-   Con las dos variables arriba definidas, podemos realizar las siguientes
-   operaciones:
+Con las dos variables arriba definidas podemos realizar, por ejemplo, las
+siguientes operaciones:
 
-   .. ipython::
+.. ipython::
 
-      In [3]: fruta + dulce
+   In [3]: fruta + dulce
 
-      In [4]: fruta * 3
+   In [4]: fruta * 3
+
+   In [5]: dulce[0]
+
+   In [6]: dulce[:7]
+
+Sin embargo, las cadenas no pueden ser modificadas, es decir, no les puede
+asignar nuevos elementos como a las listas y por tanto son inmutables. Esto lo
+podemos constatar a continuación:
+
+.. ipython::
+
+   In [3]: fruta[2] = 'z'
 
 Las cadenas tienen varios métodos que pueden ser de gran utilidad. A ellos se
 puede acceder colocando un punto después del nombre de la variable a la que se
@@ -417,8 +430,7 @@ punto, veremos que aparece:
    de la clase, es decir que no han sido diseñados para ser usados directamente
    por el programador, y por tanto no hay que tenerlos en cuenta.
 
-Entre los demás métodos, vamos a mirar que comportamiento tienen los
-siguientes:
+Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:
 
 * **upper**: Convierte toda la cadena en mayúsculas
 
