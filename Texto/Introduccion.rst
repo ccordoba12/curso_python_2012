@@ -264,9 +264,9 @@ punto, veremos que aparece:
 
 .. warning::
 
-   Los métodos que aparecen con dos guiones abajo son métodos internos de la
-   clase, es decir que no han sido diseñados para ser usados directamente por
-   el programador, y por tanto no hay que tenerlos en cuenta.
+   Los métodos que empiezan con dos guiones abajo (``__``) son métodos internos
+   de la clase, es decir que no han sido diseñados para ser usados directamente
+   por el programador, y por tanto no hay que tenerlos en cuenta.
 
 Entre los demás métodos, vamos a mirar que comportamiento tienen los
 siguientes:
@@ -309,7 +309,61 @@ siguientes:
      In [2]: dulce.split('d')
 
 **Ejercicios**
-  * Qué produce el método <<>>?
+  * Tomar la variable ``dulce``, hacer que se repita 50 veces, y separar las
+    palabras con un espacio, de tal forma que obtengamos algo como:
+
+    ``bocadillo bocadillo ...'``
+
+  * Cuántas veces se repite la palabra ``banano`` en la siguiente cadena?::
+
+      muchas_frutas = 'bananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobananobananobananobananobananobananobananobananobananobananobanano\
+      bananobanano'
+
+    *Sugerencia*: Usar el comando ``len`` para contar los elementos de una
+    lista.
+
+  * Para la cadena anterior, separar cada palabra con dos espacios y un guión
+    en la mitad y reemplazar la *b* por una *B* y la *o* por una *O*, de tal
+    forma que obtengamos algo como:
+    
+    ``'BananO - BananO - ...'``
+
+  * Qué produce el método ``center``?
+
+    Experimentar con los siguientes comandos para ver que produce:
+
+    .. ipython::
+       
+       @verbatim
+       In [1]: dulce.center(2)
+
+       @verbatim
+       In [2]: dulce.center(10)
+
+       @verbatim
+       In [2]: dulce.center(16)
+
+       @verbatim
+       In [2]: dulce.center(30)
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
