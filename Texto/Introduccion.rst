@@ -835,9 +835,9 @@ no puede ser procesado, Python simplemente retorna un error.
 
        In [2]: digitos(99861)
 
-    *Sugerencia*: Utilizar el comando ``map`` para aplicar una función a todos
-    los elementos de una lista. Por ejemplo, podemos usar ``map`` con
-    ``cuadrado`` de la siguiente forma:
+    *Sugerencia*: Utilizar los comandos de conversión entre tipos y el comando
+    ``map`` para aplicar una función a todos los elementos de una lista. Por
+    ejemplo, podemos usar ``map`` con ``cuadrado`` de la siguiente forma:
 
     .. ipython::
        
@@ -847,8 +847,183 @@ no puede ser procesado, Python simplemente retorna un error.
 Estructuras de Control
 ----------------------
 
+A continuación vamos a describir las estructuras de control más importantes en
+Python:
+
 El condicional (if)
 ~~~~~~~~~~~~~~~~~~~
+
+Es quizá la estructura de control más utilizada. A continuación presentamos un
+sencillo ejemplo para observar como es su sintaxis en Python::
+
+    def mayor_o_menor(x, y):
+        if x < y:
+    	    print x, "es menor que", y
+	elif x > y:
+    	    print x, "es mayor que", y
+	else:
+    	    print x, "y", y, "son iguales"
+
+Al aplicar esta función a distintos números obtenemos:
+
+.. ipython::
+   :suppress:
+
+   In [1]: def mayor_o_menor(x, y):
+      ...:     if x < y:
+      ...:         print x, "es menor que", y
+      ...:     elif x > y:
+      ...:         print x, "es mayor que", y
+      ...:     else:
+      ...:         print x, "y", y, "son iguales"
+      ...:
+
+.. ipython::
+       
+   In [1]: mayor_o_menor(2, 5)
+
+   In [2]: mayor_o_menor(100, 10)
+
+   In [3]: mayor_o_menor(1, 1)
+
+Algunos de los operadores con los que se pueden hacer comparaciones al momento
+de usar en ``if`` son:
+
+    ========   =========
+    Operador   Resultado
+    ========   =========
+    ==         Igualdad
+    !=         No es igual        
+    <          Menor que
+    >          Mayor que
+    <=         Menor o igual
+    >=         Mayor o igual
+    not        Niega una condición
+    in         Se usa para verificar si un elemento está en una lista   
+    ========   =========
+
+A excepción de ``in`` y ``not``, todos los demás operadores son similares a los
+usados en otros lenguajes de programación, por lo que no vamos a mirar ejemplos
+de ellos. Veamos, por tanto, sólo como funcionan los primeros:
+
+.. ipython::
+
+   In [15]: 3 in [1, 2, 4]
+
+   In [16]: 3 in [1, 2, 3]
+
+   In [17]: not 2 == 5
+
+A través de estos ejemplos también podemos notar que los valores de verdad en
+Python se escriben como ``True`` y ``False`` para verdadero y falso,
+respectivamente.
+
+**Ejercicios**
+  * Definir una función ``absoluto(x)`` que tome un número entero y retorne su
+    valor absoluto, así:
+
+    .. ipython::
+       :suppress:
+
+       In [1]: def absoluto(x):
+          ...:     if x < 0:
+	  ...:	       return -x
+	  ...:	   else:
+	  ...:	       return x
+	  ...:
+
+    .. ipython::
+       
+       In [1]: absoluto(6)
+
+       In [2]: absoluto(100.22)
+
+       In [3]: absoluto(-18.7)
+
+  * Definir una función ``es_divisible_entre_siete(x)`` que imprima si un
+    número es o no es divisible entre 7. La función debe retornar resultados
+    como los siguientes:
+
+    .. ipython::
+       :suppress:
+
+       In [1]: def es_divisible_entre_siete(x):
+          ...:     if x%7 == 0:
+	  ...:	       print x, "es divisible entre 7"
+	  ...:	   else:
+	  ...:	       print x, "no es divisible entre 7"
+	  ...:
+
+    .. ipython::
+       
+       In [1]: es_divisible_entre_siete(12)
+
+       In [2]: es_divisible_entre_siete(14)
+
+       In [3]: es_divisible_entre_siete(32)
+
+       In [4]: es_divisible_entre_siete(21)
+
+    *Sugerencia*: Utilizar el operador módulo (``%``) para decidir si un número
+    es múltiplo de otro. Este operador retorna el resto de la división entre
+    dos números. Por tanto, si un número divide exactamente a otro, retorna
+    ``0``, sino retorna cualquier otro número. Veamos algunos ejemplos:
+
+    .. ipython::
+       
+       In [1]: 12%4
+
+       In [2]: 12%6
+
+       In [3]: 12%5
+
+       In [4]: 25%5
+
+       In [5]: 25%6
+
+  * Generalizar la función anterior en una función llamada
+    ``es_divisible_entre_n(x, n)`` que tome dos números enteros e imprima si el
+    primero es divisible entre el segundo, así: (Tomado de *Aprenda a pensar
+    como un programador con Python*)
+
+    .. ipython::
+       :suppress:
+
+       In [1]: def es_divisible_entre_n(x, n):
+          ...:     if x%n == 0:
+	  ...:	       print x, "es divisible entre", n
+	  ...:	   else:
+	  ...:	       print x, "no es divisible entre", n
+	  ...:
+
+    .. ipython::
+       
+       In [1]: es_divisible_entre_n(20, 4)
+
+       In [2]: es_divisible_entre_n(36, 5)
+
+  * Definir una función ``agregar_nuevo(li, x)`` que reciba una lista y un
+    elemento y retorne una nueva lista en la que esté añadido el elemento, pero
+    sólo si éste **no** hace parte de la lista original (Tomado de
+    *Introducción a Mathematica* del Prof. Jurgen Tischer).
+
+    Por ejemplo:
+
+    .. ipython::
+       :suppress:
+
+       In [1]: def agregar_nuevo(li, x):
+          ...:     if not x in li:
+	  ...:	       return li + [x]
+	  ...:	   else:
+	  ...:	       return li
+	  ...:
+
+    .. ipython::
+       
+       In [1]: agregar_nuevo([3,9,6], 11)
+
+       In [1]: agregar_nuevo([3,9,6], 9)
 
 El ciclo for
 ~~~~~~~~~~~~
@@ -862,4 +1037,4 @@ El ciclo while
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
-..  LocalWords:  slicing return def suppress Out
+..  LocalWords:  slicing return def suppress Out in elif else if
