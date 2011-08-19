@@ -13,10 +13,3 @@ Contenidos:
 
    Texto/Introduccion
 
-Tablas e Indices
-================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
