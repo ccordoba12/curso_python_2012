@@ -1028,13 +1028,194 @@ respectivamente.
 El ciclo for
 ~~~~~~~~~~~~
 
+En Python ``for`` se utiliza para moverse o iterar entre un conjunto de
+valores. Su sintaxis es más sencilla que la usada en C o C++, porque en lugar
+de utilizar un contador cuyo valor va aumentando o disminuyendo durante el
+ciclo, se toma una secuencia completa (una lista, una tupla, o una cadena), y
+se recorren sus elementos en el orden en que aparecen en ella.
+
+Observemos algunos ejemplos:
+
+.. ipython::
+
+   In [1]: for x in [3, 9, 12, 4]:
+      ...:     print x
+      ...:
+
+   In [2]: prefijos = "JKLMNOPQ"
+
+   In [3]: sufijos = "ack"
+
+   In [4]: for letra in prefijos:
+      ...:     print letra + sufijos
+      ...:
+
+   In [5]: for i in range(10):
+      ...:     print i**2
+      ...:
+
+``range`` es un comando que muy a menudo se utiliza junto a los ciclos ``for``,
+pues sirve para generar una lista con todos los números desde 0 hasta *n*-1,
+donde *n* es el valor que recibe. También puede usarse con dos valores, uno
+como límite inferior y el otro como límite superior, así:
+
+.. ipython::
+
+   In [1]: range(1, 20)
+      
+   In [2]: range(7, 25)
+
+**Ejercicios**:
+  * Construir un ciclo ``for`` que imprima todos los números pares de 1 a 100.
+
+    *Sugerencia*: Utilizar el operador módulo (``%``) y un ``if``.
+
+  * Definir una función ``es_primo(x)`` que tome un número ``x`` y verifique si
+    es divisible entre todos los números menores a ``x``. Si lo es, entonces debe
+    retornar ``False`` y si no ``True``. Por ejemplo:
+
+    .. ipython::
+       :suppress:
+
+       In [1]: def es_divisible_entre_n(x, n):
+          ...:     if x%n == 0:
+	  ...:	       return True
+	  ...:	   else:
+	  ...:	       return False
+	  ...:
+
+       In [2]: def es_primo(x):
+          ...:     for i in range(2, x):
+	  ...:	       if es_divisible_entre_n(x, i):
+	  ...:	           return False
+	  ...:	   return True
+	  ...:
+
+    .. ipython::
+       
+       In [1]: es_primo(10)
+
+       In [2]: es_primo(17)
+
+       In [3]: es_primo(15)
+
+       In [4]: es_primo(23)
+
+    *Sugerencia*: Modificar la función ``es_divisible_entre_n`` para que
+    en lugar de imprimir oraciones, retorne ``True`` o ``False``.
+
+  * Optimizar la función anterior, respondiendo a la siguiente pregunta: ¿Es
+    necesario revisar todos los números menores a ``x`` para verificar si es
+    divisible entre todos ellos? ¿Hasta qué número es en realidad necesario
+    revisar?
+
+    Para ello, definir una nueva función ``es_primo_veloz(x)`` y comparar los
+    tiempos de ejecución entre ella y ``es_primo`` usando el comando
+    ``%timeit`` en la consola, así:
+
+    .. ipython::
+       :suppress:
+
+       In [1]: def es_primo_veloz(x):
+       	  ...: 	   k = int(x/2)
+          ...:     for i in range(2, k+1):
+	  ...:	       if es_divisible_entre_n(x, i):
+	  ...:	           return False
+	  ...:	   return True
+	  ...:
+
+    .. ipython::
+
+       In [1]: %timeit es_primo(600)
+
+       In [2]: %timeit es_primo_veloz(600)
+
+  * Definir una función ``rango_intercuartil(li)`` que calcule el rango
+    intercuartil de una lista. Recordar que éste se define como:
+
+    .. math::
+
+       RI = Q_{3} - Q_{1}
+
+    donde :math:`Q_{3}` es la mediana de los datos mayores a la mediana y
+    :math:`Q_{1}` es la mediana de los datos menores a la mediana.
+
+    *Sugerencias*:
+    
+    - Definir primero una función ``mediana(li)`` que calcule la mediana de una
+      lista, de forma similar a como se hizo en un ejercicio de la sección de
+      **Listas**.
+
+    - Dividir la lista original en dos listas ``li1`` y ``li2`` que contengan los
+      elementos menores y mayores a la mediana, respectivamente, y calcularles
+      a éstas nuevamente la mediana para obtener :math:`Q_{3}` y
+      :math:`Q_{1}`.
+
+      Para ello, definir ``li1 = []`` y ``li2 = []`` para que empiecen siendo
+      listas vacías y utilizar el método ``append`` de cada una para añadirles
+      los elementos correspondientes.
+
 El ciclo while
 ~~~~~~~~~~~~~~
 
+Finalmente vamos a mirar la sintaxis del comando ``while``, que si bien no es
+tan usado como los dos anteriores, es muy útil porque permite recorrer los
+elementos de una lista, tupla o cadena por medio de su índice. Esto es algo que
+no puede hacerse con mucha naturalidad con ``for``, que está más bien ideado
+para recorrer los elementos directamente, sin tener que preocuparse por sus
+posiciones.
 
+Además, con ``while`` no es necesario definir un límite superior para realizar
+un ciclo, como si hay que hacerlo con ``for``.
+
+Miremos un ejemplos:
+
+.. ipython::
+
+   In [1]: li = [3, 6, 9, 11]
+
+   In [2]: i = 0
+
+   In [3]: while i < 4:
+      ...:     print li[i]
+      ...:     i += 1
+      ...:
+
+**Ejercicios**:
+  * Dada la siguiente cadena::
+
+      s = "jhkdaskduwqludhlasdklashdihlasdhljakhuekysbvjkasdhlasdkhlashkdedlahskdlkbasmndkm"
+
+    Imprimir en qué posiciones se encuentra la letra ``k``.
+
+  * Utilizar la función ``es_primo_veloz`` para definir una función
+    ``lista_de_primos(n)`` que genere la lista de los ``n`` primeros números
+    primos. Para que puedan comparar, a continuación aparece la lista de los 20
+    primeros números primos:
+
+    .. ipython::
+       :suppress:
+
+       In [1]: def lista_de_primos(n):
+       	  ...:     li = []
+	  ...:	   i = 2
+	  ...:	   while len(li) < n:
+          ...:         if es_primo(i):
+	  ...:	           li.append(i)
+	  ...:         i += 1
+	  ...:     return li
+          ...:
+
+    .. ipython::
+       
+       In [1]: lista_de_primos(20)
+
+    *Sugerencia*: Definir una lista vacía y utilizar su método append de li
+    para añadirle los números primos que vayamos encontrando.
 
 
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
-..  LocalWords:  slicing return def suppress Out in elif else if
+..  LocalWords:  slicing return def suppress Out in elif else if range False
+..  LocalWords:  True append while for
