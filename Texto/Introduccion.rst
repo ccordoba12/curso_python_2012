@@ -149,11 +149,11 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
     =========   =========
     Operación   Resultado
     =========   =========
-    \+		Suma           
-    \-         	Resta          
-    \*         	Multiplicación 
-    /         	División
-    //		División entera 
+    \+          Suma           
+    \-          Resta          
+    \*          Multiplicación 
+    /           División
+    //          División entera 
     =========   =========
 
 .. warning::
@@ -162,7 +162,7 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
    entera de ellos, tal como lo hacen C o C++. Es decir que el resultado de,
    por ejemplo::
    
-	1/2
+        1/2
 
    no es, como uno esperaría, 0.5, sino **0**.
 
@@ -191,7 +191,7 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
 
       .. math::
 
-      	 3.5 \times \left( 2.7 + 2^4 \right)
+         3.5 \times \left( 2.7 + 2^4 \right)
 
     * Cuántos milímetros hay en la distancia de la Tierra a la Luna, que es de
       380.000 kilómetros?
@@ -205,16 +205,16 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
 
       .. ipython::
 
-      	 In [1]: (6*6)**7
+         In [1]: (6*6)**7
 
       .. note::
 
-      	 Para interrumpir un cálculo en la consola debe oprimirse el botón
-      	 |kill_img| **Kill**. Después de hacerlo debe oprimirse el botón
-      	 |run_img| **Run** para reiniciarla.
+         Para interrumpir un cálculo en la consola debe oprimirse el botón
+         |kill_img| **Kill**. Después de hacerlo debe oprimirse el botón
+         |run_img| **Run** para reiniciarla.
 
-	 .. |kill_img| image:: Imagenes/kill.png
-	 .. |run_img| image:: Imagenes/run_small.png
+         .. |kill_img| image:: Imagenes/kill.png
+         .. |run_img| image:: Imagenes/run_small.png
 
 Listas
 ~~~~~~
@@ -323,11 +323,11 @@ listas, y * para repetir varias veces los elementos de una lista, así:
     .. math::
 
         \tilde{x}=
-	\begin{cases}
-   	x_{\frac{n+1}{2}}\quad, & \textrm{si n es impar}\\
-   	\frac{1}{2}\left(x_{\frac{n}{2}}+x_{\frac{n}{2}+1}\right)\quad, & \textrm{si
-   	n es par}
-   	\end{cases}
+        \begin{cases}
+        x_{\frac{n+1}{2}}\quad, & \textrm{si n es impar}\\
+        \frac{1}{2}\left(x_{\frac{n}{2}}+x_{\frac{n}{2}+1}\right)\quad, & \textrm{si
+        n es par}
+        \end{cases}
 
     donde *n* es el número de elementos de la lista.
 
@@ -397,10 +397,10 @@ siguiente manera:
 En este caso, los operadores + y * dan los siguientes resultados:
 
     =========     ===============   =========
-    Operación     Uso	  	    Resultado
+    Operación     Uso               Resultado
     =========     ===============   =========
     \+            cadena + cadena   Une dos cadenas
-    \* 	          cadena * número   Repite una cadena tantas veces como sea el número
+    \*            cadena * número   Repite una cadena tantas veces como sea el número
     =========     ===============   =========
 
 Con las dos variables arriba definidas podemos realizar, por ejemplo, las
@@ -819,7 +819,7 @@ no puede ser procesado, Python simplemente retorna un error.
 
        In [1]: def imprimir_doble(x):
           ...:     print x, x
-	  ...:
+          ...:
 
     .. ipython::
        
@@ -845,7 +845,7 @@ no puede ser procesado, Python simplemente retorna un error.
 
        In [1]: def distancia(x,y):
           ...:     return ( (x[0]-y[0])**2 + (x[1]-y[1])**2 )**0.5
-	  ...:
+          ...:
 
     .. ipython::
        
@@ -862,9 +862,9 @@ no puede ser procesado, Python simplemente retorna un error.
 
        In [1]: def digitos(x):
           ...:     cadena_de_x = str(x)
-	  ...:	   lista_de_x = list(cadena_de_x)
-	  ...:	   return map(int, lista_de_x)
-	  ...:
+          ...:     lista_de_x = list(cadena_de_x)
+          ...:     return map(int, lista_de_x)
+          ...:
 
     .. ipython::
        
@@ -895,11 +895,11 @@ sencillo ejemplo para observar como es su sintaxis en Python::
 
     def mayor_o_menor(x, y):
         if x < y:
-    	    print x, "es menor que", y
-	elif x > y:
-    	    print x, "es mayor que", y
-	else:
-    	    print x, "y", y, "son iguales"
+            print x, "es menor que", y
+        elif x > y:
+            print x, "es mayor que", y
+        else:
+            print x, "y", y, "son iguales"
 
 Al aplicar esta función a distintos números obtenemos:
 
@@ -964,10 +964,10 @@ respectivamente.
 
        In [1]: def absoluto(x):
           ...:     if x < 0:
-	  ...:	       return -x
-	  ...:	   else:
-	  ...:	       return x
-	  ...:
+          ...:         return -x
+          ...:     else:
+          ...:         return x
+          ...:
 
     .. ipython::
        
@@ -986,10 +986,10 @@ respectivamente.
 
        In [1]: def es_divisible_entre_siete(x):
           ...:     if x%7 == 0:
-	  ...:	       print x, "es divisible entre 7"
-	  ...:	   else:
-	  ...:	       print x, "no es divisible entre 7"
-	  ...:
+          ...:         print x, "es divisible entre 7"
+          ...:     else:
+          ...:         print x, "no es divisible entre 7"
+          ...:
 
     .. ipython::
        
@@ -1028,10 +1028,10 @@ respectivamente.
 
        In [1]: def es_divisible_entre_n(x, n):
           ...:     if x%n == 0:
-	  ...:	       print x, "es divisible entre", n
-	  ...:	   else:
-	  ...:	       print x, "no es divisible entre", n
-	  ...:
+          ...:         print x, "es divisible entre", n
+          ...:     else:
+          ...:         print x, "no es divisible entre", n
+          ...:
 
     .. ipython::
        
@@ -1051,10 +1051,10 @@ respectivamente.
 
        In [1]: def agregar_nuevo(li, x):
           ...:     if not x in li:
-	  ...:	       return li + [x]
-	  ...:	   else:
-	  ...:	       return li
-	  ...:
+          ...:         return li + [x]
+          ...:     else:
+          ...:         return li
+          ...:
 
     .. ipython::
        
@@ -1116,17 +1116,17 @@ como límite inferior y el otro como límite superior, así:
 
        In [1]: def es_divisible_entre_n(x, n):
           ...:     if x%n == 0:
-	  ...:	       return True
-	  ...:	   else:
-	  ...:	       return False
-	  ...:
+          ...:         return True
+          ...:     else:
+          ...:         return False
+          ...:
 
        In [2]: def es_primo(x):
           ...:     for i in range(2, x):
-	  ...:	       if es_divisible_entre_n(x, i):
-	  ...:	           return False
-	  ...:	   return True
-	  ...:
+          ...:         if es_divisible_entre_n(x, i):
+          ...:             return False
+          ...:     return True
+          ...:
 
     .. ipython::
        
@@ -1154,12 +1154,12 @@ como límite inferior y el otro como límite superior, así:
        :suppress:
 
        In [1]: def es_primo_veloz(x):
-       	  ...: 	   k = int(x/2)
+          ...:     k = int(x/2)
           ...:     for i in range(2, k+1):
-	  ...:	       if es_divisible_entre_n(x, i):
-	  ...:	           return False
-	  ...:	   return True
-	  ...:
+          ...:         if es_divisible_entre_n(x, i):
+          ...:             return False
+          ...:     return True
+          ...:
 
     .. ipython::
 
@@ -1234,13 +1234,13 @@ Miremos un ejemplos:
        :suppress:
 
        In [1]: def lista_de_primos(n):
-       	  ...:     li = []
-	  ...:	   i = 2
-	  ...:	   while len(li) < n:
+          ...:     li = []
+          ...:     i = 2
+          ...:     while len(li) < n:
           ...:         if es_primo(i):
-	  ...:	           li.append(i)
-	  ...:         i += 1
-	  ...:     return li
+          ...:             li.append(i)
+          ...:         i += 1
+          ...:     return li
           ...:
 
     .. ipython::
