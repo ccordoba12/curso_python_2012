@@ -128,6 +128,12 @@ sólo con separarlos con una coma. Por ejemplo, también es válido escribir::
 
    print "El resultado de K es", 7+8
 
+.. note::
+
+   Para hacer comentarios en Python sólo es necesario añadirle un **#** al
+   principio de la línea. De esa forma evitaremos observar el resultado
+   producido por ellas.
+
 
 Tipos de datos en Python
 ------------------------
@@ -146,7 +152,8 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
     \+		Suma           
     \-         	Resta          
     \*         	Multiplicación 
-    /         	División       
+    /         	División
+    //		División entera 
     =========   =========
 
 .. warning::
@@ -193,7 +200,12 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
 
     * Cuál es el número más grande que puede calcularse con tres dígitos, los
       paréntesis y los operadores +, -, \*, / y \**? (Tomado de *Introducción a
-      Mathematica* del Prof. Jurgen Tischer)
+      Mathematica* del Prof. Jurgen Tischer). Un ejemplo de este tipo de
+      operación es:
+
+      .. ipython::
+
+      	 In [1]: (6*6)**7
 
       .. note::
 
@@ -254,7 +266,7 @@ de la lista hacia adelante, de esta forma:
    In [2]: li[-3]
 
 Además pueden seleccionarse fácilmente subconjuntos de una lista usando lo que
-se conoce como *rebanado* (o *slicing* en inglés), que consiste en usar dos
+se conoce como *rebanado* (o slicing en inglés), que consiste en usar dos
 índices separados por ``:`` al momento de tomar elementos de la lista. Al
 hacerlo, Python toma los elementos que van desde el primer índice hasta uno
 menos del último. Miremos un par de ejemplos:
@@ -292,12 +304,17 @@ listas, y * para repetir varias veces los elementos de una lista, así:
 **Ejercicios**:
   * Calcular el promedio de la siguiente lista::
 
-      li = [3, 18, 11, 4, 14, 12, 2, 19, 4, 6, 17, 7, 14, 6, 8, 17, 7, 2, 6,\
-      19, 10, 10, 9, 17, 5, 15, 3, 14, 20, 12, 20, 7, 15, 2, 17, 1, 6, 17, 2,\
-      1, 12, 11, 62, 14, 9, 20, 3, 19, 4, 15]
+      li = [3, 18, 17, 44, 14, 12, 29, 19, 4, 6, 17, 7, 14, 6, 8, 17, 17, 21, 65,\
+      19, 10, 31, 92, 17, 5, 15, 3, 14, 20, 12, 29, 57, 15, 2, 17, 1, 6, 17, 2,\
+      71, 12, 11, 62, 14, 9, 20, 43, 19, 4, 15]
 
-    *Sugerencia*: Usar el comando ``sum`` para obtener la suma de los elementos
-    de la lista, y el comando ``len`` para obtener cuantos elementos tiene.
+    *R/*::
+
+      20.04
+
+    *Sugerencia*: Usar el comando ``sum(li)`` para obtener la suma de los
+    elementos de la lista, y el comando ``len(li)`` para obtener cuantos
+    elementos tiene.
 
   * Calcular la mediana de la lista anterior. Recordar que para calcular la
     mediana hay que organizar los datos de menor a mayor y después utilizar la
@@ -314,8 +331,17 @@ listas, y * para repetir varias veces los elementos de una lista, así:
 
     donde *n* es el número de elementos de la lista.
 
-    *Sugerencia*: Usar el comando ``sorted`` para organizar los elementos de la
-    lista de menor a mayor.
+    *R/*::
+
+      15.0
+
+    *Sugerencias*:
+
+    - Usar el comando ``sorted(li)`` para organizar los elementos
+      de la lista de menor a mayor.
+    
+    - Utilizar división entera en operaciones como :math:`\frac{n}{2}`, al
+      momento de tomar los elementos correspondientes de ``li``.
 
   * La media móvil es un concepto usado en economía para tratar de observar si
     existe una tendencia al alza o a la baja en los precios de las acciones de
@@ -337,16 +363,18 @@ listas, y * para repetir varias veces los elementos de una lista, así:
       *Tercera media móvil de 5 días*: (13 + 14 + 15 + 16 + 17) / 5 = 15
 
 
-    Con esta descripción, encontrar las primeras 12 medias móviles, en periodos
-    de 10 días, para los siguientes precios de las acciones de Intel
-    registrados entre el 24 de Marzo y el 5 de Mayo de 2010::
+    Con esta descripción, encontrar de la cuarta, séptima y décima medias
+    móviles, en periodos de 10 días, para los siguientes precios de las
+    acciones de Intel registrados entre el 24 de Marzo y el 5 de Mayo de 2010::
 
-      Intel = [22.27, 22.19, 22.08, 22.17, 22.18, 22.13, 22.23, 22.43, 22.24,\
+      intel = [22.27, 22.19, 22.08, 22.17, 22.18, 22.13, 22.23, 22.43, 22.24,\
       22.29, 22.15, 22.39, 22.38, 22.61, 23.36, 24.05, 23.75, 23.83, 23.95,\
       23.63, 23.82, 23.87, 23.65, 23.19, 23.10, 23.33, 22.68, 23.10, 22.40,\
       22.17]
 
-   Las acciones de Intel están a la alza o a la baja en este periodo?
+   *R/*::
+
+     22.259, 22.613, 23.377
 
    *Sugerencia* Utilizar las operaciones de rebanado descritas arriba.
 
@@ -426,9 +454,13 @@ punto, veremos que aparece:
 
 .. warning::
 
-   Los métodos que empiezan con dos guiones abajo (``__``) son métodos internos
-   de la clase, es decir que no han sido diseñados para ser usados directamente
-   por el programador, y por tanto no hay que tenerlos en cuenta.
+   1. Los métodos que empiezan con dos guiones abajo (``__``) son métodos
+      internos de la clase, es decir que no han sido diseñados para ser usados
+      directamente por el programador, y por tanto no hay que tenerlos en
+      cuenta.
+
+   2. **Ninguno** de estos métodos **modifican** a la cadena original, pues
+      como ya dijimos, las cadenas son inmutables.
 
 Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:
 
@@ -471,42 +503,47 @@ Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:
 
 **Ejercicios**
   * Tomar la variable ``dulce``, hacer que se repita 50 veces, y separar las
-    palabras con un espacio, de tal forma que obtengamos algo como:
+    palabras con un espacio, de tal forma que obtengamos algo como, pero
+    **sin** generar un espacio al final.
 
     ``'bocadillo bocadillo ...'``
 
   * Cuántas veces se repite la palabra ``banano`` en la siguiente cadena?::
 
-      muchas_frutas = 'bananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobananobananobananobananobananobananobananobananobananobananobanano\
-      bananobanano'
+      muchas_frutas = 'banAnobanAnobananobanaNobananobananobanaNobaNanobanano\
+      bananobananobaNanobananobananobaNanobAnanobananobananobanaNobananobanAno\
+      bananobananobanaNobananobananobananobananobananobananobananobananobAnAno\
+      bAnanobananobananobananobananobananobanANobananobananobanaNobananobanano\
+      bananobanaNobAnAnobananobananobananobananobananobAnAnobananobananobanano\
+      baNanobananobananobaNaNobananobANanobananobananobananobAnanobananobanano\
+      bananobananobAnanobananobaNAnobananobananobananobaNanobanaNobANanobanano\
+      baNanobananobananobAnanobananobananobananobaNAnobananobanANobananobAnano\
+      bANanobanAnobananobaNanobananobananobananobananobananobananobAnanobanano\
+      bananobanAnobananobananobanAnobananobananobananobanAnobananobananobaNano\
+      bAnanobananobAnanobaNanobananobanaNobananobananobanANobananobananobANAno\
+      bananobananobaNAnobanaNobAnanobanAnobananobananobanAnobaNanobananobanaNo\
+      banaNobANAnobananobananobanAnobananobananobanANobananobanAnobananobanano\
+      banaNobananobAnanobananobAnanobananobanANobananobananobanAnobanaNobanano\
+      bananobAnanobananobaNanobananobanANobananobananobananobaNAnobananobanAno\
+      bananobananobananobaNanobananobananobanAnobananobananobANanobananobanano\
+      bananobananobaNanobananobananobananobAnanobananobananobananobananobanano\
+      bananobanANobananobanaNobAnanobananobaNanobaNAnobananobananobananobanano\
+      bananobananobananobananobananobAnanobanaNobananobananobaNAnobananobanANo\
+      bananobanaNobananobananobananobananobananobaNanobananobanaNobanAnobanAno\
+      bananobanAno'
 
-    *Sugerencia*: Usar el comando ``len`` para contar los elementos de una
-    lista.
+    *R/*::
 
-  * Para la cadena anterior, separar cada palabra con dos espacios y un guión
-    en la mitad y reemplazar la *b* por una *B* y la *o* por una *O*, de tal
-    forma que obtengamos algo como:
+      150
+
+  * Cuántas veces se repite ``banano`` en la cadena anterior, sin importar si
+    algunas de sus letras están en mayúsculas o no?
     
-    ``'BananO - BananO - ...'``
+    *R/*::
+
+      239
+
+    *Sugerencia*: Utilizar el método ``split``
 
   * Qué produce el método ``center``?
 
@@ -1217,5 +1254,5 @@ Miremos un ejemplos:
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
-..  LocalWords:  slicing return def suppress Out in elif else if range False
-..  LocalWords:  True append while for
+..  LocalWords:  slicing return def suppress Out in elif else if range False li
+..  LocalWords:  True append while for split
