@@ -299,7 +299,9 @@ listas, y * para repetir varias veces los elementos de una lista, así:
     *Sugerencia*: Usar el comando ``sum`` para obtener la suma de los elementos
     de la lista, y el comando ``len`` para obtener cuantos elementos tiene.
 
-  * Calcular la mediana de la lista anterior. Recordar que para calcular la
+  * .. _mediana:
+    
+    Calcular la mediana de la lista anterior. Recordar que para calcular la
     mediana hay que organizar los datos de menor a mayor y después utilizar la
     fórmula:
 
@@ -1140,15 +1142,67 @@ como límite inferior y el otro como límite superior, así:
     donde :math:`Q_{3}` es la mediana de los datos mayores a la mediana y
     :math:`Q_{1}` es la mediana de los datos menores a la mediana.
 
+    Por ejemplo, para la siguiente lista::
+
+      li = [48.38,  27.6 ,  32.46,  51.94,  47.43,  48.61,  34.38,  48.98,\
+            48.86,  41.45,  56.55,  25.46,  27.03,  36.72,  48.03,  36.86,\
+            42.58,  44.44,  56.12,  43.86,  44.42,  42.92,  41.43,  22.81,\
+            36.55,  50.89,  29.93,  47.61,  63.91,  53.98,  42.64,  27.18,\
+            29.93,  31.51]
+
+    el rango intercuartil es:
+
+    .. ipython::
+       :suppress:
+
+       In [1]: from numpy import median
+
+       In [2]: def rango_intercuartil(li):
+          ...:     m = median(li)
+          ...:     li1 = []
+          ...:     li2 = []
+          ...:     for x in li:
+          ...:         if x < m:
+          ...:             li1.append(x)
+          ...:         else:
+          ...:             li2.append(x)
+          ...:     return median(li2) - median(li1)
+          ...:     
+
+       In [3]: li = [48.38,  27.6 ,  32.46,  51.94,  47.43,  48.61,  34.38,  48.98,\
+          ...:       48.86,  41.45,  56.55,  25.46,  27.03,  36.72,  48.03,  36.86,\
+          ...:       42.58,  44.44,  56.12,  43.86,  44.42,  42.92,  41.43,  22.81,\
+          ...:       36.55,  50.89,  29.93,  47.61,  63.91,  53.98,  42.64,  27.18,\
+          ...:       29.93,  31.51]
+
+       In [4]: %precision 2
+
+    .. ipython::
+       
+       In [1]: rango_intercuartil(li)
+       
+
     *Sugerencias*:
     
     - Definir primero una función ``mediana(li)`` que calcule la mediana de una
-      lista, de forma similar a como se hizo en un ejercicio de la sección de
-      **Listas**.
+      lista, de la misma forma en que se hizo en el ejercicio__ de la sección
+      de `Listas`_. La mediana de la lista anterior, por ejemplo, es:
 
-    - Dividir la lista original en dos listas ``li1`` y ``li2`` que contengan los
-      elementos menores y mayores a la mediana, respectivamente, y calcularles
-      a éstas nuevamente la mediana para obtener :math:`Q_{3}` y
+      __ mediana_
+
+      .. ipython::
+         :suppress:
+
+         In [1]: mediana = median
+
+      .. ipython::
+         
+         In [1]: mediana(li)
+      
+
+    - Dividir la lista original en dos listas ``li1`` y ``li2`` que contengan
+      los elementos menores y mayores a la mediana, respectivamente, y
+      calcularles a éstas nuevamente la mediana para obtener :math:`Q_{3}` y
       :math:`Q_{1}`.
 
       Para ello, definir ``li1 = []`` y ``li2 = []`` para que empiecen siendo
