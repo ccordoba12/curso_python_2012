@@ -85,7 +85,7 @@ div.sphinxsidebarwrapper {
     padding: 0;
     position: fixed;
     width: 210px;
-    top: 55px;
+    top: 30px;
 }
 
 div.sphinxsidebar {
@@ -93,7 +93,7 @@ div.sphinxsidebar {
     padding: 0.5em 15px 15px 0;
     width: 210px;
     float: right;
-    font-size: 1em;
+    font-size: 0.88em;
     text-align: left;
 }
 
@@ -226,7 +226,7 @@ tt.descname, tt.descclassname, tt.xref {
 
 hr {
     border: 1px solid #abc;
-    margin: 2em;
+    margin: 1em;
 }
 
 a tt {
