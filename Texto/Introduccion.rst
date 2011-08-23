@@ -818,7 +818,9 @@ no puede ser procesado, Python simplemente retorna un error.
 
        In [2]: distancia([1,5], [2,2])
 
-  * Definir una función ``digitos`` que tome un numero ``x`` y retorne los
+  * .. _digitos:
+    
+    Definir una función ``digitos`` que tome un numero ``x`` y retorne los
     dígitos de que se compone como números enteros. Por ejemplo, digitos debe
     retornar:
 
@@ -1209,38 +1211,108 @@ como límite inferior y el otro como límite superior, así:
       listas vacías y utilizar el método ``append`` de cada una para añadirles
       los elementos correspondientes.
 
+  * Definir una función ``desv_est(li)`` que calcule la desviación estándar de
+    una lista, usando la fórmula:
+
+    .. math::
+
+       s=\sqrt{\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}{n-1}}
+
+    donde :math:`\bar{x}` es el promedio y :math:`n` es el número total de
+    datos.
+
+    Por ejemplo, la desviación estándar de la lista del ejemplo anterior es:
+
+    .. ipython::
+       :suppress:
+    
+       In [1]: from numpy import mean
+
+       In [2]: %precision
+
+       In [2]: def desv_est(li):
+          ...:     m = mean(li)
+          ...:     suma = 0
+          ...:     for x in li:
+          ...:         suma = suma + (x-m)**2
+          ...:     return (suma/(len(li)-1.))**(0.5)
+          ...:
+
+    .. ipython::
+
+       In [3]: desv_est(li)
+
+
 El ciclo while
 ~~~~~~~~~~~~~~
 
 Finalmente vamos a mirar la sintaxis del comando ``while``, que si bien no es
 tan usado como los dos anteriores, es muy útil porque permite recorrer los
 elementos de una lista, tupla o cadena por medio de su índice. Esto es algo que
-no puede hacerse con mucha naturalidad con ``for``, que está más bien ideado
+no puede hacerse con mucha naturalidad con ``for``, que está ideado
 para recorrer los elementos directamente, sin tener que preocuparse por sus
 posiciones.
 
 Además, con ``while`` no es necesario definir un límite superior para realizar
 un ciclo, como si hay que hacerlo con ``for``.
 
-Miremos un ejemplos:
+Miremos un par de ejemplos:
 
-.. ipython::
+1. En este primer ejemplo, imprimimos la lista de todos los elementos de
+   ``li``, pero seleccionándolos de ``li`` por medio de su índice.
 
-   In [1]: li = [3, 6, 9, 11]
+   .. ipython::
 
-   In [2]: i = 0
+      In [1]: li = [3, 6, 9, 11]
 
-   In [3]: while i < 4:
-      ...:     print li[i]
-      ...:     i += 1
-      ...:
+      In [2]: i = 0
+
+      In [3]: while i < 4:
+         ...:     print li[i]
+         ...:     i += 1
+         ...:
+
+   En la última línea pueden verse un ejemplo de asignación abreviada, pues en
+   lugar de escribir ``i = i+1``, escribimos ``i += 1``, lo cual es similar a
+   como se hace en C o C++. Otras abreviaciones que funcionan en Python son:
+   ``-=``, ``*=``, ``/=``, y ``%=``.
+
+2. En este ejemplo vamos a imprimir los 20 primeros números que son divisibles
+   entre 4:
+
+   .. ipython::
+
+      In [1]: i = 0
+
+      In [2]: j = 1
+
+      In [3]: while i <= 20:
+         ...:     if es_divisible_entre_n(j, 4):
+         ...:         print j
+         ...:         i += 1
+         ...:     j += 1
+         ...:
+   
+   En este caso vemos cómo usar dos contadores en el ciclo, uno (``i``) para
+   poder detenerlo cuando se haya obtenido el veinteavo número divisible entre
+   4, y otro (``j``) para movernos entre los números mayores a ``1`` y revisar
+   cuáles de ellos son divisibles entre 4.
 
 **Ejercicios**:
+  * Definir una función ``cuenta_atras(n)`` que tome un número entero ``n`` e
+    imprima todos los números desde ``n`` hasta ``1`` usando un ciclo
+    ``while``. Además, después de imprimir ``1``, debe imprimir ``Este es el
+    fin!``.
+
   * Dada la siguiente cadena::
 
       s = "jhkdaskduwqludhlasdklashdihlasdhljakhuekysbvjkasdhlasdkhlashkdedlahskdlkbasmndkm"
 
     Imprimir en qué posiciones se encuentra la letra ``k``.
+
+    *R/*::
+    
+      2, 6, 19, 35, 39, 45, 54, 60, 68, 71, 78
 
   * Utilizar la función ``es_primo_veloz`` para definir una función
     ``lista_de_primos(n)`` que genere la lista de los ``n`` primeros números
@@ -1264,8 +1336,20 @@ Miremos un ejemplos:
        
        In [1]: lista_de_primos(20)
 
-    *Sugerencia*: Definir una lista vacía y utilizar su método append de li
-    para añadirle los números primos que vayamos encontrando.
+    *Sugerencia*: Definir una lista vacía y utilizar su método append para
+    añadirle los números primos que vayamos encontrando.
+
+  * Usar la función digitos_, para encontrar el primer número de 4 cifras que
+    sea divisible entre 8 y cuya primera y última cifras sean iguales.
+
+    *R/*::
+    
+      2032
+
+    *Sugerencia*: Definir dos contadores: uno que empiece en ``1000`` para ir
+    revisando todos los números de 4 cifras, y otro para detener el ciclo
+    ``while`` tan pronto se encuentre el primer número que cumpla la condición
+    deseada.
 
 
 
