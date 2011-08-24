@@ -1353,7 +1353,99 @@ Miremos un par de ejemplos:
 
 
 
+Clases
+------
+
+Python es un muy buen lenguaje orientado a objetos (como Java) en el que es muy
+sencillo definir y trabajar con clases. En las secciones anteriores hemos
+tenido la oportunidad de utilizar los métodos de cadenas y listas para resolver
+varios ejercicios, lo que indica que en su implementación ambos tipos son
+clases, cosa que también cierta para los demás (aún los números son clases!).
+
+En esta sección veremos como definir nuestras propias clases y como asociarle
+sus correspondientes atributos y métodos.
+
+Definición e inicialización
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En general, una clase es un objeto en el que se reúnen varias funciones
+(llamadas métodos) y variables (llamadas atributos) definidas por conveniencia
+por el usuario para resolver un problema en particular, organizar su código o
+reutilizarlo más adelante.
+
+En Python las clases se definen con la palabra ``class`` y se inicializan
+usando el método ``__init__``, que es una función cuyo primer argumento
+**siempre** debe ser la palabra ``self``. Los argumentos que vengan después de
+``self`` van a usarse para darle valores iniciales a los atributos de la
+clase. Miremos como se hace con un ejemplo::
+
+  class NumeroComplejo:
+      def __init__(self, r, i):
+          self.real = r
+          self.img = i
+
+Vamos a usar esta clase para representar números complejos, por lo que debe
+tener dos atributos: una parte real y una parte imaginaria. En este caso, éstos
+están dados por ``real`` e ``img``, respectivamente.
+
+.. note::
+
+   Es muy importante notar que para diferenciar los atributos de una clase de
+   las variables locales, en Python todo atributo debe ir precedido de
+   ``self.``, como en ``self.real`` y ``self.img``.
+
+Además de ``self``, podemos ver que ``__init__`` recibe los argumentos ``r`` e
+``i``, que se utilizan para inicializar los atributos mencionados.
+
+Para crear una instancia de la clase es necesario llamarla por su nombre, con
+el número de argumentos declarados en ``__init__`` (sin contar ``self``) y
+asignársela a una variable, así:
+
+.. ipython::
+   :suppress:
+
+   In [1]: class NumeroComplejo:
+      ...:     def __init__(self, r, i):
+      ...:         self.real = r
+      ...:         self.img = i
+      ...:  
+
+.. ipython::
+
+   In [2]: x = NumeroComplejo(1,2)
+
+Para comprobar que la inicialización ha funcionado correctamente, podemos
+inspeccionar los atributos de la clase directamente:
+
+.. ipython::
+
+   In [3]: x.real
+
+   In [4]: x.img
+
+De esta forma puede certificarse que, efectivamente, ``x`` es un número
+complejo con parte real ``1`` y parte imaginaria ``2``.
+
+Una vez definida una instancia, también es posible modificar sus atributos por
+medio de asignación, así:
+
+.. ipython::
+
+   In [3]: x.real = 5
+
+   In [4]: x.real
+
+Métodos
+~~~~~~~
+
+Importar librerías
+------------------
+
+
+
+
+
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing return def suppress Out in elif else if range False
-..  LocalWords:  True append while for
+..  LocalWords:  True append while for class init self
