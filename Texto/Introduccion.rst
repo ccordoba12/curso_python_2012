@@ -114,6 +114,11 @@ corrido en la consola.
 Mi primer programa en Python
 ----------------------------
 
+.. ipython::
+   :suppress:
+
+   In [1]: from __future__ import division
+
 El primer programa que todos realizamos es el "Hola Mundo". En Python este
 programa es extremadamente sencillo, pues sólo consiste en una línea::
 
@@ -1412,18 +1417,18 @@ asignársela a una variable, así:
 
 .. ipython::
 
-   In [2]: x = NumeroComplejo(1,2)
+   In [2]: z = NumeroComplejo(1,2)
 
 Para comprobar que la inicialización ha funcionado correctamente, podemos
 inspeccionar los atributos de la clase directamente:
 
 .. ipython::
 
-   In [3]: x.real
+   In [3]: z.real
 
-   In [4]: x.img
+   In [4]: z.img
 
-De esta forma puede certificarse que, efectivamente, ``x`` es un número
+De esta forma puede certificarse que, efectivamente, ``z`` es un número
 complejo con parte real ``1`` y parte imaginaria ``2``.
 
 Una vez definida una instancia, también es posible modificar sus atributos por
@@ -1431,12 +1436,181 @@ medio de asignación, así:
 
 .. ipython::
 
-   In [3]: x.real = 5
+   In [3]: z.real = 5
 
-   In [4]: x.real
+   In [4]: z.real
 
 Métodos
 ~~~~~~~
+
+Los métodos son funciones asociadas a una clase que operan sobre sus
+atributos. Por ejemplo, a la clase anterior le podemos añadir un método que
+calcule el módulo de un número complejo con la fórmula:
+
+.. math::
+
+   \left| z \right|=\sqrt{\textrm{Re}\left(z\right)^{2}+\textrm{Im}\left(z\right)^{2}}
+
+Para ello redefinimos ``NumeroComplejo`` para agregarle un nuevo método
+``modulo``, así::
+
+  class NumeroComplejo:
+      def __init__(self, r, i):
+          self.real = r
+          self.img = i
+      def modulo(self):
+           return (self.real**2 + self.img**2)**(1/2)
+
+.. note::
+
+   Al igual que para ``__init__``, el primer argumento de todo método debe ser
+   ``self``, para que indicar que hace parte de la clase.
+
+.. ipython::
+   :suppress:
+
+   In [7]: class NumeroComplejo:
+      ...:       def __init__(self, r, i):
+      ...:           self.real = r
+      ...:           self.img = i
+      ...:       def modulo(self):
+      ...:            return (self.real**2 + self.img**2)**(0.5)
+      ...:
+
+   In [1]: z = NumeroComplejo(1,2)
+
+Con ello obtenemos el siguiente resultado para el módulo del número complejo
+que habíamos definido arriba:
+
+.. ipython::
+
+   In [2]: z.modulo()
+
+Aquí puede parecer un poco extraño que ``modulo`` se llame sin argumentos,
+cuando al definirlo en la clase se le había pasado a ``self`` como primer
+argumento. Esto se debe a que ``self`` no es un argumento en sí, sino que sólo
+se usa para señalar que una función es un método de la clase, como ya se
+mencionó.
+
+Otra operación que puede hacerse con números complejos es obtener su
+*conjugado*. El conjugado de un complejo :math:`z`, es un nuevo número complejo
+que se denota :math:`\bar{z}` y se define como
+
+.. math::
+
+   z=a+ib \longrightarrow \bar{z}=a-ib
+
+Para obtener el conjugado podemos entonces agregar un nuevo método a nuestra
+clase, de la siguiente forma::
+
+  class NumeroComplejo:
+      def __init__(self, r, i):
+          self.real = r
+          self.img = i
+      def modulo(self):
+           return (self.real**2 + self.img**2)**(0.5)
+      def conjugado(self):
+           return NumeroComplejo(self.real, -self.img)
+
+.. ipython::
+   :suppress:
+
+   In [3]: class NumeroComplejo:
+      ...:       def __init__(self, r, i):
+      ...:           self.real = r
+      ...:           self.img = i
+      ...:       def modulo(self):
+      ...:            return (self.real**2 + self.img**2)**(0.5)
+      ...:       def conjugado(self):
+      ...:            return NumeroComplejo(self.real, -self.img)
+      ...:
+
+   In [3]: z = NumeroComplejo(1,2)
+
+Para calcular el conjugado de ``z`` sólo debemos llamar el método:
+
+.. ipython::
+
+   In [4]: z1 = z.conjugado()
+
+   In [5]: z1.real
+
+   In [6]: z1.img
+
+Finalmente, vamos a añadir una función que retorne el producto de dos números
+complejos. Dados dos números
+
+.. math::
+
+   z = a + ib
+
+   w = c + id
+
+su producto está dado por:
+
+.. math::
+
+   z \times w = (ac - bd) + i(ad + bc)
+
+Para ello podemos escribir el siguiente método, llamado ``producto``, en
+nuestra clase::
+
+  class NumeroComplejo:
+      def __init__(self, r, i):
+          self.real = r
+          self.img = i
+      def modulo(self):
+           return (self.real**2 + self.img**2)**(0.5)
+      def conjugado(self):
+           return NumeroComplejo(self.real, -self.img)
+      def producto(self, w):
+           r = self.real * w.real - self.img * w.img
+           i = self.real * w.img + self.img * w.real
+           return NumeroComplejo(r, i)
+
+.. ipython::
+   :suppress:
+
+   In [4]: class NumeroComplejo:
+      ...:       def __init__(self, r, i):
+      ...:           self.real = r
+      ...:           self.img = i
+      ...:       def modulo(self):
+      ...:            return (self.real**2 + self.img**2)**(0.5)
+      ...:       def conjugado(self):
+      ...:            return NumeroComplejo(self.real, -self.img)
+      ...:       def producto(self, w):
+      ...:            r = self.real * w.real - self.img * w.img
+      ...:            i = self.real * w.img + self.img * w.real
+      ...:            return NumeroComplejo(r, i)
+      ...: 
+
+   In [44]: z = NumeroComplejo(1,2)
+
+.. ipython::
+
+   In [52]: w = NumeroComplejo(4,-7)
+
+   In [53]: x = z.producto(w)
+
+   In [54]: x.real
+   
+   In [55]: x.img
+
+Para comprobar que ``producto`` está funcionando correctamente podemos usar la
+siguiente fórmula, que relaciona el módulo de un número complejo con su
+conjugado:
+
+.. math::
+
+   \left| z \right| = \sqrt{\textrm{Re} \left( z \times \bar{z} \right)}
+
+.. ipython::
+
+   In [48]: z2 = z.producto(z.conjugado())
+
+   In [2]: (z2.real)**(1/2) == z.modulo()
+  
 
 Importar librerías
 ------------------
