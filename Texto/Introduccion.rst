@@ -1610,7 +1610,172 @@ conjugado:
    In [48]: z2 = z.producto(z.conjugado())
 
    In [2]: (z2.real)**(1/2) == z.modulo()
-  
+   
+**Ejercicios**
+  * Definir una clase ``Vector3D`` para representar vectores en 3
+    dimensiones, con las siguientes características:
+
+    .. ipython::
+       :suppress:
+
+       In [5]: class Vector3D:
+          ...:     def __init__(self, x, y, z):
+          ...:         self.x = x
+          ...:         self.y = y
+          ...:         self.z = z
+          ...:     def punto(self, w):
+          ...:         return (self.x * w.x) + (self.y * w.y) + (self.z * w.z)
+          ...:     def cruz(self, w):
+          ...:         x = self.y * w.z - self.z * w.y
+          ...:         y = -(self.x * w.z - self.z * w.x)
+          ...:         z = self.x * w.y - self.y * w.x
+          ...:         return Vector3D(x,y,z)
+          ...:  
+
+    1. Tres atributos: ``x``, ``y``, y ``z``, usados para guardar sus
+       coordenadas.
+
+    2. Un método llamado ``punto`` que calcule el producto punto entre dos
+       vectores, mediante la fórmula:
+
+       .. math::
+
+          \vec{v} \cdot \vec{w} = v_{x}w_{x} + v_{y}w_{y} + v_{z}w_{z}
+
+      Por ejemplo, para los dos vectores definidos a continuación:
+
+      .. ipython::
+
+         In [60]: v = Vector3D(2,0,1)
+
+         In [62]: w = Vector3D(1,-1,3)
+
+      Su producto punto es:
+
+      .. ipython::
+
+         In [64]: v.punto(w)
+
+    3. Un método llamado ``cruz`` que calcule el producto cruz entre dos
+       vectores mediante la fórmula:
+
+       .. math::
+
+          \vec{v} \times \vec{w} = \left(v_{y}w_{z}-v_{z}w_{y}\right)\hat{i} -
+          \left(v_{x}w_{z}-v_{z}w_{x}\right)\hat{j} + \left(v_{x}w_{y}-
+          v_{y}w_{x}\right)\hat{k}
+
+       Por ejemplo, para los vectores definidos arriba el producto
+       :math:`\vec{v} \times \vec{w}` es igual a:
+
+       .. ipython::
+
+          In [65]: u1 = v.cruz(w)
+
+          In [68]: u1.x, u1.y, u1.z
+
+       Mientras que :math:`\vec{w} \times \vec{v}` es:
+
+       .. ipython::
+
+          In [65]: u2 = w.cruz(v)
+
+          In [68]: u2.x, u2.y, u2.z
+
+  * Redefinir la clase anterior para que en lugar de los atributos, ``x``,
+    ``y``, y ``z``, tenga uno sólo llamado ``coord``, que sea una lista de tres
+    elementos. También redefinir los métodos según esto.
+
+    *Sugerencia*: En el método ``__init__`` revisar que la lista que se va a
+    guardar en ``coord`` tenga **exactamente** tres elementos. Si tiene más o 
+    menos, asignarle a ``coord`` una lista vacía.
+
+  * Definir una clase ``Tiempo`` para representar una hora del día, que tenga
+    las siguientes condiciones (Tomado de *Aprenda a pensar como un programador
+    con Python*):
+
+    .. ipython::
+       :suppress:
+
+       In [1]: class Tiempo:
+          ...:     def __init__(self, horas, minutos, segundos):
+          ...:         self.h = horas
+          ...:         self.m = minutos
+          ...:         self.s = segundos
+          ...:     def imprimir_tiempo(self):
+          ...:         if self.h < 10:
+          ...:             imprimir_h = '0' + str(self.h) + ':'
+          ...:         else:
+          ...:             imprimir_h = str(self.h) + ':'
+          ...:         if self.m < 10:
+          ...:             imprimir_m = '0' + str(self.m) + ':'
+          ...:         else:
+          ...:             imprimir_m = str(self.m) + ':'
+          ...:         if self.s < 10:
+          ...:             imprimir_s = '0' + str(self.s)
+          ...:         else:
+          ...:             imprimir_s = str(self.s)
+          ...:         print imprimir_h + imprimir_m + imprimir_s
+          ...:     def sumar(self, t):
+          ...:         suma_s = (self.s + t.s)%60
+          ...:         suma_m = (self.m + t.m)%60
+          ...:         suma_h = (self.h + t.h)%24
+          ...:         if self.s + t.s >= 60:
+          ...:             suma_m += 1
+          ...:         if self.m + t.m >= 60:
+          ...:             suma_h += 1
+          ...:         return Tiempo(suma_h,suma_m,suma_s)
+          ...:
+
+    1. Tres atributos: ``h``, ``m`` y ``s``, para guardar las horas, minutos y
+       segundos.
+
+    2. Un método llamado ``imprimir_tiempo`` que imprima el tiempo almacenado
+       en una instancia, de la siguiente forma:
+
+       .. ipython::
+
+          In [117]: t1 = Tiempo(16,7,1)
+
+          In [118]: t1.imprimir_tiempo()
+
+          In [120]: t2 = Tiempo(2,6,32)
+
+          In [121]: t2.imprimir_tiempo()
+
+    3. Un método ``sumar`` que sume dos tiempos diferentes.
+
+       *Sugerencias*:
+
+       - Sumar cada atributo por separado, es decir, segundo con segundos,
+         minutos con minutos y horas con horas.
+
+       - Para obtener el resultado de los segundos y los minutos, la suma debe
+         realizarse módulo 60. Por ejemplo, si un Tiempo tiene 50 segundos y
+         otra 15, su suma **no** debe darnos 65 sino 5, lo que se obtiene
+         como::
+
+           (50 + 15)%60 = 5
+         
+         Para las horas, tomar la suma módulo 24.
+
+       - Verificar si la suma de los segundos, **sin** tomar el módulo, es
+         mayor o igual a ``60``, y si lo es, incrementar en ``1`` el valor de
+         los minutos. Tener en cuenta lo mismo para la suma de los minutos y el
+         valor de las horas.
+
+       Un ejemplo de este método es:
+
+       .. ipython::
+
+          In [126]: t1 = Tiempo(23,50,45)
+
+          In [127]: t2 = Tiempo(3,40,40)
+
+          In [131]: t3 = t1.sumar(t2)
+
+          In [132]: t3.imprimir_tiempo()
+
 
 Importar librerías
 ------------------
