@@ -683,7 +683,7 @@ siguientes comandos:
 
       In [4]: int('6')
 
-2. ``float``: convierte enteros y cadenas a números flotantes.
+2. ``float``: Convierte enteros y cadenas a números flotantes.
 
    .. ipython::
 
@@ -691,7 +691,15 @@ siguientes comandos:
 
       In [4]: float('4.23')
 
-3. ``list``: Convierte tuplas, diccionarios y cadenas a una lista.
+3. ``str``: Convierte números y cualquier otro objeto a una cadena.
+
+   .. ipython::
+
+      In [3]: str(36.1)
+
+      In [4]: str([1,2,3])
+
+4. ``list``: Convierte tuplas, diccionarios y cadenas a una lista.
 
    .. ipython::
 
@@ -705,7 +713,7 @@ siguientes comandos:
 
       In [3]: list({'a': 12, 'b': 5})
 
-4. ``dict``: Convierte una lista de listas, donde cada una tiene dos elementos,
+5. ``dict``: Convierte una lista de listas, donde cada una tiene dos elementos,
    a un diccionario.
 
    .. ipython::
