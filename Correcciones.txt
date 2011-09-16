@@ -1,0 +1,45 @@
+* Interactuar más con Spyder para mostrarles la forma correcta de usarlo (tanto
+  el Editor como la Consola, el OI y el VE) **interactivamente!!**.
+
+* Esplicar el uso de **and** y **or** en la sección de **if** (Super
+  importante, no sé como se me pasó).
+
+* Quitar **todos** los ejercicios repetidos, es decir los que se parezcan entre
+  sí. La gente se aburre al resolver cosas que son similares!!
+
+* Cambiar uno de los ejercicios de rango intercuartil o desviación estándar por
+  otros.
+
+  Mirar estos sitios web:
+
+  - http://codingbat.com/
+
+    No tiene muchos ejercicios, pero tiene varias para listas y cadenas que no
+    necesitan de for's
+
+  - http://projecteuler.net/
+
+      Hay varios ejercicios que se pueden hacer muy fácilmente en Python, con
+      cadenas o listas y sin for's necesariamente
+
+  - http://homepage.mac.com/s_lott/books/python/html/index.html
+
+    Este es un tutorial completo para aprender Python. Tiene varios ejercicios
+    para clases que me pueden servir.
+
+  - http://marakana.com/forums/python/python/430.html
+
+    Varios tutoriales en Python (4 en total), aunque no los he visto...
+
+* Dar consejos en todos los proyectos del primer corte, y hacerlos un poco más
+  interesantes.
+
+  - Para el primer proyecto, quitar la parte de las cifras decimales??
+
+  - Para el segundo proyecto, hacer que la tasa de interés anual vaya
+    aumentando con el IPC y que la cuota no sea fija.
+
+  - Para el tercer proyecto, como hacerlo un poco más difícil? Será mejor
+    plantear que se resuelva el problema de las N-grammars?
+
+* Agregar más proyectos!! Hay que tener por lo menos **7** proyectos
