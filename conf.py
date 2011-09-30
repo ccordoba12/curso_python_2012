@@ -108,7 +108,7 @@ html_theme = 'sphinxdoc'
 html_title = u"Notas de Modelación y Simulación"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = u"Notas de Modelación y Simulación - Carlos Córdoba"
+html_short_title = u"Notas de Modelación y Simulación"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
