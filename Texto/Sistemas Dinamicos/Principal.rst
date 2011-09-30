@@ -12,3 +12,4 @@ Simulación de Sistemas Dinámicos
     Caida de una bola con Euler.rst
     Animaciones.rst
     Simulacion mas realista.rst
+    Simulacion mas precisa.rst
