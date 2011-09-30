@@ -1,5 +1,12 @@
 .. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*- 
 
+============
+Correcciones
+============
+
+Introducción
+------------
+
 * Interactuar más con Spyder para mostrarles la forma correcta de usarlo (tanto
   el Editor como la Consola, el OI y el VE) **interactivamente!!**.
 
@@ -37,6 +44,9 @@
 
     Varios tutoriales en Python (4 en total), aunque no los he visto...
 
+Proyectos
+---------
+
 * Dar consejos en todos los proyectos del primer corte, y hacerlos un poco más
   interesantes.
 
@@ -49,3 +59,24 @@
     plantear que se resuelva el problema de las N-grammars?
 
 * Agregar más proyectos!! Hay que tener por lo menos **7** proyectos
+
+
+Sistemas dinámicos
+------------------
+
+* En la sección **Código en Python** colocar a que corresponde :math:`r_{t+1}`
+  y :math:`r_{t}` en términos de las posiciones de la listas que menciono. Por
+  ejemplo:
+
+    :math:`r_{t}` = posiciones[-1]
+
+* Dar un valor por defecto para :math:`\Delta t` y explicar mejor su rol en las
+  simulaciones.
+
+* Decir que una animación es una película que se forma cuadro a cuadro.
+
+* Explicar mejor como se da el choque contra el suelo y porque es la velocidad
+  la que cambia de dirección (es por la conservación del momentum? ya no me
+  acuerdo).
+
+..  LocalWords:  Python math momentum
