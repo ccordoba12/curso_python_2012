@@ -1,5 +1,11 @@
+.. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*- 
+
 * Interactuar más con Spyder para mostrarles la forma correcta de usarlo (tanto
   el Editor como la Consola, el OI y el VE) **interactivamente!!**.
+
+* Partir las secciones de la **Introducción** en muchas páginas para que cada
+  sección se pueda visualizar mucho más fácilmente (porque sino queda una
+  página web muy grande).
 
 * Esplicar el uso de **and** y **or** en la sección de **if** (Super
   importante, no sé como se me pasó).
