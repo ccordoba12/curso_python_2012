@@ -90,26 +90,30 @@ Antes de proceder a añadir objetos a la animación, es necesario crear una
 escena, y definir algunas propiedades de la misma, de la siguiente manera::
 
   escena = vis.display(title='Caída de una bola')   # Crea la escena
-  escena.exit = False                               # Evita que al cerrar la ventana se cierre la consola
+  escena.exit = False                               # Evita que al cerrar la ventana se cierre la terminal
   escena.visible = True                             # Hace visible la escena
   escena.select()                                   # Selecciona la escena para añadirle objetos
   escena.autoscale = False                          # Evita que se reajuste el tamaño de la escena a medida que avanza la simulación
 
-Después de esto podemos pasar a añadirle una caja, que va representar el suelo,
-de la siguiente forma::
+Después de esto podemos pasar a añadirle una caja a la escena, la cual va
+representar el suelo, de la siguiente forma::
 
   piso = vis.box(pos=(0, 0, 0), length=4, height=0.5, width=4, color=vis.color.blue)
 
-.. Añadir que son pos, length, height y width.
+donde ``pos`` define el centro de la caja (que en este caso lo colocamos en el
+origen de coordenadas), ``length`` es el largo de la caja, ``height`` y
+``width`` su profundidad.
 
-Después añadimos una esfera que va a representar la bola como::
+En último término creamos una esfera para representar la bola como::
 
   bola = vis.sphere(pos=(0, p0, 0), radius=1, color=vis.color.red)
 
-``bola`` tiene un atributo ``pos`` que define su posición en el espacio y que
-vamos a actualizar con la lista de ``posiciones`` para llevar a cabo la
-animación. Por ejemplo, para cambiar la posición de la bola al primer lugar de
-``posiciones`` usamos el comando::
+donde ``pos`` define el centro de la esfera, ``radius`` su radio y ``color`` su
+color, que en este caso hemos elegido como ``red``.
+
+Para generar la animación vamos a actualizar el atributo ``pos`` de ``bola``
+con los valores guardados en la lista ``posiciones``. Por ejemplo, para cambiar
+la posición de la bola al primer lugar de ``posiciones`` usamos el comando::
 
   bola.pos = vector(0, posiciones[0], 0) 
 
@@ -142,4 +146,5 @@ Ejercicios
 
 ..  LocalWords:  math LocalWords Python Euler dt label euler for if Matplotlib
 ..  LocalWords:  VPython import matplotlib pyplot plt plot graficar range png
-..  LocalWords:  ipython savefig suppress width in cla vs warning
+..  LocalWords:  ipython savefig suppress width in cla vs warning length height
+..  LocalWords:  radius menuselection
