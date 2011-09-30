@@ -12,6 +12,7 @@ Para hacer que la simulación corresponda realmente al comportamiento que
 observamos en la caída de una bola, debemos incluir dos factores adicionales a
 la simulación, que son los que vamos a describir a continuación.
 
+.. _friction:
 
 Fuerza de fricción con el aire
 ------------------------------
@@ -36,8 +37,8 @@ como constante e igual a la gravedad, y en cambio calcularla como:
    a_{i+1} = g - b \, v_{i}
 
 
-Ejercicio
-~~~~~~~~~
+Ejercicios
+~~~~~~~~~~
 
 #. Incluir la fuerza de arrastre en la simulación de la caída de una bola. Para
    ello debe definirse una nueva lista llamada ``aceleraciones``, cuyo primer
@@ -48,10 +49,10 @@ Ejercicio
 
    .. math::
 
-      v_{i+1} = v_{i} + a_{i} \, dt
+      v_{i+1} = v_{i} + a_{i} \, \Delta t
 
 #. Obtener una gráfica de la aceleración vs. el tiempo, así como nuevas
-   gráficas para la posición y la velocidad.
+   gráficas para la posición y la velocidad. Que cambió ahora?
 
 
 Colisión inelástica
@@ -73,8 +74,8 @@ donde *k* es una constante entre 0 y 1, que depende de las propiedades del
 material que compone a los objetos que chocan.
 
 
-Ejercicio
-~~~~~~~~~
+Ejercicios
+~~~~~~~~~~
 
 #. Incluir la ecuación de colisión inelástica en la simulación de la bola.
 
@@ -84,4 +85,4 @@ Ejercicio
 
 
 
-..  LocalWords:  math inelástica Euler
+..  LocalWords:  math inelástica Euler friction
