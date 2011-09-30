@@ -12,4 +12,5 @@ Contenidos:
    :maxdepth: 3
 
    Texto/Introduccion
-   Texto/Projectos 1.rst
+   Texto/Projectos 1
+   Texto/Sistemas Dinamicos/Principal
