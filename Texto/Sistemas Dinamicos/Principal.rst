@@ -13,3 +13,4 @@ Simulación de Sistemas Dinámicos
     Animaciones.rst
     Simulacion mas realista.rst
     Simulacion mas precisa.rst
+    Movimiento en dos dimensiones.rst
