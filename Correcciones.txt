@@ -4,6 +4,9 @@
 Correcciones
 ============
 
+* Escribir una introducción al curso (en index.rst, creo) para que aparezca en
+  la página principal.
+
 Introducción
 ------------
 
@@ -63,6 +66,8 @@ Proyectos
 
 Sistemas dinámicos
 ------------------
+
+* Escribir una introducción a este tema en Principal.rst.
 
 * En la sección **Código en Python** colocar a que corresponde :math:`r_{t+1}`
   y :math:`r_{t}` en términos de las posiciones de la listas que menciono. Por
