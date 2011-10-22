@@ -84,4 +84,7 @@ Sistemas dinámicos
   la que cambia de dirección (es por la conservación del momentum? ya no me
   acuerdo).
 
+* Colocar screenshots de las animaciones, o al menos de como se ven al inicio y
+  al final.
+
 ..  LocalWords:  Python math momentum
