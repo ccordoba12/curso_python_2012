@@ -1,8 +1,8 @@
 .. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*- 
 
-================================
-Simulación de Sistemas Dinámicos
-================================
+=============================
+Sistemas de muchas partículas
+=============================
 
 .. toctree::
     :maxdepth: 2

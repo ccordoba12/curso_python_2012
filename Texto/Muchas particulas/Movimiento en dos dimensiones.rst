@@ -182,7 +182,11 @@ De la misma forma se calculan los valores de ``nueva_velocidad`` y
      10`. Esto con el fin de evitar aplicar la condición de choque si la
      partícula sigue intersectada con el muro.
 
-#. Generar una animación con VPython del fenómeno. Para ello vamos a definir
+#.  
+
+   .. _particula-cylinder:
+
+   Generar una animación con VPython del fenómeno. Para ello vamos a definir
    la partícula como::
 
      particula = vis.cylinder(pos=p0, radius=1, axis=(0, 0, 0.2), color=(0, 0.5, 0.9))
@@ -204,3 +208,4 @@ De la misma forma se calculan los valores de ``nueva_velocidad`` y
 
 ..  LocalWords:  math LocalWords cos theta label eq Verlet VPython Numpy In np
 ..  LocalWords:  ipython import numpy array li dot cross norm linalg from dt
+..  LocalWords:  cylinder
