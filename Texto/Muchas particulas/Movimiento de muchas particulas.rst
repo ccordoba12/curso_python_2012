@@ -141,6 +141,14 @@ pasos:
   donde :math:`\cdot` es el producto punto o escalar entre los dos vectores, y
   se puede obtener con la función ``numpy.dot``
 
+* Con un ``if`` determinar que **no** se tenga que el signo de ``vel1n`` sea
+  igual a ``1`` **y** el de ``vel2n`` sea igual a ``-1``. Si se tiene este
+  caso, quiere decir que las partículas se están moviendo en direcciones
+  opuestas en el eje normal y que **no** van a colisionar.
+
+  Para revisar el signo de un número, utilizar la función ``np.sign``. Todo lo
+  que sigue debe estar dentro de este ``if``.
+
 * Después se calculan las componentes tangenciales de ``vel1`` y ``vel2`` como:
 
   .. math::
@@ -209,4 +217,4 @@ pasos:
 
 ..  LocalWords:  Numpy array np LocalWords sub math for VPython cylinder ref
 ..  LocalWords:  numpy linalg vel norm vec vn vt cdot dot if left right Verlet
-..  LocalWords:  colision particulas posicion
+..  LocalWords:  colision particulas posicion sign
