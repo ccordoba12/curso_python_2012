@@ -215,6 +215,22 @@ pasos:
 2. Fuerzas con otras partículas
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Hay varios tipos de fuerzas que una partícula le puede ejercer a otra, pero en
+esta sección sólo vamos a simular una: la fuerza de gravedad entre la Tierra y
+un cometa que pasa cerca de ella.
+
+La fuerza de gravedad que un cuerpo *1* le ejerce a un cuerpo *2* se calcula
+con la fórmula:
+
+.. math::
+
+   \vec{F}_{12} = - G \frac{m_{1}m_{2}}{r_{12}^{2}} \vec{r}_{12}
+
+donde :math:`G` es la constante universal de la gravitación, :math:`m_1` y
+:math:`m_2` son las masas de los cuerpos y :math:`\vec{r}_{12}` es un vector
+unitario en la dirección de línea que va desde el centro de la partícula *1* al
+centro de *2*.
+
 ..  LocalWords:  Numpy array np LocalWords sub math for VPython cylinder ref
 ..  LocalWords:  numpy linalg vel norm vec vn vt cdot dot if left right Verlet
 ..  LocalWords:  colision particulas posicion sign
