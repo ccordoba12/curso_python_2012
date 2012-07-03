@@ -55,7 +55,7 @@ intentar correr su código.
 
 |
 
-.. figure:: Imagenes/editor.png
+.. figure:: ../Imagenes/editor.png
    :align: center
 
    Editor con varios archivos abiertos
@@ -72,7 +72,7 @@ encuentren en el Editor.
 
 |
 
-.. figure:: Imagenes/consola.png
+.. figure:: ../Imagenes/consola.png
    :align: center
 
    Consola
@@ -90,7 +90,7 @@ lo que es bastante útil.
 
 |
 
-.. figure:: Imagenes/object_inspector.png
+.. figure:: ../Imagenes/object_inspector.png
    :align: center
 
    Inspector de Objetos
@@ -103,7 +103,7 @@ corrido en la consola.
  
 |
 
-.. figure:: Imagenes/variable_explorer.png
+.. figure:: ../Imagenes/variable_explorer.png
    :align: center
 
    Explorador de Variables
@@ -218,8 +218,8 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
          |kill_img| **Kill**. Después de hacerlo debe oprimirse el botón
          |run_img| **Run** para reiniciarla.
 
-         .. |kill_img| image:: Imagenes/kill.png
-         .. |run_img| image:: Imagenes/run_small.png
+         .. |kill_img| image:: ../Imagenes/kill.png
+         .. |run_img| image:: ../Imagenes/run_small.png
 
 Listas
 ~~~~~~
@@ -1958,4 +1958,4 @@ continuación veremos las distintas formas en que puede hacerse esto.
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing return def suppress Out in elif else if range False li
-..  LocalWords:  True append while for class init self split
+..  LocalWords:  True append while for class init self split Imagenes
