@@ -11,7 +11,6 @@ Contenidos:
 .. toctree::
    :maxdepth: 3
 
-   Texto/Introduccion.rst
-   Texto/Projectos 1.rst
+   Texto/Introduccion/Principal.rst
    Texto/Sistemas Dinamicos/Principal.rst
    Texto/Muchas particulas/Principal.rst
