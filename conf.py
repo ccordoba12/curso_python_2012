@@ -108,7 +108,7 @@ html_theme = 'sphinxdoc'
 html_title = u"Notas de Modelación y Simulación"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = u"Notas de Modelación y Simulación - Carlos Córdoba"
+html_short_title = u"Notas de Modelación y Simulación"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -134,7 +134,8 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-    '**': ['localtoc.html', 'relations.html']
+    '**': ['localtoc.html', 'relations.html'],
+    'index': ['relations.html', 'autor.html', 'cc.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to

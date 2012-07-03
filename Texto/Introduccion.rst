@@ -114,6 +114,11 @@ corrido en la consola.
 Mi primer programa en Python
 ----------------------------
 
+.. ipython::
+   :suppress:
+
+   In [1]: from __future__ import division
+
 El primer programa que todos realizamos es el "Hola Mundo". En Python este
 programa es extremadamente sencillo, pues sólo consiste en una línea::
 
@@ -152,7 +157,7 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
     \+          Suma           
     \-          Resta          
     \*          Multiplicación 
-    /           División
+    /           División       
     //          División entera 
     =========   =========
 
@@ -316,7 +321,9 @@ listas, y * para repetir varias veces los elementos de una lista, así:
     elementos de la lista, y el comando ``len(li)`` para obtener cuantos
     elementos tiene.
 
-  * Calcular la mediana de la lista anterior. Recordar que para calcular la
+  * .. _mediana:
+    
+    Calcular la mediana de la lista anterior. Recordar que para calcular la
     mediana hay que organizar los datos de menor a mayor y después utilizar la
     fórmula:
 
@@ -713,7 +720,7 @@ siguientes comandos:
 
       In [4]: int('6')
 
-2. ``float``: convierte enteros y cadenas a números flotantes.
+2. ``float``: Convierte enteros y cadenas a números flotantes.
 
    .. ipython::
 
@@ -721,7 +728,15 @@ siguientes comandos:
 
       In [4]: float('4.23')
 
-3. ``list``: Convierte tuplas, diccionarios y cadenas a una lista.
+3. ``str``: Convierte números y cualquier otro objeto a una cadena.
+
+   .. ipython::
+
+      In [3]: str(36.1)
+
+      In [4]: str([1,2,3])
+
+4. ``list``: Convierte tuplas, diccionarios y cadenas a una lista.
 
    .. ipython::
 
@@ -735,7 +750,7 @@ siguientes comandos:
 
       In [3]: list({'a': 12, 'b': 5})
 
-4. ``dict``: Convierte una lista de listas, donde cada una tiene dos elementos,
+5. ``dict``: Convierte una lista de listas, donde cada una tiene dos elementos,
    a un diccionario.
 
    .. ipython::
@@ -853,7 +868,9 @@ no puede ser procesado, Python simplemente retorna un error.
 
        In [2]: distancia([1,5], [2,2])
 
-  * Definir una función ``digitos`` que tome un numero ``x`` y retorne los
+  * .. _digitos:
+    
+    Definir una función ``digitos`` que tome un numero ``x`` y retorne los
     dígitos de que se compone como números enteros. Por ejemplo, digitos debe
     retornar:
 
@@ -1177,20 +1194,104 @@ como límite inferior y el otro como límite superior, así:
     donde :math:`Q_{3}` es la mediana de los datos mayores a la mediana y
     :math:`Q_{1}` es la mediana de los datos menores a la mediana.
 
+    Por ejemplo, para la siguiente lista::
+
+      li = [48.38,  27.6 ,  32.46,  51.94,  47.43,  48.61,  34.38,  48.98,\
+            48.86,  41.45,  56.55,  25.46,  27.03,  36.72,  48.03,  36.86,\
+            42.58,  44.44,  56.12,  43.86,  44.42,  42.92,  41.43,  22.81,\
+            36.55,  50.89,  29.93,  47.61,  63.91,  53.98,  42.64,  27.18,\
+            29.93,  31.51]
+
+    el rango intercuartil es:
+
+    .. ipython::
+       :suppress:
+
+       In [1]: from numpy import median
+
+       In [2]: def rango_intercuartil(li):
+          ...:     m = median(li)
+          ...:     li1 = []
+          ...:     li2 = []
+          ...:     for x in li:
+          ...:         if x < m:
+          ...:             li1.append(x)
+          ...:         else:
+          ...:             li2.append(x)
+          ...:     return median(li2) - median(li1)
+          ...:     
+
+       In [3]: li = [48.38,  27.6 ,  32.46,  51.94,  47.43,  48.61,  34.38,  48.98,\
+          ...:       48.86,  41.45,  56.55,  25.46,  27.03,  36.72,  48.03,  36.86,\
+          ...:       42.58,  44.44,  56.12,  43.86,  44.42,  42.92,  41.43,  22.81,\
+          ...:       36.55,  50.89,  29.93,  47.61,  63.91,  53.98,  42.64,  27.18,\
+          ...:       29.93,  31.51]
+
+       In [4]: %precision 2
+
+    .. ipython::
+       
+       In [1]: rango_intercuartil(li)
+       
+
     *Sugerencias*:
     
     - Definir primero una función ``mediana(li)`` que calcule la mediana de una
-      lista, de forma similar a como se hizo en un ejercicio de la sección de
-      **Listas**.
+      lista, de la misma forma en que se hizo en el ejercicio__ de la sección
+      de `Listas`_. La mediana de la lista anterior, por ejemplo, es:
 
-    - Dividir la lista original en dos listas ``li1`` y ``li2`` que contengan los
-      elementos menores y mayores a la mediana, respectivamente, y calcularles
-      a éstas nuevamente la mediana para obtener :math:`Q_{3}` y
+      __ mediana_
+
+      .. ipython::
+         :suppress:
+
+         In [1]: mediana = median
+
+      .. ipython::
+         
+         In [1]: mediana(li)
+      
+
+    - Dividir la lista original en dos listas ``li1`` y ``li2`` que contengan
+      los elementos menores y mayores a la mediana, respectivamente, y
+      calcularles a éstas nuevamente la mediana para obtener :math:`Q_{3}` y
       :math:`Q_{1}`.
 
       Para ello, definir ``li1 = []`` y ``li2 = []`` para que empiecen siendo
       listas vacías y utilizar el método ``append`` de cada una para añadirles
       los elementos correspondientes.
+
+  * Definir una función ``desv_est(li)`` que calcule la desviación estándar de
+    una lista, usando la fórmula:
+
+    .. math::
+
+       s=\sqrt{\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}{n-1}}
+
+    donde :math:`\bar{x}` es el promedio y :math:`n` es el número total de
+    datos.
+
+    Por ejemplo, la desviación estándar de la lista del ejemplo anterior es:
+
+    .. ipython::
+       :suppress:
+    
+       In [1]: from numpy import mean
+
+       In [2]: %precision
+
+       In [2]: def desv_est(li):
+          ...:     m = mean(li)
+          ...:     suma = 0
+          ...:     for x in li:
+          ...:         suma = suma + (x-m)**2
+          ...:     return (suma/(len(li)-1.))**(0.5)
+          ...:
+
+    .. ipython::
+
+       In [3]: desv_est(li)
+
 
 El ciclo while
 ~~~~~~~~~~~~~~
@@ -1198,32 +1299,70 @@ El ciclo while
 Finalmente vamos a mirar la sintaxis del comando ``while``, que si bien no es
 tan usado como los dos anteriores, es muy útil porque permite recorrer los
 elementos de una lista, tupla o cadena por medio de su índice. Esto es algo que
-no puede hacerse con mucha naturalidad con ``for``, que está más bien ideado
+no puede hacerse con mucha naturalidad con ``for``, que está ideado
 para recorrer los elementos directamente, sin tener que preocuparse por sus
 posiciones.
 
 Además, con ``while`` no es necesario definir un límite superior para realizar
 un ciclo, como si hay que hacerlo con ``for``.
 
-Miremos un ejemplos:
+Miremos un par de ejemplos:
 
-.. ipython::
+1. En este primer ejemplo, imprimimos la lista de todos los elementos de
+   ``li``, pero seleccionándolos de ``li`` por medio de su índice.
 
-   In [1]: li = [3, 6, 9, 11]
+   .. ipython::
 
-   In [2]: i = 0
+      In [1]: li = [3, 6, 9, 11]
 
-   In [3]: while i < 4:
-      ...:     print li[i]
-      ...:     i += 1
-      ...:
+      In [2]: i = 0
+
+      In [3]: while i < 4:
+         ...:     print li[i]
+         ...:     i += 1
+         ...:
+
+   En la última línea pueden verse un ejemplo de asignación abreviada, pues en
+   lugar de escribir ``i = i+1``, escribimos ``i += 1``, lo cual es similar a
+   como se hace en C o C++. Otras abreviaciones que funcionan en Python son:
+   ``-=``, ``*=``, ``/=``, y ``%=``.
+
+2. En este ejemplo vamos a imprimir los 20 primeros números que son divisibles
+   entre 4:
+
+   .. ipython::
+
+      In [1]: i = 0
+
+      In [2]: j = 1
+
+      In [3]: while i <= 20:
+         ...:     if es_divisible_entre_n(j, 4):
+         ...:         print j
+         ...:         i += 1
+         ...:     j += 1
+         ...:
+   
+   En este caso vemos cómo usar dos contadores en el ciclo, uno (``i``) para
+   poder detenerlo cuando se haya obtenido el veinteavo número divisible entre
+   4, y otro (``j``) para movernos entre los números mayores a ``1`` y revisar
+   cuáles de ellos son divisibles entre 4.
 
 **Ejercicios**:
+  * Definir una función ``cuenta_atras(n)`` que tome un número entero ``n`` e
+    imprima todos los números desde ``n`` hasta ``1`` usando un ciclo
+    ``while``. Además, después de imprimir ``1``, debe imprimir ``Este es el
+    fin!``.
+
   * Dada la siguiente cadena::
 
       s = "jhkdaskduwqludhlasdklashdihlasdhljakhuekysbvjkasdhlasdkhlashkdedlahskdlkbasmndkm"
 
     Imprimir en qué posiciones se encuentra la letra ``k``.
+
+    *R/*::
+    
+      2, 6, 19, 35, 39, 45, 54, 60, 68, 71, 78
 
   * Utilizar la función ``es_primo_veloz`` para definir una función
     ``lista_de_primos(n)`` que genere la lista de los ``n`` primeros números
@@ -1247,12 +1386,576 @@ Miremos un ejemplos:
        
        In [1]: lista_de_primos(20)
 
-    *Sugerencia*: Definir una lista vacía y utilizar su método append de li
-    para añadirle los números primos que vayamos encontrando.
+    *Sugerencia*: Definir una lista vacía y utilizar su método append para
+    añadirle los números primos que vayamos encontrando.
+
+  * Usar la función digitos_, para encontrar el primer número de 4 cifras que
+    sea divisible entre 8 y cuya primera y última cifras sean iguales.
+
+    *R/*::
+    
+      2032
+
+    *Sugerencia*: Definir dos contadores: uno que empiece en ``1000`` para ir
+    revisando todos los números de 4 cifras, y otro para detener el ciclo
+    ``while`` tan pronto se encuentre el primer número que cumpla la condición
+    deseada.
+
+
+
+Clases
+------
+
+Python es un muy buen lenguaje orientado a objetos (como Java) en el que es muy
+sencillo definir y trabajar con clases. En las secciones anteriores hemos
+tenido la oportunidad de utilizar los métodos de cadenas y listas para resolver
+varios ejercicios, lo que indica que en su implementación ambos tipos son
+clases, cosa que también cierta para los demás (aún los números son clases!).
+
+En esta sección veremos como definir nuestras propias clases y como asociarle
+sus correspondientes atributos y métodos.
+
+Definición e inicialización
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En general, una clase es un objeto en el que se reúnen varias funciones
+(llamadas métodos) y variables (llamadas atributos) definidas por conveniencia
+por el usuario para resolver un problema en particular, organizar su código o
+reutilizarlo más adelante.
+
+En Python las clases se definen con la palabra ``class`` y se inicializan
+usando el método ``__init__``, que es una función cuyo primer argumento
+**siempre** debe ser la palabra ``self``. Los argumentos que vengan después de
+``self`` van a usarse para darle valores iniciales a los atributos de la
+clase. Miremos como se hace con un ejemplo::
+
+  class NumeroComplejo:
+      def __init__(self, r, i):
+          self.real = r
+          self.img = i
+
+Vamos a usar esta clase para representar números complejos, por lo que debe
+tener dos atributos: una parte real y una parte imaginaria. En este caso, éstos
+están dados por ``real`` e ``img``, respectivamente.
+
+.. note::
+
+   Es muy importante notar que para diferenciar los atributos de una clase de
+   las variables locales, en Python todo atributo debe ir precedido de
+   ``self.``, como en ``self.real`` y ``self.img``.
+
+Además de ``self``, podemos ver que ``__init__`` recibe los argumentos ``r`` e
+``i``, que se utilizan para inicializar los atributos mencionados.
+
+Para crear una instancia de la clase es necesario llamarla por su nombre, con
+el número de argumentos declarados en ``__init__`` (sin contar ``self``) y
+asignársela a una variable, así:
+
+.. ipython::
+   :suppress:
+
+   In [1]: class NumeroComplejo:
+      ...:     def __init__(self, r, i):
+      ...:         self.real = r
+      ...:         self.img = i
+      ...:  
+
+.. ipython::
+
+   In [2]: z = NumeroComplejo(1,2)
+
+Para comprobar que la inicialización ha funcionado correctamente, podemos
+inspeccionar los atributos de la clase directamente:
+
+.. ipython::
+
+   In [3]: z.real
+
+   In [4]: z.img
+
+De esta forma puede certificarse que, efectivamente, ``z`` es un número
+complejo con parte real ``1`` y parte imaginaria ``2``.
+
+Una vez definida una instancia, también es posible modificar sus atributos por
+medio de asignación, así:
+
+.. ipython::
+
+   In [3]: z.real = 5
+
+   In [4]: z.real
+
+Métodos
+~~~~~~~
+
+Los métodos son funciones asociadas a una clase que operan sobre sus
+atributos. Por ejemplo, a la clase anterior le podemos añadir un método que
+calcule el módulo de un número complejo con la fórmula:
+
+.. math::
+
+   \left| z \right|=\sqrt{\textrm{Re}\left(z\right)^{2}+\textrm{Im}\left(z\right)^{2}}
+
+Para ello redefinimos ``NumeroComplejo`` para agregarle un nuevo método
+``modulo``, así::
+
+  class NumeroComplejo:
+      def __init__(self, r, i):
+          self.real = r
+          self.img = i
+      def modulo(self):
+           return (self.real**2 + self.img**2)**(1/2)
+
+.. note::
+
+   Al igual que para ``__init__``, el primer argumento de todo método debe ser
+   ``self``, para que indicar que hace parte de la clase.
+
+.. ipython::
+   :suppress:
+
+   In [7]: class NumeroComplejo:
+      ...:       def __init__(self, r, i):
+      ...:           self.real = r
+      ...:           self.img = i
+      ...:       def modulo(self):
+      ...:            return (self.real**2 + self.img**2)**(0.5)
+      ...:
+
+   In [1]: z = NumeroComplejo(1,2)
+
+Con ello obtenemos el siguiente resultado para el módulo del número complejo
+que habíamos definido arriba:
+
+.. ipython::
+
+   In [2]: z.modulo()
+
+Aquí puede parecer un poco extraño que ``modulo`` se llame sin argumentos,
+cuando al definirlo en la clase se le había pasado a ``self`` como primer
+argumento. Esto se debe a que ``self`` no es un argumento en sí, sino que sólo
+se usa para señalar que una función es un método de la clase, como ya se
+mencionó.
+
+Otra operación que puede hacerse con números complejos es obtener su
+*conjugado*. El conjugado de un complejo :math:`z`, es un nuevo número complejo
+que se denota :math:`\bar{z}` y se define como
+
+.. math::
+
+   z=a+ib \longrightarrow \bar{z}=a-ib
+
+Para obtener el conjugado podemos entonces agregar un nuevo método a nuestra
+clase, de la siguiente forma::
+
+  class NumeroComplejo:
+      def __init__(self, r, i):
+          self.real = r
+          self.img = i
+      def modulo(self):
+           return (self.real**2 + self.img**2)**(0.5)
+      def conjugado(self):
+           return NumeroComplejo(self.real, -self.img)
+
+.. ipython::
+   :suppress:
+
+   In [3]: class NumeroComplejo:
+      ...:       def __init__(self, r, i):
+      ...:           self.real = r
+      ...:           self.img = i
+      ...:       def modulo(self):
+      ...:            return (self.real**2 + self.img**2)**(0.5)
+      ...:       def conjugado(self):
+      ...:            return NumeroComplejo(self.real, -self.img)
+      ...:
+
+   In [3]: z = NumeroComplejo(1,2)
+
+Para calcular el conjugado de ``z`` sólo debemos llamar el método:
+
+.. ipython::
+
+   In [4]: z1 = z.conjugado()
+
+   In [5]: z1.real
+
+   In [6]: z1.img
+
+Finalmente, vamos a añadir una función que retorne el producto de dos números
+complejos. Dados dos números
+
+.. math::
+
+   z = a + ib
+
+   w = c + id
+
+su producto está dado por:
+
+.. math::
+
+   z \times w = (ac - bd) + i(ad + bc)
+
+Para ello podemos escribir el siguiente método, llamado ``producto``, en
+nuestra clase::
+
+  class NumeroComplejo:
+      def __init__(self, r, i):
+          self.real = r
+          self.img = i
+      def modulo(self):
+           return (self.real**2 + self.img**2)**(0.5)
+      def conjugado(self):
+           return NumeroComplejo(self.real, -self.img)
+      def producto(self, w):
+           r = self.real * w.real - self.img * w.img
+           i = self.real * w.img + self.img * w.real
+           return NumeroComplejo(r, i)
+
+.. ipython::
+   :suppress:
+
+   In [4]: class NumeroComplejo:
+      ...:       def __init__(self, r, i):
+      ...:           self.real = r
+      ...:           self.img = i
+      ...:       def modulo(self):
+      ...:            return (self.real**2 + self.img**2)**(0.5)
+      ...:       def conjugado(self):
+      ...:            return NumeroComplejo(self.real, -self.img)
+      ...:       def producto(self, w):
+      ...:            r = self.real * w.real - self.img * w.img
+      ...:            i = self.real * w.img + self.img * w.real
+      ...:            return NumeroComplejo(r, i)
+      ...: 
+
+   In [44]: z = NumeroComplejo(1,2)
+
+.. ipython::
+
+   In [52]: w = NumeroComplejo(4,-7)
+
+   In [53]: x = z.producto(w)
+
+   In [54]: x.real
+   
+   In [55]: x.img
+
+Para comprobar que ``producto`` está funcionando correctamente podemos usar la
+siguiente fórmula, que relaciona el módulo de un número complejo con su
+conjugado:
+
+.. math::
+
+   \left| z \right| = \sqrt{\textrm{Re} \left( z \times \bar{z} \right)}
+
+.. ipython::
+
+   In [48]: z2 = z.producto(z.conjugado())
+
+   In [2]: (z2.real)**(1/2) == z.modulo()
+   
+**Ejercicios**
+  * Definir una clase ``Vector3D`` para representar vectores en 3
+    dimensiones, con las siguientes características:
+
+    .. ipython::
+       :suppress:
+
+       In [5]: class Vector3D:
+          ...:     def __init__(self, x, y, z):
+          ...:         self.x = x
+          ...:         self.y = y
+          ...:         self.z = z
+          ...:     def punto(self, w):
+          ...:         return (self.x * w.x) + (self.y * w.y) + (self.z * w.z)
+          ...:     def cruz(self, w):
+          ...:         x = self.y * w.z - self.z * w.y
+          ...:         y = -(self.x * w.z - self.z * w.x)
+          ...:         z = self.x * w.y - self.y * w.x
+          ...:         return Vector3D(x,y,z)
+          ...:  
+
+    1. Tres atributos: ``x``, ``y``, y ``z``, usados para guardar sus
+       coordenadas.
+
+    2. Un método llamado ``punto`` que calcule el producto punto entre dos
+       vectores, mediante la fórmula:
+
+       .. math::
+
+          \vec{v} \cdot \vec{w} = v_{x}w_{x} + v_{y}w_{y} + v_{z}w_{z}
+
+      Por ejemplo, para los dos vectores definidos a continuación:
+
+      .. ipython::
+
+         In [60]: v = Vector3D(2,0,1)
+
+         In [62]: w = Vector3D(1,-1,3)
+
+      Su producto punto es:
+
+      .. ipython::
+
+         In [64]: v.punto(w)
+
+    3. Un método llamado ``cruz`` que calcule el producto cruz entre dos
+       vectores mediante la fórmula:
+
+       .. math::
+
+          \vec{v} \times \vec{w} = \left(v_{y}w_{z}-v_{z}w_{y}\right)\hat{i} -
+          \left(v_{x}w_{z}-v_{z}w_{x}\right)\hat{j} + \left(v_{x}w_{y}-
+          v_{y}w_{x}\right)\hat{k}
+
+       Por ejemplo, para los vectores definidos arriba el producto
+       :math:`\vec{v} \times \vec{w}` es igual a:
+
+       .. ipython::
+
+          In [65]: u1 = v.cruz(w)
+
+          In [68]: u1.x, u1.y, u1.z
+
+       Mientras que :math:`\vec{w} \times \vec{v}` es:
+
+       .. ipython::
+
+          In [65]: u2 = w.cruz(v)
+
+          In [68]: u2.x, u2.y, u2.z
+
+  * Redefinir la clase anterior para que en lugar de los atributos, ``x``,
+    ``y``, y ``z``, tenga uno sólo llamado ``coord``, que sea una lista de tres
+    elementos. También redefinir los métodos según esto.
+
+    *Sugerencia*: En el método ``__init__`` revisar que la lista que se va a
+    guardar en ``coord`` tenga **exactamente** tres elementos. Si tiene más o 
+    menos, asignarle a ``coord`` una lista vacía.
+
+  * Definir una clase ``Tiempo`` para representar una hora del día, que tenga
+    las siguientes condiciones (Tomado de *Aprenda a pensar como un programador
+    con Python*):
+
+    .. ipython::
+       :suppress:
+
+       In [1]: class Tiempo:
+          ...:     def __init__(self, horas, minutos, segundos):
+          ...:         self.h = horas
+          ...:         self.m = minutos
+          ...:         self.s = segundos
+          ...:     def imprimir_tiempo(self):
+          ...:         if self.h < 10:
+          ...:             imprimir_h = '0' + str(self.h) + ':'
+          ...:         else:
+          ...:             imprimir_h = str(self.h) + ':'
+          ...:         if self.m < 10:
+          ...:             imprimir_m = '0' + str(self.m) + ':'
+          ...:         else:
+          ...:             imprimir_m = str(self.m) + ':'
+          ...:         if self.s < 10:
+          ...:             imprimir_s = '0' + str(self.s)
+          ...:         else:
+          ...:             imprimir_s = str(self.s)
+          ...:         print imprimir_h + imprimir_m + imprimir_s
+          ...:     def sumar(self, t):
+          ...:         suma_s = (self.s + t.s)%60
+          ...:         suma_m = (self.m + t.m)%60
+          ...:         suma_h = (self.h + t.h)%24
+          ...:         if self.s + t.s >= 60:
+          ...:             suma_m += 1
+          ...:         if self.m + t.m >= 60:
+          ...:             suma_h += 1
+          ...:         return Tiempo(suma_h,suma_m,suma_s)
+          ...:
+
+    1. Tres atributos: ``h``, ``m`` y ``s``, para guardar las horas, minutos y
+       segundos.
+
+    2. Un método llamado ``imprimir_tiempo`` que imprima el tiempo almacenado
+       en una instancia, de la siguiente forma:
+
+       .. ipython::
+
+          In [117]: t1 = Tiempo(16,7,1)
+
+          In [118]: t1.imprimir_tiempo()
+
+          In [120]: t2 = Tiempo(2,6,32)
+
+          In [121]: t2.imprimir_tiempo()
+
+    3. Un método ``sumar`` que sume dos tiempos diferentes.
+
+       *Sugerencias*:
+
+       - Sumar cada atributo por separado, es decir, segundo con segundos,
+         minutos con minutos y horas con horas.
+
+       - Para obtener el resultado de los segundos y los minutos, la suma debe
+         realizarse módulo 60. Por ejemplo, si un Tiempo tiene 50 segundos y
+         otra 15, su suma **no** debe darnos 65 sino 5, lo que se obtiene
+         como::
+
+           (50 + 15)%60 = 5
+         
+         Para las horas, tomar la suma módulo 24.
+
+       - Verificar si la suma de los segundos, **sin** tomar el módulo, es
+         mayor o igual a ``60``, y si lo es, incrementar en ``1`` el valor de
+         los minutos. Tener en cuenta lo mismo para la suma de los minutos y el
+         valor de las horas.
+
+       Un ejemplo de este método es:
+
+       .. ipython::
+
+          In [126]: t1 = Tiempo(23,50,45)
+
+          In [127]: t2 = Tiempo(3,40,40)
+
+          In [131]: t3 = t1.sumar(t2)
+
+          In [132]: t3.imprimir_tiempo()
+
+
+Importar librerías
+------------------
+
+Python posee un gran variedad de librerías para todo tipo de usos, desde la
+creación y apertura de archivos en cualquier sistema operativo hasta la
+extracción de datos en archivos de Word o Excel, pasando por el manejo y
+análisis de enormes cantidades de información provenientes de la bolsa de
+valores o de experimentos astronómicos, climáticos o biológicos.
+
+La ventaja de Python sobre otros lenguajes de programación es que posee un
+avanzado mecanismo para importar librerías o comandos específicos de alguna de
+ellas, lo que hace muy sencillo usarlas para beneficio del programador. A
+continuación veremos las distintas formas en que puede hacerse esto.
+
+#. La primera opción, y la más sencilla, es usar el comando ``import`` seguido
+   del nombre la librería, así::
+
+     import math
+
+   Cuando queramos usar algún comando de la librería, debemos llamarla por su
+   nombre seguido de ``.``. Inmediatamente deberá aparecer una lista con las
+   funciones que hace parte de la misma. así:
+
+   .. ipython::
+      :verbatim:
+
+      In [2]: math.
+      math.__class__         math.__package__       math.asin              math.e                 math.fsum              math.modf
+      math.__delattr__       math.__reduce__        math.asinh             math.erf               math.gamma             math.pi
+      math.__dict__          math.__reduce_ex__     math.atan              math.erfc              math.hypot             math.pow
+      math.__doc__           math.__repr__          math.atan2             math.exp               math.isinf             math.radians
+      math.__format__        math.__setattr__       math.atanh             math.expm1             math.isnan             math.sin
+      math.__getattribute__  math.__sizeof__        math.ceil              math.fabs              math.ldexp             math.sinh
+      math.__hash__          math.__str__           math.copysign          math.factorial         math.lgamma            math.sqrt
+      math.__init__          math.__subclasshook__  math.cos               math.floor             math.log               math.tan
+      math.__name__          math.acos              math.cosh              math.fmod              math.log10             math.tanh
+      math.__new__           math.acosh             math.degrees           math.frexp             math.log1p             math.trunc
+
+   .. note::
+   
+      De no aparecer esta lista, debe oprimirse ``TAB`` si se está en la
+      consola o ``CTRL + Espacio`` si se está en el editor.
+
+   Como ``math`` es la librería de funciones matemáticas básicas de Python,
+   podemos utilizarla para calcular el :math:`\textrm{sen}(\pi/2)`, por
+   ejemplo:
+
+   .. ipython::
+      :suppress:
+      
+      In [1]: import math
+
+   .. ipython::
+      
+      In [1]: math.sin(math.pi/2)
+
+
+#. Otra opción es sólo llamar un comando específico de una librería
+   determinada. Para ello usamos la siguiente sintaxis::
+
+     from math import sin
+
+   En este caso sólo se carga el comando ``sin``, sin cargar el resto de la
+   librería. Esto puede ser muy ventajoso cuando la librería es grande y sólo
+   queremos utilizar una pequeña funcionalidad de la misma. Otra ventaja es que
+   no es necesario usar el nombre de la librería antes del comando.
+
+   .. ipython::
+      :suppress:
+      
+      In [1]: from math import sin
+
+   .. ipython::
+      
+      In [1]: sin(3.1)
+
+   Sin embargo, si queremos utilizar ``pi``, veremos un error en la consola,
+   porque no ha sido cargado:
+
+   .. ipython::
+      
+      In [1]: sin(pi)
+
+   Para no tener que escribir una línea ``from math import ...`` por cada
+   símbolo que se desee importar, se puede usar la misma sintaxis de arriba con
+   cada símbolo separado por una coma::
+
+     from math import sin, pi
+
+   Al cargar ``pi`` de ``math`` de esta forma, ya no veremos el error anterior:
+
+   .. ipython::
+      :suppress:
+      
+      In [1]: from math import pi
+
+   .. ipython::
+      
+      In [1]: sin(pi/2)
+
+#. Para llamar todos los comandos de una librería sin que estén precedidos por
+   su nombre, se utiliza la sintaxis::
+
+     from math import *
+
+   Sin embargo, esta opción no es muy recomendable ya que los comandos de
+   varias librerías pueden tener el mismo nombre, lo que puede resultar en
+   serias confusiones.
+
+#. La última opción es renombrar la librería al momento de importarla. Esto es
+   una práctica bastante común, pues permite utilizar nombres cortos para las
+   librerías, lo que hace más fácil llamarlas con el ``.``. Para ello se usa la
+   siguiente sintaxis::
+
+     import math as mt
+
+   En lugar de ``math`` sólo usamos ``mt``, así:
+
+   .. ipython::
+      :suppress:
+      
+      In [1]: import math as mt
+
+   .. ipython::
+      
+      In [1]: mt.sin(mt.pi/2)
+
+      
+
+
 
 
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing return def suppress Out in elif else if range False li
-..  LocalWords:  True append while for split
+..  LocalWords:  True append while for class init self split
