@@ -8,6 +8,12 @@ Introducción a Python
     :maxdepth: 2
 
     Introduccion.rst
+    Primer programa.rst
+    Tipos de datos.rst
+    Funciones.rst
+    Estructuras de control.rst
+    Clases.rst
+    Importar librerias.rst
     Proyectos.rst
 
-..  LocalWords:  Python Introduccion LocalWords maxdepth toctree
+..  LocalWords:  Python Introduccion LocalWords maxdepth toctree librerias
