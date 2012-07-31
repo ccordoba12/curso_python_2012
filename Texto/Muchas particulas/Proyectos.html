@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Proyectos finales &mdash; Notas de Modelación y Simulación</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="Notas de Modelación y Simulación" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Proyectos finales</a><ul>
+<li><a class="reference internal" href="#el-movimiento-browniano">El movimiento browniano</a></li>
+<li><a class="reference internal" href="#el-gas-ideal">El gas ideal</a></li>
+<li><a class="reference internal" href="#el-sistema-solar">El sistema solar</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="proyectos-finales">
+<h1>Proyectos finales<a class="headerlink" href="#proyectos-finales" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Como proyectos finales para este corte vamos a simular tres sistemas de
+partículas diferentes:</p>
+<div class="section" id="el-movimiento-browniano">
+<h2>El movimiento browniano<a class="headerlink" href="#el-movimiento-browniano" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El movimiento browniano es el movimiento que experimenta una partícula
+suspendida en un fluido, debido a los choques incesantes de las moléculas que
+lo componen. Esta partícula es más grande y masiva que las moléculas, y el
+movimiento que sigue es completamente al azar y siempre continuo, es decir,
+nunca se detiene.</p>
+<p>Para simular este movimiento vamos a seguir estos pasos:</p>
+<ol class="arabic">
+<li><p class="first">Definir el tamaño de la caja como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">L</span> <span class="o">=</span> <span class="mi">35</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Definir el número de partículas como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">N</span> <span class="o">=</span> <span class="mi">40</span>
+</pre></div>
+</div>
+<p>Todas estas partículas van a representar las moléculas del líquido, excepto
+una, que es la que va a representar a la partícula que ejecuta el movimiento
+browniano.</p>
+</li>
+<li><p class="first">Importar la función <tt class="docutils literal"><span class="pre">random_sample</span></tt> de la librería <tt class="docutils literal"><span class="pre">numpy.random</span></tt>, de la
+siguiente forma:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">random_sample</span>
+</pre></div>
+</div>
+<p>Con esta función se generan números aleatorios, es decir, números que no
+tienen ningún orden distinguible. Con estos números vamos a ubicar al azar
+las posiciones de las partículas y también les vamos a dar sus velocidades.</p>
+</li>
+<li><p class="first">Generar las posiciones iniciales con el comando:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">p0</span> <span class="o">=</span> <span class="n">random_sample</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">L</span><span class="o">-</span><span class="n">R</span><span class="p">)</span> <span class="o">+</span> <span class="n">R</span>
+</pre></div>
+</div>
+<p>Con él vamos a producir N listas de números aleatorios de 2 elementos, los
+cuales se encuentran en el intervalo <img class="math" src="../../_images/math/a3f8313ec1513590e2b017a9bb534751a836363e.png" alt="[R, L-R)"/>. Se las genera
+precisamente en este intervalo para que ninguna partícula se intersecte con
+las paredes de la caja, aunque si pueden intersectarse entre sí.</p>
+</li>
+<li><p class="first">Generar las velocidades iniciales de las partículas así:</p>
+<ol class="loweralpha">
+<li><p class="first">De la librería <tt class="docutils literal"><span class="pre">numpy</span></tt> importar las funciones <tt class="docutils literal"><span class="pre">cos</span></tt>, <tt class="docutils literal"><span class="pre">sin</span></tt> y
+<tt class="docutils literal"><span class="pre">pi</span></tt>.</p>
+</li>
+<li><p class="first">Definir <tt class="docutils literal"><span class="pre">v0</span></tt> como una lista vacía.</p>
+</li>
+<li><p class="first">Con un ciclo <tt class="docutils literal"><span class="pre">for</span></tt> que vaya de 0 a <em>N</em>, añadirle a esta lista elementos
+de la forma:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="mf">0.7</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">ran</span><span class="p">),</span> <span class="mf">0.7</span><span class="o">*</span><span class="n">L</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">ran</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>donde <tt class="docutils literal"><span class="pre">ran</span></tt> es un ángulo aleatorio entre 0 y 2 <img class="math" src="../../_images/math/f2ca003a7da0de4994b4733e203b74ff52d42553.png" alt="\pi"/>, que se
+calcula como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ran</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">random_sample</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Finalmente, redefinir <tt class="docutils literal"><span class="pre">v0</span></tt> para que se convierta en un <tt class="docutils literal"><span class="pre">array</span></tt> y así
+podamos operar con él en las ecuaciones de Verlet.</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Generar las aceleraciones iniciales como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Este comando genera N listas de ceros con 2 elementos cada una, con lo que
+representamos que ninguna de las partículas tienen aceleración inicial.</p>
+</li>
+<li><p class="first">Definir una lista <tt class="docutils literal"><span class="pre">M</span></tt> para guardar las masas de las partículas. Su primer
+elemento va a ser igual a <tt class="docutils literal"><span class="pre">10</span></tt>, para representar la masa de la partícula
+browniana, mientras que todos los demás van a ser iguales a <tt class="docutils literal"><span class="pre">1</span></tt>, que
+equivalen a las masas de las moléculas.</p>
+</li>
+<li><p class="first">Definir una lista <tt class="docutils literal"><span class="pre">r</span></tt> para guardar los radios de las partículas. Su primer
+elemento debe ser igual a <tt class="docutils literal"><span class="pre">4</span></tt>, mientras que todos los demás van a ser
+iguales a <tt class="docutils literal"><span class="pre">R</span></tt>, que siempre lo hemos tomado como <tt class="docutils literal"><span class="pre">1</span></tt>.</p>
+</li>
+<li><p class="first">Redefinir la función <tt class="docutils literal"><span class="pre">colision_muros</span></tt> para que dependa de una única
+variable <tt class="docutils literal"><span class="pre">i</span></tt>, en lugar de <tt class="docutils literal"><span class="pre">pos</span></tt> y <tt class="docutils literal"><span class="pre">vel</span></tt>. Ésta va a corresponder al
+índice que una partícula ocupa en el arreglo de posiciones.</p>
+</li>
+<li><p class="first">Dentro de esta función tomar el radio de la partícula a partir de la lista
+de radios como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">r1</span> <span class="o">=</span>  <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>y usar esta variable en las condiciones en que se verifica el choque contra
+los muros.</p>
+</li>
+<li><p class="first">Redefinir la función <tt class="docutils literal"><span class="pre">colision_particulas</span></tt> para que dependa de dos
+variables <tt class="docutils literal"><span class="pre">i</span></tt> y <tt class="docutils literal"><span class="pre">j</span></tt>, con el mismo significado que en el paso anterior.</p>
+</li>
+<li><p class="first">Dentro de esta función, cambiar además los valores de <tt class="docutils literal"><span class="pre">m1</span></tt> y <tt class="docutils literal"><span class="pre">m2</span></tt>, que
+se habían tomado como <tt class="docutils literal"><span class="pre">1</span></tt>, por:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">m1</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">m2</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>También modificar la condición de choque por:</p>
+<div class="highlight-python"><pre>if d &lt; (r1+r2)</pre>
+</div>
+<p>donde <tt class="docutils literal"><span class="pre">r1</span></tt> y <tt class="docutils literal"><span class="pre">r2</span></tt> corresponden a los radios de las partículas <tt class="docutils literal"><span class="pre">i</span></tt> y
+<tt class="docutils literal"><span class="pre">j</span></tt>, que deben extraerse de la lista de radios.</p>
+</li>
+<li><p class="first">Modificar la aplicación de las dos funciones anteriores en el ciclo <tt class="docutils literal"><span class="pre">for</span></tt> que
+aplica el algoritmo de Verlet.</p>
+</li>
+<li><p class="first">Finalmente, para generar la animación con <em>VPython</em>, vamos a seguir estos
+pasos:</p>
+<ol class="loweralpha">
+<li><p class="first">Antes del ciclo <tt class="docutils literal"><span class="pre">for</span></tt> que genera la lista de <tt class="docutils literal"><span class="pre">particulas</span></tt> con
+vis.cylinder, crear la partícula browniana. Para distinguirla de las
+demás, hacer que tenga color rojo y añadirle además el argumento:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">make_trail</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>para observar su trayectoria durante la animación.</p>
+</li>
+<li><p class="first">Generar las demás partículas con el ciclo <tt class="docutils literal"><span class="pre">for</span></tt> antes mencionado, pero
+que vaya desde <tt class="docutils literal"><span class="pre">1</span></tt> hasta <tt class="docutils literal"><span class="pre">N</span></tt>. Usar para ello:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>en lugar de:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Para que la animación corra más rápido, aumentar el valor de <tt class="docutils literal"><span class="pre">vis.rate</span></tt>
+hasta 1000.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="el-gas-ideal">
+<h2>El gas ideal<a class="headerlink" href="#el-gas-ideal" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Con los programas que se han desarrollado hasta el momento también es posible
+simular un gas ideal. Este es un gas compuesto de un gran número de moléculas
+de un sólo elemento químico, cuyos choques son elásticos (es decir que
+conservan energía) y en el que se cumple la famosa ecuación:</p>
+<div class="math">
+<p><img src="../../_images/math/d6aa155928c279a9bf783f007b9a1e4e8cbeb636.png" alt="P V = n R T"/></p>
+</div><p>En este caso vamos a estudiar el gas ideal encerrado en un recipiente cuya
+borde superior es móvil. Con ello podremos simular un pistón que reduce el
+volumen del gas, lo que de acuerdo a la ecuación anterior aumenta su presión.</p>
+<p>Para simular este fenómeno vamos a seguir las instrucciones que aparecen a
+continuación:</p>
+<ol class="arabic">
+<li><p class="first">Definir una variable <tt class="docutils literal"><span class="pre">LM</span></tt> y hacerla igual a <tt class="docutils literal"><span class="pre">L</span></tt>, el tamaño del
+recipiente. Vamos a usar esta variable para definir la posición del pistón a
+medida que avanza la simulación, por lo que no es constante.</p>
+</li>
+<li><p class="first">Seguir los pasos 1. a 6. del proyecto de <a class="reference internal" href="#el-movimiento-browniano">El movimiento browniano</a>.</p>
+</li>
+<li><p class="first">Seguir el paso 9. de <a class="reference internal" href="#el-movimiento-browniano">El movimiento browniano</a>.</p>
+</li>
+<li><p class="first">En la función <tt class="docutils literal"><span class="pre">colision_muros</span></tt> cambiar la condición que verifica si una
+partícula ha chocado contra el muro superior, para que utilice el valor de
+<tt class="docutils literal"><span class="pre">LM</span></tt> en lugar del de <tt class="docutils literal"><span class="pre">L</span></tt>.</p>
+</li>
+<li><p class="first">Seguir los pasos 11. y 12. de <a class="reference internal" href="#el-movimiento-browniano">El movimiento browniano</a>.</p>
+</li>
+<li><p class="first">Dentro del ciclo de Verlet, también reducir el valor de <tt class="docutils literal"><span class="pre">LM</span></tt> en una
+cantidad <tt class="docutils literal"><span class="pre">dt</span></tt> por cada paso de tiempo. Esto va a simular la entrada del
+pistón en el recipiente.</p>
+</li>
+<li><p class="first">Finalmente, para generar la animación con <em>VPython</em>, vamos a seguir estos
+pasos:</p>
+<ol class="loweralpha">
+<li><p class="first">Redeclarar el valor de <tt class="docutils literal"><span class="pre">LM</span></tt> para que nuevamente sea <tt class="docutils literal"><span class="pre">L</span></tt>.</p>
+</li>
+<li><p class="first">Definir los <tt class="docutils literal"><span class="pre">muros</span></tt> no como un cuadrado sino como una U, que arranque
+en <tt class="docutils literal"><span class="pre">(0,</span> <span class="pre">L)</span></tt> y vaya hasta <tt class="docutils literal"><span class="pre">(L,</span> <span class="pre">L)</span></tt>.</p>
+</li>
+<li><p class="first">Definir una variable <tt class="docutils literal"><span class="pre">piston</span></tt> de forma similar a los muros, es decir
+como un objeto <tt class="docutils literal"><span class="pre">vis.curve</span></tt>, pero que sólo tenga dos puntos: <tt class="docutils literal"><span class="pre">(0,</span> <span class="pre">LM)</span></tt>
+y <tt class="docutils literal"><span class="pre">(LM,</span> <span class="pre">LM)</span></tt>.</p>
+</li>
+<li><p class="first">Dentro del ciclo <tt class="docutils literal"><span class="pre">for</span></tt> que actualiza las posiciones de las partículas,
+disminuir el valor de <tt class="docutils literal"><span class="pre">LM</span></tt> de la misma forma que se hizo en 6. y
+actualizar la posición del pistón con el comando:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">piston</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="n">LM</span><span class="p">),</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">LM</span><span class="p">)]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Para que la animación corra más rápido, aumentar el valor de <tt class="docutils literal"><span class="pre">vis.rate</span></tt>
+hasta 1000.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="el-sistema-solar">
+<h2>El sistema solar<a class="headerlink" href="#el-sistema-solar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Con lo visto en la sección <em>Fuerza de gravedad</em> es posible simular el
+movimiento de los planetas alrededor del Sol. Para ello vamos a tomar los datos
+de posiciones y velocidades que provee la NASA de los cuatro primeros planetas:
+Mercurio, Venus, Tierra y Marte, y los vamos a introducir en el programa que se
+desarrollará a continuación.</p>
+<p>Para simular el sistema solar deben seguirse estos pasos:</p>
+<ol class="arabic">
+<li><p class="first">Hacer el número de planetas como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Definir el tiempo total de la simulación y el paso de tiempo como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">T</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.0001</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Definir las siguientes variables:</p>
+<ol class="loweralpha">
+<li><p class="first">El valor de una Unidad Astronómica:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">UA</span> <span class="o">=</span> <span class="mf">1.49597870691e11</span>
+</pre></div>
+</div>
+<p>Esta es la distancia media de la Tierra al Sol en metros y la vamos a
+utilizar para transformar todas medidas de distancia a esta unidad. Esto
+permite que no se manejen números demasiado grandes en la simulación, lo
+que puede originar errores de redondeo.</p>
+</li>
+<li><p class="first">El valor real de la masa del sol:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">M_sol_real</span> <span class="o">=</span> <span class="mf">1.9891e30</span>
+</pre></div>
+</div>
+<p>Vamos a usar esta constante para transformar las masas de todas los
+planetas a la escala de esta masa.</p>
+</li>
+<li><p class="first">El valor de la masa del sol dado por la tercera ley de Kepler:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">M_sol_kepler</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">pi</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Este valor se obtiene al hacer la constante universal de la gravedad G
+igual a 1, y también se usa para transformar las masas de los planetas a
+números manejables por el computador.</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Definir las posiciones iniciales, de acuerdo a los datos dados por la NASA,
+como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+     <span class="p">[[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+      <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.38709893</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">7.00487</span><span class="p">)),</span> <span class="mf">0.38709893</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">7.00487</span><span class="p">))],</span>
+      <span class="p">[</span><span class="o">-</span><span class="mf">0.72333199</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">3.39471</span><span class="p">)),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.72333199</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">3.39471</span><span class="p">))],</span>
+      <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="o">.</span><span class="mo">00005</span><span class="p">)),</span> <span class="n">sin</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="o">.</span><span class="mo">00005</span><span class="p">))],</span>
+      <span class="p">[</span><span class="mf">1.52366231</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">1.85061</span><span class="p">)),</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.52366231</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">1.85061</span><span class="p">))]</span>
+     <span class="p">])</span>
+</pre></div>
+</div>
+<p>Estos datos ya están en unidades astronómicas (UA), por lo que no hay que
+convertirlos. El primero corresponde a la posición del Sol, y los demás a
+las posiciones de Mercurio, Venus, la Tierra y Marte, respectivamente.</p>
+</li>
+<li><p class="first">Definir las velocidades iniciales como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+     <span class="p">[[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+      <span class="p">[</span><span class="o">-</span><span class="mf">47872.5</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+      <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">35021.4</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+      <span class="p">[</span><span class="mf">28785.9</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+      <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">24130.9</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]</span>
+     <span class="p">])</span>
+</pre></div>
+</div>
+<p>Estos datos están en <em>km/s</em> y antes de utilizarlos debemos transformarlos a
+<em>UA/año</em>. Para ello debemos escribir el siguiente comando:</p>
+<div class="highlight-python"><pre>v0 = v0*(&lt;segundos en un año&gt;/UA)</pre>
+</div>
+<p>donde en la expresión entre &lt;...&gt; deben introducirse el número correcto de
+segundos en un año.</p>
+</li>
+<li><p class="first">Definir las aceleraciones como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Esto genera 5 vectores con 3 ceros cada uno, lo que implica que se asume que
+la aceleración inicial de cada planeta es cero.</p>
+</li>
+<li><p class="first">Definir las masas de los planetas como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.9891e30</span><span class="p">,</span> <span class="mf">3.302e23</span><span class="p">,</span> <span class="mf">4.8685e24</span><span class="p">,</span> <span class="mf">5.9736e24</span><span class="p">,</span> <span class="mf">6.4185e23</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>las cuales las vamos a transformar a unidades de la masa del sol mediante el
+comando:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">M</span> <span class="o">=</span> <span class="n">M</span><span class="o">*</span><span class="p">(</span><span class="n">M_sol_kepler</span><span class="o">/</span><span class="n">M_sol_real</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">En la expresión que calcula la fuerza de gravedad, dentro del ciclo del
+algoritmo de Verlet, hacer que la fuerza se calcule sólo con respecto al
+sol.</p>
+</li>
+<li><p class="first">Finalmente, para generar la animación con <em>VPython</em> vamos a seguir estos
+pasos:</p>
+<ol class="loweralpha">
+<li><p class="first">Después de declarar el objeto <tt class="docutils literal"><span class="pre">escena</span></tt> vamos a declararle las
+siguientes propiedades adicionales:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">escena</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">625</span>
+<span class="n">escena</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="mi">650</span>
+<span class="n">escena</span><span class="o">.</span><span class="n">forward</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.037</span><span class="p">,</span> <span class="mf">0.940</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.338</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>El primer comando define el ancho de la escena, el segundo el largo y el
+tercero el punto de vista desde el que se va a observar.</p>
+</li>
+<li><p class="first">Declarar <tt class="docutils literal"><span class="pre">escena.autocenter</span></tt> y <tt class="docutils literal"><span class="pre">escena.autoscale</span></tt> como
+<tt class="docutils literal"><span class="pre">False</span></tt>. Esto impide que <em>VPython</em> auto-centre y auto-escale la escena
+a medida que corre la animación.</p>
+</li>
+<li><p class="first">Declarar <tt class="docutils literal"><span class="pre">escena.range</span></tt> como 1.8. Esto define el tamaño de la porción
+visible de la escena.</p>
+</li>
+<li><p class="first">Declarar cada planeta por separado y añadirlo al arreglo de partículas,
+así:</p>
+<ul>
+<li><p class="first">El sol va a ser una esfera de radio 0.12 y color amarillo, lo cual se
+escribe como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">particulas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vis</span><span class="o">.</span><span class="n">sphere</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">yellow</span><span class="p">,</span>
+                  <span class="n">orbit</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">white</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>El comando adicional orbit nos va a permitir dibujar la órbita de los
+planetas.</p>
+</li>
+<li><p class="first">Hacer lo mismo para los demás planetas, con los siguientes valores:</p>
+<ul class="simple">
+<li>Mercurio: 0.04 y magenta</li>
+<li>Venus: 0.05 y naranja</li>
+<li>Tierra: 0.07 y azul</li>
+<li>Marte: 0.06 y rojo.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Dentro del ciclo <tt class="docutils literal"><span class="pre">for</span></tt> que actualiza las posiciones, añadir la línea:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">particulas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">orbit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>con la cual vamos a dibujar las órbitas.</p>
+</li>
+<li><p class="first">Para que la animación corra más rápido, aumentar el valor de <tt class="docutils literal"><span class="pre">vis.rate</span></tt>
+hasta 3500.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Carlos Cordoba.
+      Creado con <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

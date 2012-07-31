@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Proyectos para el segundo corte &mdash; Notas de Modelación y Simulación</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="Notas de Modelación y Simulación" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Proyectos para el segundo corte</a><ul>
+<li><a class="reference internal" href="#el-pendulo">1. El péndulo</a></li>
+<li><a class="reference internal" href="#el-resorte">2. El resorte</a></li>
+<li><a class="reference internal" href="#tiro-parabolico">3. Tiro parabólico</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="proyectos-para-el-segundo-corte">
+<h1>Proyectos para el segundo corte<a class="headerlink" href="#proyectos-para-el-segundo-corte" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Como proyectos finales para este corte vamos a simular tres movimientos
+diferentes:</p>
+<div class="section" id="el-pendulo">
+<h2>1. El péndulo<a class="headerlink" href="#el-pendulo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La ecuación que define el movimiento de un péndulo está dada por</p>
+<div class="math">
+<p><img src="../../_images/math/70d70136594d8f434c1b926b3f5e1988144a7573.png" alt="\frac{d^{2}\theta}{dt^{2}}=-\frac{g}{L}\sin\theta"/></p>
+</div><p>donde <img class="math" src="../../_images/math/52e8ed7a3ba22130ad3984eb2cd413406475a689.png" alt="\theta"/> es el ángulo que se forma entre el péndulo y la vertical,
+y <img class="math" src="../../_images/math/859ccf4cd60c7bc6b8fa1afc9a42dc811a826d6f.png" alt="L"/> es la longitud del péndulo.</p>
+<p>Para simular su movimiento vamos a integrar esta ecuación usando el método de
+Verlet que se definió en secciones pasadas. Esto quiere decir que la fórmula
+para calcular la aceleración del péndulo estará dada por:</p>
+<div class="math">
+<p><img src="../../_images/math/8cadc65184e37966108ccf849226e3333d196046.png" alt="a_{i+1}=-\frac{g}{L}\sin(r_{i})"/></p>
+</div><p>donde <img class="math" src="../../_images/math/7f6a28719c8fe5c96f03cc80294f4d743c97c974.png" alt="r_{i}"/> es en este caso la posición del objeto, y viene dada por el
+ángulo que éste forma con la vertical.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Las ecuaciones con que se calculan la nueva posición y la nueva velocidad no
+se modifican.</p>
+</div>
+<p>Según esto, desarrollar un programa que simule el movimiento del péndulo, de la
+siguiente forma:</p>
+<ul>
+<li><p class="first">Definir una constante <tt class="docutils literal"><span class="pre">L</span></tt> que sirva para guardar la longitud del péndulo.</p>
+</li>
+<li><p class="first">Definir la posición inicial <tt class="docutils literal"><span class="pre">p0</span></tt> <strong>no</strong> como cero sino como un ángulo
+dado. Por ejemplo, para hacer que el péndulo arranque a 40° de la vertical,
+definir <tt class="docutils literal"><span class="pre">p0</span></tt> como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Usar el programa con el que se calculó el método de Verlet para la caída de
+una bola, quitándole el choque contra el piso y la fuerza de arrastre.
+Cambiar el cálculo de la nueva aceleración por la ecuación dada arriba.</p>
+</li>
+<li><p class="first">Con <tt class="docutils literal"><span class="pre">plt.plot</span></tt> generar una gráfica de la posición vs. el tiempo. A qué
+corresponde?</p>
+</li>
+<li><p class="first">Generar una animación del movimiento con VPython, por medio de estos pasos:</p>
+<ul>
+<li><p class="first">Representar el eje alrededor del cual gira el péndulo con una esfera:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">eje</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">sphere</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">yellow</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Calcular la posición inicial en el plano <img class="math" src="../../_images/math/32581661cddf01ad30c1e36efe72f99eb0a0adca.png" alt="x, y"/> desde la que parte
+el péndulo como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pos_inicial</span> <span class="o">=</span> <span class="p">(</span><span class="n">L</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">posiciones</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="o">-</span><span class="n">L</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">posiciones</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Representar el péndulo como una esfera cuyo centro se encuentra en la
+posición inicial:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pendulo</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">sphere</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">pos_inicial</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">red</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Representar la cuerda que une el eje con el péndulo como un cilindro:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cuerda</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">cylinder</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="n">pos_inicial</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">cyan</span><span class="p">,</span>
+                      <span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>donde <tt class="docutils literal"><span class="pre">axis</span></tt> indica el punto final hasta el que se extiende el cilindro.</p>
+</li>
+<li><p class="first">Dentro de un ciclo <tt class="docutils literal"><span class="pre">for</span></tt> actualizar la posición del péndulo y el punto
+final de la cuerda, con la lista de <tt class="docutils literal"><span class="pre">posiciones</span></tt>.</p>
+<p>No olvidar convertir cada elemento de <tt class="docutils literal"><span class="pre">posiciones</span></tt> al plano <img class="math" src="../../_images/math/32581661cddf01ad30c1e36efe72f99eb0a0adca.png" alt="x, y"/>
+de la misma forma en que se hizo para <tt class="docutils literal"><span class="pre">pos_inicial</span></tt>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="el-resorte">
+<h2>2. El resorte<a class="headerlink" href="#el-resorte" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La fuerza que actúa sobre un resorte está dada por la Ley de Hooke:</p>
+<div class="math">
+<p><img src="../../_images/math/747498b0d226fdb11bbefccf20b97f5959519fb6.png" alt="F= -k \, x"/></p>
+</div><p>donde <img class="math" src="../../_images/math/26eeb5258ca5099acf8fe96b2a1049c48c89a5e6.png" alt="x"/> es su elongación, es decir que tanto se ha separado de su
+posición de reposo y <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> es una constante que define que tan rígido es un
+resorte. Entre mayor sea <img class="math" src="../../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> el resorte es más rígido y por tanto más
+difícil de estirar, y entre menor sea, es más blando.</p>
+<p>Para simular su movimiento vamos a suponer que el resorte está colgado desde el
+techo por un extremo y por el otro está unido a una masa que se mueve por
+acción de la gravedad. Según esto, la ecuación para la nueva aceleración estará
+dada por:</p>
+<div class="math">
+<p><img src="../../_images/math/30dbc83ab65bc8b4f6fd02b645d1f8ef4fc98e4b.png" alt="a_{i+1} = -k \, r_{i} - m \, g"/></p>
+</div><p>donde <img class="math" src="../../_images/math/f5047d1e0cbb50ec208923a22cd517c55100fa7b.png" alt="m"/> es la masa del objeto que cuelga del resorte y r_{i} es su
+elongación, es decir, que tanto se estira por la acción de este objeto. Esta
+ecuación es la que debe cambiarse en el método de Verlet calculado en secciones
+anteriores, mientras que las ecuaciones para el cálculo de la velocidad y
+posición se dejan sin modificar.</p>
+<p>Según esto, desarrollar un programa que simule el movimiento del resorte, de la
+siguiente forma:</p>
+<ul>
+<li><p class="first">Definir una constante <tt class="docutils literal"><span class="pre">L0</span></tt> que sirva para guardar la longitud del resorte.</p>
+</li>
+<li><p class="first">Definir la posición inicial <tt class="docutils literal"><span class="pre">p0</span></tt> como cero, lo que implica que el resorte
+se suelta desde su posición de equilibrio.</p>
+</li>
+<li><p class="first">Usar el programa con el que se calculó el método de Verlet para la caída de
+una bola, quitándole el choque contra el piso y la fuerza de arrastre.
+Cambiar el cálculo de la nueva aceleración por la ecuación dada arriba.</p>
+</li>
+<li><p class="first">Con <tt class="docutils literal"><span class="pre">plt.plot</span></tt> generar una gráfica de la posición vs. el tiempo. A qué
+corresponde?</p>
+</li>
+<li><p class="first">Generar una animación del movimiento con VPython, por medio de estos pasos:</p>
+<ul>
+<li><p class="first">Representar el techo con una caja de la siguiente forma:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">techo</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">length</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">blue</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Representar el resorte como una espiral de la siguiente forma:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">resorte</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">helix</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">L0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">cyan</span><span class="p">,</span>
+                    <span class="n">radius</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>donde <tt class="docutils literal"><span class="pre">axis</span></tt> indica el punto final hasta el que se extiende el resorte, y
+se toma negativo porque apunta hacia abajo.</p>
+</li>
+<li><p class="first">Representar el objeto que pende del resorte como una caja, así:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">objeto</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">length</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">red</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Dentro de un ciclo <tt class="docutils literal"><span class="pre">for</span></tt> actualizar la posición de la caja y el punto
+final de la resorte, con la lista de <tt class="docutils literal"><span class="pre">posiciones</span></tt>.</p>
+<p>Para ello es necesario sumarle al centro inicial de la caja (que en este
+caso es <tt class="docutils literal"><span class="pre">(0,</span> <span class="pre">3.75,</span> <span class="pre">0)</span></tt>) cada uno de los elementos de <tt class="docutils literal"><span class="pre">posiciones</span></tt> y
+hacer lo mismo para el <tt class="docutils literal"><span class="pre">axis</span></tt> inicial del resorte.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="tiro-parabolico">
+<h2>3. Tiro parabólico<a class="headerlink" href="#tiro-parabolico" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Seguir para ello las instrucciones de la sección <a class="reference internal" href="Movimiento en dos dimensiones.html"><em>Movimiento en dos dimensiones</em></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Carlos Cordoba.
+      Creado con <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

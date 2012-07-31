@@ -1,0 +1,143 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Una simulación más realista &mdash; Notas de Modelación y Simulación</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="Notas de Modelación y Simulación" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Una simulación más realista</a><ul>
+<li><a class="reference internal" href="#fuerza-de-friccion-con-el-aire">Fuerza de fricción con el aire</a><ul>
+<li><a class="reference internal" href="#ejercicios">Ejercicios</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#colision-inelastica">Colisión inelástica</a><ul>
+<li><a class="reference internal" href="#id1">Ejercicios</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="una-simulacion-mas-realista">
+<h1>Una simulación más realista<a class="headerlink" href="#una-simulacion-mas-realista" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Con la simulación que se ha desarrollado hasta el momento, la bola nunca deja
+de rebotar y regresa siempre a la misma altura, lo cual no es lo que ocurre en
+la realidad.</p>
+<p>Para hacer que la simulación corresponda realmente al comportamiento que
+observamos en la caída de una bola, debemos incluir dos factores adicionales a
+la simulación, que son los que vamos a describir a continuación.</p>
+<div class="section" id="fuerza-de-friccion-con-el-aire">
+<span id="friction"></span><h2>Fuerza de fricción con el aire<a class="headerlink" href="#fuerza-de-friccion-con-el-aire" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Ya que el aire es un fluido, la bola pierde parte de su velocidad mientras lo
+atraviesa, lo que hace que paulatinamente se vaya deteniendo. En Física este
+fenómeno se describe mediante una fuerza de arrastre, que se define como:</p>
+<div class="math">
+<p><img src="../../_images/math/c689d8b680cb5e273664b79a6de35b4c4b88baf8.png" alt="F = -b \, v"/></p>
+</div><p>donde <em>b</em> es una constante entre 0 y 1, que depende de las propiedades del
+fluido y de las dimensiones del objeto que lo atraviesa, y <em>v</em> es la velocidad
+del mismo.</p>
+<p>Para incluir esta fuerza en la simulación, debe dejarse de tomar la aceleración
+como constante e igual a la gravedad, y en cambio calcularla como:</p>
+<div class="math">
+<p><img src="../../_images/math/2c422d5779fd16499e9a2cce1b1e62ecbce77376.png" alt="a_{i+1} = g - b \, v_{i}"/></p>
+</div><div class="section" id="ejercicios">
+<h3>Ejercicios<a class="headerlink" href="#ejercicios" title="Enlazar permanentemente con este título">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Incluir la fuerza de arrastre en la simulación de la caída de una bola. Para
+ello debe definirse una nueva lista llamada <tt class="docutils literal"><span class="pre">aceleraciones</span></tt>, cuyo primer
+elemento va a ser <em>g</em> y los demás se van a calcular con la ecuación
+anterior.</p>
+<p>Calcular las velocidades con el método de Euler, como</p>
+<div class="math">
+<p><img src="../../_images/math/1849ce7a993bcde9e94f450cf762b835e15a0d43.png" alt="v_{i+1} = v_{i} + a_{i} \, \Delta t"/></p>
+</div></li>
+<li><p class="first">Obtener una gráfica de la aceleración vs. el tiempo, así como nuevas
+gráficas para la posición y la velocidad. Que cambió ahora?</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="colision-inelastica">
+<h2>Colisión inelástica<a class="headerlink" href="#colision-inelastica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Cuando un objeto choca contra otro, su velocidad después del choque no es
+exactamente igual a como lo era antes, sino que disminuye en una pequeña
+fracción debido a que el impacto absorbe parte de la energía cinética del golpe
+y la transforma en calor.</p>
+<p>En Física este fenómeno se describe haciendo que la velocidad después del
+choque sea ligeramente menor que la velocidad antes del mismo, así:</p>
+<div class="math">
+<p><img src="../../_images/math/89c60a9384974d6e34e715e988e9a9ad576e7fc4.png" alt="v_{despues} = k \, v_{antes}"/></p>
+</div><p>donde <em>k</em> es una constante entre 0 y 1, que depende de las propiedades del
+material que compone a los objetos que chocan.</p>
+<div class="section" id="id1">
+<h3>Ejercicios<a class="headerlink" href="#id1" title="Enlazar permanentemente con este título">¶</a></h3>
+<ol class="arabic simple">
+<li>Incluir la ecuación de colisión inelástica en la simulación de la bola.</li>
+<li>Hacer que la velocidad de la partícula sea cero, si el valor absoluto de la
+misma llega a ser menor que cierto valor muy pequeño. De esta forma
+conseguiremos que se detenga definitivamente.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Carlos Cordoba.
+      Creado con <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

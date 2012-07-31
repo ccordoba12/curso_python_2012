@@ -1,0 +1,517 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Estructuras de Control &mdash; Notas de Modelación y Simulación</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="Notas de Modelación y Simulación" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Estructuras de Control</a><ul>
+<li><a class="reference internal" href="#el-condicional-if">El condicional (if)</a></li>
+<li><a class="reference internal" href="#el-ciclo-for">El ciclo for</a></li>
+<li><a class="reference internal" href="#el-ciclo-while">El ciclo while</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="estructuras-de-control">
+<h1>Estructuras de Control<a class="headerlink" href="#estructuras-de-control" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>A continuación vamos a describir las estructuras de control más importantes en
+Python:</p>
+<div class="section" id="el-condicional-if">
+<h2>El condicional (if)<a class="headerlink" href="#el-condicional-if" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Es quizá la estructura de control más utilizada. A continuación presentamos un
+sencillo ejemplo para observar como es su sintaxis en Python:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">mayor_o_menor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="s">&quot;es menor que&quot;</span><span class="p">,</span> <span class="n">y</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="s">&quot;es mayor que&quot;</span><span class="p">,</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">x</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s">&quot;son iguales&quot;</span>
+</pre></div>
+</div>
+<p>Al aplicar esta función a distintos números obtenemos:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="n">mayor_o_menor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">2 es menor que 5</span>
+
+<span class="gp">In [32]: </span><span class="n">mayor_o_menor</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">100 es mayor que 10</span>
+
+<span class="gp">In [33]: </span><span class="n">mayor_o_menor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">1 y 1 son iguales</span>
+</pre></div>
+</div>
+<p>Algunos de los operadores con los que se pueden hacer comparaciones al momento
+de usar en <tt class="docutils literal"><span class="pre">if</span></tt> son:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operador</th>
+<th class="head">Resultado</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>==</td>
+<td>Igualdad</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>No es igual</td>
+</tr>
+<tr class="row-even"><td>&lt;</td>
+<td>Menor que</td>
+</tr>
+<tr class="row-odd"><td>&gt;</td>
+<td>Mayor que</td>
+</tr>
+<tr class="row-even"><td>&lt;=</td>
+<td>Menor o igual</td>
+</tr>
+<tr class="row-odd"><td>&gt;=</td>
+<td>Mayor o igual</td>
+</tr>
+<tr class="row-even"><td>not</td>
+<td>Niega una condición</td>
+</tr>
+<tr class="row-odd"><td>in</td>
+<td>Se usa para verificar si un elemento está en una lista</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>A excepción de <tt class="docutils literal"><span class="pre">in</span></tt> y <tt class="docutils literal"><span class="pre">not</span></tt>, todos los demás operadores son similares a los
+usados en otros lenguajes de programación, por lo que no vamos a mirar ejemplos
+de ellos. Veamos, por tanto, sólo como funcionan los primeros:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [34]: </span><span class="mi">3</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gr">Out[34]: </span><span class="bp">False</span>
+
+<span class="gp">In [35]: </span><span class="mi">3</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gr">Out[35]: </span><span class="bp">True</span>
+
+<span class="gp">In [36]: </span><span class="ow">not</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">5</span>
+<span class="gr">Out[36]: </span><span class="bp">True</span>
+</pre></div>
+</div>
+<p>A través de estos ejemplos también podemos notar que los valores de verdad en
+Python se escriben como <tt class="docutils literal"><span class="pre">True</span></tt> y <tt class="docutils literal"><span class="pre">False</span></tt> para verdadero y falso,
+respectivamente.</p>
+<dl class="docutils">
+<dt><strong>Ejercicios</strong></dt>
+<dd><ul class="first last">
+<li><p class="first">Definir una función <tt class="docutils literal"><span class="pre">absoluto(x)</span></tt> que tome un número entero y retorne su
+valor absoluto, así:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [37]: </span><span class="n">absoluto</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gr">Out[37]: </span><span class="mi">6</span>
+
+<span class="gp">In [38]: </span><span class="n">absoluto</span><span class="p">(</span><span class="mf">100.22</span><span class="p">)</span>
+<span class="gr">Out[38]: </span><span class="mf">100.22</span>
+
+<span class="gp">In [39]: </span><span class="n">absoluto</span><span class="p">(</span><span class="o">-</span><span class="mf">18.7</span><span class="p">)</span>
+<span class="gr">Out[39]: </span><span class="mf">18.7</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Definir una función <tt class="docutils literal"><span class="pre">es_divisible_entre_siete(x)</span></tt> que imprima si un
+número es o no es divisible entre 7. La función debe retornar resultados
+como los siguientes:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [40]: </span><span class="n">es_divisible_entre_siete</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="go">12 no es divisible entre 7</span>
+
+<span class="gp">In [41]: </span><span class="n">es_divisible_entre_siete</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+<span class="go">14 es divisible entre 7</span>
+
+<span class="gp">In [42]: </span><span class="n">es_divisible_entre_siete</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="go">32 no es divisible entre 7</span>
+
+<span class="gp">In [43]: </span><span class="n">es_divisible_entre_siete</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="go">21 es divisible entre 7</span>
+</pre></div>
+</div>
+<p><em>Sugerencia</em>: Utilizar el operador módulo (<tt class="docutils literal"><span class="pre">%</span></tt>) para decidir si un número
+es múltiplo de otro. Este operador retorna el resto de la división entre
+dos números. Por tanto, si un número divide exactamente a otro, retorna
+<tt class="docutils literal"><span class="pre">0</span></tt>, sino retorna cualquier otro número. Veamos algunos ejemplos:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="mi">12</span><span class="o">%</span><span class="mi">4</span>
+<span class="gr">Out[44]: </span><span class="mi">0</span>
+
+<span class="gp">In [45]: </span><span class="mi">12</span><span class="o">%</span><span class="mi">6</span>
+<span class="gr">Out[45]: </span><span class="mi">0</span>
+
+<span class="gp">In [46]: </span><span class="mi">12</span><span class="o">%</span><span class="mi">5</span>
+<span class="gr">Out[46]: </span><span class="mi">2</span>
+
+<span class="gp">In [47]: </span><span class="mi">25</span><span class="o">%</span><span class="mi">5</span>
+<span class="gr">Out[47]: </span><span class="mi">0</span>
+
+<span class="gp">In [48]: </span><span class="mi">25</span><span class="o">%</span><span class="mi">6</span>
+<span class="gr">Out[48]: </span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Generalizar la función anterior en una función llamada
+<tt class="docutils literal"><span class="pre">es_divisible_entre_n(x,</span> <span class="pre">n)</span></tt> que tome dos números enteros e imprima si el
+primero es divisible entre el segundo, así: (Tomado de <em>Aprenda a pensar
+como un programador con Python</em>)</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [49]: </span><span class="n">es_divisible_entre_n</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">20 es divisible entre 4</span>
+
+<span class="gp">In [50]: </span><span class="n">es_divisible_entre_n</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">36 no es divisible entre 5</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Definir una función <tt class="docutils literal"><span class="pre">agregar_nuevo(li,</span> <span class="pre">x)</span></tt> que reciba una lista y un
+elemento y retorne una nueva lista en la que esté añadido el elemento, pero
+sólo si éste <strong>no</strong> hace parte de la lista original (Tomado de
+<em>Introducción a Mathematica</em> del Prof. Jurgen Tischer).</p>
+<p>Por ejemplo:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [51]: </span><span class="n">agregar_nuevo</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="mi">11</span><span class="p">)</span>
+<span class="gr">Out[51]: </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+
+<span class="gp">In [52]: </span><span class="n">agregar_nuevo</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="mi">9</span><span class="p">)</span>
+<span class="gr">Out[52]: </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="el-ciclo-for">
+<h2>El ciclo for<a class="headerlink" href="#el-ciclo-for" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En Python <tt class="docutils literal"><span class="pre">for</span></tt> se utiliza para moverse o iterar entre un conjunto de
+valores. Su sintaxis es más sencilla que la usada en C o C++, porque en lugar
+de utilizar un contador cuyo valor va aumentando o disminuyendo durante el
+ciclo, se toma una secuencia completa (una lista, una tupla, o una cadena), y
+se recorren sus elementos en el orden en que aparecen en ella.</p>
+<p>Observemos algunos ejemplos:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [53]: </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+<span class="gp">   ....:</span>      <span class="k">print</span> <span class="n">x</span>
+<span class="gp">   ....:</span> 
+<span class="go">3</span>
+<span class="go">9</span>
+<span class="go">12</span>
+<span class="go">4</span>
+
+<span class="gp">In [54]: </span><span class="n">prefijos</span> <span class="o">=</span> <span class="s">&quot;JKLMNOPQ&quot;</span>
+
+<span class="gp">In [55]: </span><span class="n">sufijos</span> <span class="o">=</span> <span class="s">&quot;ack&quot;</span>
+
+<span class="gp">In [56]: </span><span class="k">for</span> <span class="n">letra</span> <span class="ow">in</span> <span class="n">prefijos</span><span class="p">:</span>
+<span class="gp">   ....:</span>      <span class="k">print</span> <span class="n">letra</span> <span class="o">+</span> <span class="n">sufijos</span>
+<span class="gp">   ....:</span> 
+<span class="go">Jack</span>
+<span class="go">Kack</span>
+<span class="go">Lack</span>
+<span class="go">Mack</span>
+<span class="go">Nack</span>
+<span class="go">Oack</span>
+<span class="go">Pack</span>
+<span class="go">Qack</span>
+
+<span class="gp">In [57]: </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="gp">   ....:</span>      <span class="k">print</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">   ....:</span> 
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">4</span>
+<span class="go">9</span>
+<span class="go">16</span>
+<span class="go">25</span>
+<span class="go">36</span>
+<span class="go">49</span>
+<span class="go">64</span>
+<span class="go">81</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">range</span></tt> es un comando que muy a menudo se utiliza junto a los ciclos <tt class="docutils literal"><span class="pre">for</span></tt>,
+pues sirve para generar una lista con todos los números desde 0 hasta <em>n</em>-1,
+donde <em>n</em> es el valor que recibe. También puede usarse con dos valores, uno
+como límite inferior y el otro como límite superior, así:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [58]: </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gr">Out[58]: </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+
+<span class="gp">In [59]: </span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="gr">Out[59]: </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><strong>Ejercicios</strong>:</dt>
+<dd><ul class="first last">
+<li><p class="first">Construir un ciclo <tt class="docutils literal"><span class="pre">for</span></tt> que imprima todos los números pares de 1 a 100.</p>
+<p><em>Sugerencia</em>: Utilizar el operador módulo (<tt class="docutils literal"><span class="pre">%</span></tt>) y un <tt class="docutils literal"><span class="pre">if</span></tt>.</p>
+</li>
+<li><p class="first">Definir una función <tt class="docutils literal"><span class="pre">es_primo(x)</span></tt> que tome un número <tt class="docutils literal"><span class="pre">x</span></tt> y verifique si
+es divisible entre todos los números menores a <tt class="docutils literal"><span class="pre">x</span></tt>. Si lo es, entonces debe
+retornar <tt class="docutils literal"><span class="pre">False</span></tt> y si no <tt class="docutils literal"><span class="pre">True</span></tt>. Por ejemplo:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [60]: </span><span class="n">es_primo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gr">Out[60]: </span><span class="bp">False</span>
+
+<span class="gp">In [61]: </span><span class="n">es_primo</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span>
+<span class="gr">Out[61]: </span><span class="bp">True</span>
+
+<span class="gp">In [62]: </span><span class="n">es_primo</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="gr">Out[62]: </span><span class="bp">False</span>
+
+<span class="gp">In [63]: </span><span class="n">es_primo</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="gr">Out[63]: </span><span class="bp">True</span>
+</pre></div>
+</div>
+<p><em>Sugerencia</em>: Modificar la función <tt class="docutils literal"><span class="pre">es_divisible_entre_n</span></tt> para que
+en lugar de imprimir oraciones, retorne <tt class="docutils literal"><span class="pre">True</span></tt> o <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+</li>
+<li><p class="first">Optimizar la función anterior, respondiendo a la siguiente pregunta: ¿Es
+necesario revisar todos los números menores a <tt class="docutils literal"><span class="pre">x</span></tt> para verificar si es
+divisible entre todos ellos? ¿Hasta qué número es en realidad necesario
+revisar?</p>
+<p>Para ello, definir una nueva función <tt class="docutils literal"><span class="pre">es_primo_veloz(x)</span></tt> y comparar los
+tiempos de ejecución entre ella y <tt class="docutils literal"><span class="pre">es_primo</span></tt> usando el comando
+<tt class="docutils literal"><span class="pre">%timeit</span></tt> en la consola, así:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [64]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">es_primo</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+<span class="go">100000 loops, best of 3: 17.5 us per loop</span>
+
+<span class="gp">In [65]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">es_primo_veloz</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
+<span class="go">100000 loops, best of 3: 7.84 us per loop</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Definir una función <tt class="docutils literal"><span class="pre">rango_intercuartil(li)</span></tt> que calcule el rango
+intercuartil de una lista. Recordar que éste se define como:</p>
+<div class="math">
+<p><img src="../../_images/math/e4f629882ea1ab80245eef05dc7579a7b002345a.png" alt="RI = Q_{3} - Q_{1}"/></p>
+</div><p>donde <img class="math" src="../../_images/math/4d10fa4b5534c69b3b35c9f3ce31686d2d514260.png" alt="Q_{3}"/> es la mediana de los datos mayores a la mediana y
+<img class="math" src="../../_images/math/9ff97a2bba217fae35b1416a20689953687d22a8.png" alt="Q_{1}"/> es la mediana de los datos menores a la mediana.</p>
+<p>Por ejemplo, para la siguiente lista:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mf">48.38</span><span class="p">,</span>  <span class="mf">27.6</span> <span class="p">,</span>  <span class="mf">32.46</span><span class="p">,</span>  <span class="mf">51.94</span><span class="p">,</span>  <span class="mf">47.43</span><span class="p">,</span>  <span class="mf">48.61</span><span class="p">,</span>  <span class="mf">34.38</span><span class="p">,</span>  <span class="mf">48.98</span><span class="p">,</span>\
+      <span class="mf">48.86</span><span class="p">,</span>  <span class="mf">41.45</span><span class="p">,</span>  <span class="mf">56.55</span><span class="p">,</span>  <span class="mf">25.46</span><span class="p">,</span>  <span class="mf">27.03</span><span class="p">,</span>  <span class="mf">36.72</span><span class="p">,</span>  <span class="mf">48.03</span><span class="p">,</span>  <span class="mf">36.86</span><span class="p">,</span>\
+      <span class="mf">42.58</span><span class="p">,</span>  <span class="mf">44.44</span><span class="p">,</span>  <span class="mf">56.12</span><span class="p">,</span>  <span class="mf">43.86</span><span class="p">,</span>  <span class="mf">44.42</span><span class="p">,</span>  <span class="mf">42.92</span><span class="p">,</span>  <span class="mf">41.43</span><span class="p">,</span>  <span class="mf">22.81</span><span class="p">,</span>\
+      <span class="mf">36.55</span><span class="p">,</span>  <span class="mf">50.89</span><span class="p">,</span>  <span class="mf">29.93</span><span class="p">,</span>  <span class="mf">47.61</span><span class="p">,</span>  <span class="mf">63.91</span><span class="p">,</span>  <span class="mf">53.98</span><span class="p">,</span>  <span class="mf">42.64</span><span class="p">,</span>  <span class="mf">27.18</span><span class="p">,</span>\
+      <span class="mf">29.93</span><span class="p">,</span>  <span class="mf">31.51</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>el rango intercuartil es:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [66]: </span><span class="n">rango_intercuartil</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="gr">Out[66]: </span><span class="mf">16.15</span>
+</pre></div>
+</div>
+<p><em>Sugerencias</em>:</p>
+<ul>
+<li><p class="first">Definir primero una función <tt class="docutils literal"><span class="pre">mediana(li)</span></tt> que calcule la mediana de una
+lista, de la misma forma en que se hizo en el <a class="reference internal" href="Tipos de datos.html#mediana"><em>ejercicio</em></a>
+de la sección de <a class="reference internal" href="Tipos de datos.html#listas-label"><em>Listas</em></a>. La mediana de la
+lista anterior, por ejemplo, es:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [67]: </span><span class="n">mediana</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="gr">Out[67]: </span><span class="mf">42.78</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Dividir la lista original en dos listas <tt class="docutils literal"><span class="pre">li1</span></tt> y <tt class="docutils literal"><span class="pre">li2</span></tt> que contengan
+los elementos menores y mayores a la mediana, respectivamente, y
+calcularles a éstas nuevamente la mediana para obtener <img class="math" src="../../_images/math/4d10fa4b5534c69b3b35c9f3ce31686d2d514260.png" alt="Q_{3}"/> y
+<img class="math" src="../../_images/math/9ff97a2bba217fae35b1416a20689953687d22a8.png" alt="Q_{1}"/>.</p>
+<p>Para ello, definir <tt class="docutils literal"><span class="pre">li1</span> <span class="pre">=</span> <span class="pre">[]</span></tt> y <tt class="docutils literal"><span class="pre">li2</span> <span class="pre">=</span> <span class="pre">[]</span></tt> para que empiecen siendo
+listas vacías y utilizar el método <tt class="docutils literal"><span class="pre">append</span></tt> de cada una para añadirles
+los elementos correspondientes.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Definir una función <tt class="docutils literal"><span class="pre">desv_est(li)</span></tt> que calcule la desviación estándar de
+una lista, usando la fórmula:</p>
+<div class="math">
+<p><img src="../../_images/math/a2754021d6a10f29b16e5d8eb6fb8247a2bf05f6.png" alt="s=\sqrt{\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}{n-1}}"/></p>
+</div><p>donde <img class="math" src="../../_images/math/f06e84fe84a6c63a9c2c392af11652f6e0d72cf4.png" alt="\bar{x}"/> es el promedio y <img class="math" src="../../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> es el número total de
+datos.</p>
+<p>Por ejemplo, la desviación estándar de la lista del ejemplo anterior es:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [68]: </span><span class="n">desv_est</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="gr">Out[68]: </span><span class="mf">10.193054313544058</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="el-ciclo-while">
+<h2>El ciclo while<a class="headerlink" href="#el-ciclo-while" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Finalmente vamos a mirar la sintaxis del comando <tt class="docutils literal"><span class="pre">while</span></tt>, que si bien no es
+tan usado como los dos anteriores, es muy útil porque permite recorrer los
+elementos de una lista, tupla o cadena por medio de su índice. Esto es algo que
+no puede hacerse con mucha naturalidad con <tt class="docutils literal"><span class="pre">for</span></tt>, que está ideado
+para recorrer los elementos directamente, sin tener que preocuparse por sus
+posiciones.</p>
+<p>Además, con <tt class="docutils literal"><span class="pre">while</span></tt> no es necesario definir un límite superior para realizar
+un ciclo, como si hay que hacerlo con <tt class="docutils literal"><span class="pre">for</span></tt>.</p>
+<p>Miremos un par de ejemplos:</p>
+<ol class="arabic">
+<li><p class="first">En este primer ejemplo, imprimimos la lista de todos los elementos de
+<tt class="docutils literal"><span class="pre">li</span></tt>, pero seleccionándolos de <tt class="docutils literal"><span class="pre">li</span></tt> por medio de su índice.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [69]: </span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+
+<span class="gp">In [70]: </span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="gp">In [71]: </span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+<span class="gp">   ....:</span>      <span class="k">print</span> <span class="n">li</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="gp">   ....:</span>      <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">   ....:</span> 
+<span class="go">3</span>
+<span class="go">6</span>
+<span class="go">9</span>
+<span class="go">11</span>
+</pre></div>
+</div>
+<p>En la última línea pueden verse un ejemplo de asignación abreviada, pues en
+lugar de escribir <tt class="docutils literal"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">i+1</span></tt>, escribimos <tt class="docutils literal"><span class="pre">i</span> <span class="pre">+=</span> <span class="pre">1</span></tt>, lo cual es similar a
+como se hace en C o C++. Otras abreviaciones que funcionan en Python son:
+<tt class="docutils literal"><span class="pre">-=</span></tt>, <tt class="docutils literal"><span class="pre">*=</span></tt>, <tt class="docutils literal"><span class="pre">/=</span></tt>, y <tt class="docutils literal"><span class="pre">%=</span></tt>.</p>
+</li>
+<li><p class="first">En este ejemplo vamos a imprimir los 20 primeros números que son divisibles
+entre 4:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [72]: </span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="gp">In [73]: </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="gp">In [74]: </span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+<span class="gp">   ....:</span>      <span class="k">if</span> <span class="n">es_divisible_entre_n</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="gp">   ....:</span>          <span class="k">print</span> <span class="n">j</span>
+<span class="gp">   ....:</span>          <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">   ....:</span>      <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">   ....:</span> 
+<span class="go">4</span>
+<span class="go">8</span>
+<span class="go">12</span>
+<span class="go">16</span>
+<span class="go">20</span>
+<span class="go">24</span>
+<span class="go">28</span>
+<span class="go">32</span>
+<span class="go">36</span>
+<span class="go">40</span>
+<span class="go">44</span>
+<span class="go">48</span>
+<span class="go">52</span>
+<span class="go">56</span>
+<span class="go">60</span>
+<span class="go">64</span>
+<span class="go">68</span>
+<span class="go">72</span>
+<span class="go">76</span>
+<span class="go">80</span>
+<span class="go">84</span>
+</pre></div>
+</div>
+<p>En este caso vemos cómo usar dos contadores en el ciclo, uno (<tt class="docutils literal"><span class="pre">i</span></tt>) para
+poder detenerlo cuando se haya obtenido el veinteavo número divisible entre
+4, y otro (<tt class="docutils literal"><span class="pre">j</span></tt>) para movernos entre los números mayores a <tt class="docutils literal"><span class="pre">1</span></tt> y revisar
+cuáles de ellos son divisibles entre 4.</p>
+</li>
+</ol>
+<dl class="docutils">
+<dt><strong>Ejercicios</strong>:</dt>
+<dd><ul class="first last">
+<li><p class="first">Definir una función <tt class="docutils literal"><span class="pre">cuenta_atras(n)</span></tt> que tome un número entero <tt class="docutils literal"><span class="pre">n</span></tt> e
+imprima todos los números desde <tt class="docutils literal"><span class="pre">n</span></tt> hasta <tt class="docutils literal"><span class="pre">1</span></tt> usando un ciclo
+<tt class="docutils literal"><span class="pre">while</span></tt>. Además, después de imprimir <tt class="docutils literal"><span class="pre">1</span></tt>, debe imprimir <tt class="docutils literal"><span class="pre">Este</span> <span class="pre">es</span> <span class="pre">el</span>
+<span class="pre">fin!</span></tt>.</p>
+</li>
+<li><p class="first">Dada la siguiente cadena:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;jhkdaskduwqludhlasdklashdihlasdhljakhuekysbvjkasdhlasdkhlashkdedlahskdlkbasmndkm&quot;</span>
+</pre></div>
+</div>
+<p>Imprimir en qué posiciones se encuentra la letra <tt class="docutils literal"><span class="pre">k</span></tt>.</p>
+<p><em>R/</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">78</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Utilizar la función <tt class="docutils literal"><span class="pre">es_primo_veloz</span></tt> para definir una función
+<tt class="docutils literal"><span class="pre">lista_de_primos(n)</span></tt> que genere la lista de los <tt class="docutils literal"><span class="pre">n</span></tt> primeros números
+primos. Para que puedan comparar, a continuación aparece la lista de los 20
+primeros números primos:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [75]: </span><span class="n">lista_de_primos</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="gr">Out[75]: </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">71</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><em>Sugerencia</em>: Definir una lista vacía y utilizar su método append para
+añadirle los números primos que vayamos encontrando.</p>
+</li>
+<li><p class="first">Usar la función <a class="reference internal" href="Funciones.html#digitos"><em>digitos</em></a>, para encontrar el primer número
+de 4 cifras que sea divisible entre 8 y cuya primera y última cifras sean
+iguales.</p>
+<p><em>R/</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">2032</span>
+</pre></div>
+</div>
+<p><em>Sugerencia</em>: Definir dos contadores: uno que empiece en <tt class="docutils literal"><span class="pre">1000</span></tt> para ir
+revisando todos los números de 4 cifras, y otro para detener el ciclo
+<tt class="docutils literal"><span class="pre">while</span></tt> tan pronto se encuentre el primer número que cumpla la condición
+deseada.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Carlos Cordoba.
+      Creado con <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

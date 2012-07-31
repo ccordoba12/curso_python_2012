@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Movimiento en dos dimensiones &mdash; Notas de Modelación y Simulación</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="Notas de Modelación y Simulación" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Movimiento en dos dimensiones</a><ul>
+<li><a class="reference internal" href="#arreglos-multidimensionales-de-numpy">Arreglos multidimensionales de Numpy</a></li>
+<li><a class="reference internal" href="#movimiento-de-una-particula-en-dos-dimensiones">Movimiento de una partícula en dos dimensiones</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="movimiento-en-dos-dimensiones">
+<h1>Movimiento en dos dimensiones<a class="headerlink" href="#movimiento-en-dos-dimensiones" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Uno de los grandes logros de la física moderna en sus comienzos fue la
+realización de Galileo de que el movimiento de un cuerpo en dos o tres
+dimensiones, puede entenderse como la composición de movimientos diferentes,
+uno por cada eje de coordenadas. En otras palabras, se considera que el cuerpo
+ejecuta un movimiento en el eje <em>x</em> y otro aparte en el <em>y</em>, y que el
+movimiento total es la suma vectorial de estos dos.</p>
+<p>En esta sección vamos a extraer una enorme ventaja de este hecho para escribir
+de forma muy sencilla las ecuaciones de movimiento de un objeto. Para ello
+vamos a usar la librería Numpy, como se describe a continuación.</p>
+<div class="section" id="arreglos-multidimensionales-de-numpy">
+<h2>Arreglos multidimensionales de Numpy<a class="headerlink" href="#arreglos-multidimensionales-de-numpy" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Numpy es una librería especializada en la creación y manipulación de <em>arreglos</em>
+de varias dimensiones. Los arreglos se crean a partir de una lista de la
+siguiente forma:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [158]: </span><span class="n">li1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="gp">In [159]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="gp">In [160]: </span><span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">li1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Estos arreglos se prefieren a las listas para representar cantidades
+vectoriales, debido a que cumplen con las siguientes propiedades:</p>
+<ul>
+<li><p class="first">Al multiplicar un número por un arreglo, se multiplican todos sus elementos</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [161]: </span><span class="n">a1</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="gr">Out[161]: </span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="gp">In [162]: </span><span class="mi">5</span> <span class="o">*</span> <span class="n">a1</span>
+<span class="gr">Out[162]: </span><span class="n">array</span><span class="p">([</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Para las listas en cambio, esta operación hace que se repitan sus elementos,
+como ustedes recordarán:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [163]: </span><span class="n">li1</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="gr">Out[163]: </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Al sumar dos arreglos, se suman uno a uno sus elementos</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [164]: </span><span class="n">a2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="gp">In [165]: </span><span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>
+<span class="gr">Out[165]: </span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="gp">In [166]: </span><span class="n">a2</span> <span class="o">-</span> <span class="n">a1</span>
+<span class="gr">Out[166]: </span><span class="n">array</span><span class="p">([</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>En cambio, para las listas el signo <tt class="docutils literal"><span class="pre">+</span></tt> las concatena, mientas que el <tt class="docutils literal"><span class="pre">-</span></tt>
+arroja un error:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [167]: </span><span class="n">li2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="gp">In [168]: </span><span class="n">li1</span> <span class="o">+</span> <span class="n">li2</span>
+<span class="gr">Out[168]: </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="gp">In [169]: </span><span class="n">li2</span> <span class="o">-</span> <span class="n">li1</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">TypeError                                 Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-169-595c35523f88&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 li2 - li1</span>
+
+<span class="go">TypeError: unsupported operand type(s) for -: &#39;list&#39; and &#39;list&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Además de esto, Numpy tiene varias funciones adicionales para operar sobre
+vectores, como las siguientes:</p>
+<ul>
+<li><p class="first"><tt class="docutils literal"><span class="pre">np.dot</span></tt>, para calcular el producto punto (o escalar) de dos vectores.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [170]: </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+<span class="gr">Out[170]: </span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">np.cross</span></tt>, para calcular el producto cruz (o vectorial) de dos vectores.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [171]: </span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gr">Out[171]: </span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><tt class="docutils literal"><span class="pre">np.norm</span></tt>, para calcular la norma de un vector.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [172]: </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
+
+<span class="gp">In [173]: </span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+<span class="gr">Out[173]: </span><span class="mf">2.2360679774997898</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="movimiento-de-una-particula-en-dos-dimensiones">
+<h2>Movimiento de una partícula en dos dimensiones<a class="headerlink" href="#movimiento-de-una-particula-en-dos-dimensiones" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Lo realmente interesante de usar arreglos de Numpy viene al momento de simular
+el movimiento de un objeto en dos o tres dimensiones, pues lo único que debe
+cambiarse en los programas anteriores (que estaban hechos para una dimensión)
+son los valores de las condiciones iniciales. El algoritmo de Verlet, con el
+que calculamos cómo se mueve el objeto a partir de estas condiciones, va a
+quedar exactamente como antes!</p>
+<p>Mirémoslo por medio de un ejemplo. Para simular el movimiento de una partícula
+en dos dimensiones, empezamos por definir su posición inicial como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Esto quiere decir que va a arrancar del punto con coordenadas <img class="math" src="../../_images/math/a10a0cd82a9095ee13f0c63080d8524f03a56292.png" alt="(x, y) =
+(0, 8)"/>. Posteriormente definimos su velocidad inicial como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>lo que implica que hacemos que se mueva en la dirección positiva del eje <em>x</em>
+con velocidad de 5 m/s, y en la dirección negativa del eje <em>y</em> con una
+velocidad de 3 m/s.</p>
+<p>Finalmente definimos su aceleración inicial como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">g</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>para especificar que la partícula sólo siente una fuerza en el eje <em>y</em>, debida
+a la gravedad.</p>
+<p>Por su parte, vamos a seguir guardando el conjunto de posiciones, velocidades y
+aceleraciones en una lista, y no un arreglo, ya que <em>no</em> necesitamos que sean
+cantidades vectoriales:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">posiciones</span> <span class="o">=</span> <span class="p">[</span><span class="n">p0</span><span class="p">]</span>
+<span class="n">velocidades</span> <span class="o">=</span> <span class="p">[</span><span class="n">v0</span><span class="p">]</span>
+<span class="n">aceleraciones</span> <span class="o">=</span> <span class="p">[</span><span class="n">a0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Esto es todo lo que se necesita cambiar para pasar de simular el movimiento en
+una dimensión al de dos. Como mencioné arriba, el algoritmo de Verlet queda
+<em>exactamente</em> como estaba antes, lo cual es posible debido a las propiedades de
+los arreglos de Numpy descritas en la sección anterior. Por ejemplo, para
+calcular la nueva posición de la partícula, escribimos la siguiente línea de
+código:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">nueva_posicion</span> <span class="o">=</span> <span class="n">posiciones</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">velocidades</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">aceleraciones</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">dt</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Dado que los elementos de <tt class="docutils literal"><span class="pre">posiciones</span></tt>, <tt class="docutils literal"><span class="pre">velocidades</span></tt> y <tt class="docutils literal"><span class="pre">aceleraciones</span></tt>
+son arreglos, lo que hace esta línea es multiplicar cada arreglo por el número
+que lo acompaña (por ejemplo, a <tt class="docutils literal"><span class="pre">velocidades[-1]</span></tt> lo multiplica por <tt class="docutils literal"><span class="pre">dt</span></tt>),
+y después suma los resultados componente a componente, es decir, suma el primer
+elemento de <tt class="docutils literal"><span class="pre">posiciones</span></tt> con los primeros de <tt class="docutils literal"><span class="pre">velocidades</span></tt> y de
+<tt class="docutils literal"><span class="pre">aceleraciones</span></tt>.</p>
+<p>En otras palabras, lo que calcula esta línea para determinar la coordenada <em>x</em>
+de la nueva posición de la partícula es lo siguiente (asumiendo que <tt class="docutils literal"><span class="pre">dt</span></tt> vale
+0.01):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">0</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span> <span class="o">+</span> <span class="mi">0</span><span class="o">*</span><span class="p">(</span><span class="mf">0.01</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>que corresponde al valor de <tt class="docutils literal"><span class="pre">nueva_posicion[0]</span></tt>. Por su parte, el valor
+<tt class="docutils literal"><span class="pre">nueva_posicion[1]</span></tt> es:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">8</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="mf">9.8</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.01</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>De la misma forma se calculan los valores de <tt class="docutils literal"><span class="pre">nueva_velocidad</span></tt> y
+<tt class="docutils literal"><span class="pre">nueva_aceleracion</span></tt>.</p>
+<p><strong>Ejercicios</strong></p>
+<ol class="arabic">
+<li><p class="first">Crear un nuevo archivo y modificar el código para simular el movimiento en
+una dimensión, con las instrucciones anteriores.</p>
+</li>
+<li><p class="first">Definir una función llamada <tt class="docutils literal"><span class="pre">colision_muros</span></tt> que determine si una
+partícula se ha chocado contra un muro ubicado en <img class="math" src="../../_images/math/2d348bde3e15456e71734dc2c56fc7425c95927f.png" alt="x = 0"/> o <img class="math" src="../../_images/math/2ba536abd1c6e5ae7e3c704d42681adc730b10d4.png" alt="y =
+10"/>.</p>
+<p><em>Sugerencias</em>:</p>
+<ul class="simple">
+<li>Hacerlo de la misma forma en que se hizo para la caída de la bola, pero
+teniendo en cuenta la dirección en que se está moviendo la partícula, es
+decir, si es en <em>x</em> o en <em>y</em>.</li>
+<li>Añadir a la condición del choque el que la velocidad debe ser negativa al
+chocar contra el muro en <img class="math" src="../../_images/math/2d348bde3e15456e71734dc2c56fc7425c95927f.png" alt="x = 0"/>, y positiva en el de <img class="math" src="../../_images/math/2ba536abd1c6e5ae7e3c704d42681adc730b10d4.png" alt="y =
+10"/>. Esto con el fin de evitar aplicar la condición de choque si la
+partícula sigue intersectada con el muro.</li>
+</ul>
+</li>
+<li><p id="particula-cylinder">Generar una animación con VPython del fenómeno. Para ello vamos a definir
+la partícula como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">particula</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">cylinder</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="n">p0</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Es decir que corresponde a un cilindro de radio 1, que tiene una altura muy
+muy pequeña, que es el 0.2 al final de <tt class="docutils literal"><span class="pre">axis</span></tt>. En otras palabras, es como
+si fuera una moneda!</p>
+<p>Por su parte, los muros los definimos como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">muros</span> <span class="o">=</span> <span class="n">vis</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="n">vis</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">orange</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Esto corresponde a una curva de radio muy pequeño, que va desde (0, 0),
+hasta (10,0) y después hasta (10,10). En pantalla observaremos una figura de
+color naranja, en forma de <em>L</em> invertida.</p>
+<p>Finalmente, actualizaremos las posiciones de <tt class="docutils literal"><span class="pre">particula</span></tt> usando la lista
+de <tt class="docutils literal"><span class="pre">posiciones</span></tt> calculada con el algoritmo de Verlet en el Ejercicio <em>2</em>.</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Notas de Modelación y Simulación</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Carlos Cordoba.
+      Creado con <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
