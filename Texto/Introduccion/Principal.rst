@@ -1,19 +1,21 @@
-.. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*- 
+.. -*- mode: rst;mode: auto-fill-*- 
 
 =====================
 Introducción a Python
 =====================
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 2
 
-    Introduccion.rst
-    Primer programa.rst
-    Tipos de datos.rst
-    Funciones.rst
-    Estructuras de control.rst
-    Clases.rst
-    Importar librerias.rst
-    Proyectos.rst
+   Introduccion.rst
+   Primer programa.rst
+   Tipos de datos.rst
+   Funciones.rst
 
-..  LocalWords:  Python Introduccion LocalWords maxdepth toctree librerias
+.. ifconfig:: render in ('yes')
+
+   Estructuras de control.rst
+   Clases.rst
+   Importar librerias.rst
+   Proyectos.rst
+

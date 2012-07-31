@@ -12,5 +12,8 @@ Contenidos:
    :maxdepth: 3
 
    Texto/Introduccion/Principal.rst
+
+.. ifconfig:: render in ('yes')
+
    Texto/Sistemas Dinamicos/Principal.rst
    Texto/Muchas particulas/Principal.rst

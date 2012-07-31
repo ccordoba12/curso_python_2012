@@ -1,4 +1,4 @@
-.. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*- 
+.. -*- mode: rst; mode: auto-fill-*- 
 
 =============================
 Sistemas de muchas partículas
@@ -7,6 +7,8 @@ Sistemas de muchas partículas
 .. toctree::
     :maxdepth: 2
 
-    Movimiento en dos dimensiones.rst
-    Movimiento de muchas particulas.rst
-    Proyectos.rst
+.. ifconfig:: render in ('yes')
+
+   Movimiento en dos dimensiones.rst
+   Movimiento de muchas particulas.rst
+   Proyectos.rst

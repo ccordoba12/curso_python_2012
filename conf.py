@@ -219,3 +219,9 @@ man_pages = [
     ('index', 'modelacion', u'Modelacion Documentation',
      [u'Carlos Cordoba'], 1)
 ]
+
+# Add an option to let the docs to be conditionally rendered
+render = 'no'
+
+def setup(app):
+    app.add_config_value('render', '', True)
