@@ -1,8 +1,8 @@
 .. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*- 
 
-===========
-Instalación
-===========
+=================
+Instalación y uso
+=================
 
 Windows
 -------
@@ -45,7 +45,8 @@ distribución basada en Ubuntu o Debian:
    ello hacer click derecho sobre el enlace y elegir la opción *Guardar
    enlace/vínculo como...* )
 
-#. Abrir una terminal en el directorio que fue descargado el archivo anterior.
+#. Abrir una terminal en el directorio en que fue descargado el archivo
+   anterior.
 
 #. Ejecutar el siguiente comando::
 
@@ -68,25 +69,28 @@ distribución basada en Ubuntu o Debian:
 
        pip install hg+https://code.google.com/p/spyderlib/
 
+       spyder&
+
 
 
 Como utilizar Spyder
 --------------------
 
 Spyder_ es un Entorno de Desarrollo Integrado (o IDE por sus siglas en inglés)
-que ha sido creado para hacer más sencilla y agradable la programación de
-simulaciones científicas. Su diseño ha sido inspirado por *Matlab* pero se le
-han añadido características especiales para facilitar el desarrollo de
-programas en Python. Durante el curso vamos a utilizar Spyder para realizar
-nuestras simulaciones.
+que ha sido creado para hacer más sencilla y agradable la creación de programas
+científicos en *Python*. Este es el programa que vamos a utilizar para aprender
+*Python* y para realizar varios tipos de simulaciones.
 
 .. _Spyder: http://code.google.com/p/spyderlib/
 
-Al abrir Spyder vemos que está compuesto de cuatro paneles. En la mitad
-izquierda se encuentra el **Editor**, que es el lugar en el que vamos a
-escribir nuestro código. El editor además reporta errores de sintaxis y
-omisiones comunes, para que puedan ser corregidas por el programador antes de
-intentar correr su código.
+Al iniciar *Spyder* veremos que está compuesto de tres paneles, cada uno de los
+cuales consta de uno o más componentes. En la mitad izquierda se encuentra el
+**Editor**, que es el componente que se utiliza para escribir el código. Como
+puede verse de la imagen, el Editor resalta el código con colores, y completa
+nombres de funciones y variables, al oprimir la combinación de teclas
+*Ctrl+Espacio*. Además, el Editor reporta errores de sintaxis y omisiones
+comunes, para que puedan ser corregidas por el programador antes de intentar
+correr su código.
 
 |
 
@@ -97,31 +101,33 @@ intentar correr su código.
 
 |
 
-La parte derecha está dividida en dos secciones, cada una de las cuales
-contiene varios paneles organizados en pestañas. En la parte de abajo se
-encuentra la **Consola** (Console), que sirve para correr el código que se haya
-escrito en el editor. Su comportamiento es similar al de la terminal de
-comandos de Windows (cmd.exe). Además, permite interactuar con las variables del
-programa y correr directamente código de Python o porciones de código que se
-encuentren en el Editor.
+La parte derecha está dividida en dos paneles, cada uno de las cuales contiene
+varios componentes organizados en pestañas. En la parte de abajo se encuentra
+la **Terminal**, que sirve para correr el código que se haya escrito en el
+Editor. Para ello se utiliza la tecla *F5*, la cual (si el archivo se corre por
+primera vez) abre un cuadro de diálogo que le permite al usuario elegir entre
+varias alternativas de ejecución. Además, la Terminal permite interactuar con
+las variables del programa (redefinirlas o graficarlas) y correr porciones
+código de código que se encuentren en el Editor, para lo cual se seleccione la
+porción deseada y se oprime la tecla *F9*.
 
 |
 
 .. figure:: ../Imagenes/consola.png
    :align: center
 
-   Consola
+   Terminal
 
 |
 
-A su lado se encuentra el **Historial de Comandos** (History Log), que guarda
-la historia de todos los comandos introducidos en la Consola.
+A su lado se encuentra el **Historial de Comandos**, que almacena la historia
+de todos los comandos introducidos en la Terminal.
 
-Por otro lado, en la parte superior está el **Inspector de Objetos** (Object
-Inspector) que se usa para obtener ayuda instantánea sobre la función o el
-comando de Python que se quiera utilizar. Este panel se actualiza
-automáticamente al escribir un paréntesis después del nombre de un comando, por
-lo que es bastante útil.
+Por otro lado, en la parte superior derecha está el **Inspector de Objetos**
+que muestra la ayuda asociada a la función o comando que se desee utilizar en
+el momento, por medio de la combinación de teclas *Ctrl+I*. Este componente
+también se actualiza automáticamente al escribir un paréntesis después del
+nombre de un comando, por lo que es bastante útil.
 
 |
 
@@ -132,9 +138,9 @@ lo que es bastante útil.
 
 |
 
-A su lado se encuentra el **Explorador de Variables** (Variable Explorer) que
-permita revisar, editar y graficar las variables de los programas que se hayan
-corrido en la consola.
+A su lado se encuentra el **Explorador de Variables**, que permite revisar,
+editar y graficar las variables de los programas que se hayan corrido en la
+Terminal.
  
 |
 
