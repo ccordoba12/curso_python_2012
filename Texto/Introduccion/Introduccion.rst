@@ -1,42 +1,77 @@
 .. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*- 
 
-============
-Introducción
-============
+===========
+Instalación
+===========
 
-¿Por qué Python?
-----------------
+Windows
+-------
 
-Python es un lenguaje de programación orientado a objetos que fue creado por
-Guido van Rossum a principios de los años 90 y que ha tenido un gran
-crecimiento en los últimos 10 años, debido principalmente a su adopción por
-parte de Google.
+La forma más fácil de instalar *Python* en Windows es descargando `Python(x,y)
+<http://www.pythonxy.com/>`_, un programa que además instala las librerías
+científicas más importantes del lenguaje. Durante el curso vamos a usar algunas
+de ellas para desarrollar varias simulaciones.
 
-También está siendo adoptado por gran cantidad de científicos de distintas
-disciplinas (astrónomos, biólogos, físicos y científicos sociales) como una
-alternativa gratuita a *Matlab* basada en software libre. En gran parte esto se
-debe a que Python es muy fácil de aprender pues posee una sintaxis muy
-sencilla. Además, tiene excelente documentación de soporte, librerías
-científicas de primera calidad, capacidades de graficación en dos y tres
-dimensiones, y un enorme repertorio de librerías libres para realizar
-prácticamente cualquier tarea imaginable (creación de sitios web, interacción
-con bases de datos, creación de interfaces gráficas multi-plataforma, etc,
-etc).
+Para instalar *Spyder* deben seguirse estos pasos:
 
-En este curso vamos a utilizar `Python(x,y) <http://www.pythonxy.com/>`_, un
-programa que no sólo permite instalar fácilmente Python, sino que también viene
-con todas las librerías necesarias para llevar a cabo un buen curso de
-modelación y simulación.
+#. Descargar e instalar *IPython* usando este `archivo
+   <https://github.com/downloads/ipython/ipython/ipython-0.13.py2-win32.exe>`_.
+
+#. Descargar e instalar *Spyder* usando este archivo.
 
 
-Arrancar Python(x,y) y Spyder
------------------------------
+MacOS X 
+-------
 
-Después de haber instalado *Python(x,y)* podemos observar se crea un ícono en
-el escritorio para acceder a él. Al darle doble click, vemos que se abre una
-ventana, en la que oprimimos el botón que aparece justo debajo de **Spyder**.
+Aunque *Python* viene pre-instalado en las últimas versiones de Mac, no cuenta
+con todas las librerías necesarias para realizar computación científica. Por
+ello se recomienda descargar el DMG de *Spyder*, que aparece en este `sitio web
+<http://code.google.com/p/spyderlib/downloads/list>`_. y que viene con la
+versión más reciente de Python y de las librerías mencionadas.
 
-.. Colocar imagen
+Linux
+-----
+
+Las personas que trabajen en Linux deben seguir los pasos que aparecen a
+continuación, los cuales son válidos si están usando Ubuntu o cualquier otra
+distribución basada en Ubuntu o Debian:
+
+#. Ejecutar el siguiente comando en una terminal::
+
+      sudo apt-get install python-nose
+
+#. Descargar este `archivo
+   <http://www.fperez.org/py4science/workshop_checklist.py>`_ de Python. (Para
+   ello hacer click derecho sobre el enlace y elegir la opción *Guardar
+   enlace/vínculo como...* )
+
+#. Abrir una terminal en el directorio que fue descargado el archivo anterior.
+
+#. Ejecutar el siguiente comando::
+
+       python workshop_checklist.py
+
+#. Después de que haya concluido de ejecutarse este archivo (puede tomar varios
+   minutos), ejecutar estos comandos::
+
+       sudo apt-get install virtualenvwrapper
+
+       sudo apt-get install spyder
+
+       sudo apt-get install mercurial
+       
+       mkvirtualenv --system-site-packages spyder
+
+       workon spyder
+
+       pip install ipython
+
+       pip install hg+https://code.google.com/p/spyderlib/
+
+
+
+Como utilizar Spyder
+--------------------
 
 Spyder_ es un Entorno de Desarrollo Integrado (o IDE por sus siglas en inglés)
 que ha sido creado para hacer más sencilla y agradable la programación de
@@ -114,3 +149,4 @@ corrido en la consola.
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing return def suppress Out in elif else if range False li
 ..  LocalWords:  True append while for class init self split Imagenes Spyder
+..  LocalWords:  Windows MacOS script apt get install virtualenvwrapper
