@@ -66,7 +66,8 @@ language = 'es'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'Texto/Sistemas Dinamicos',
+                    'Texto/Muchas particulas']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
@@ -105,10 +106,10 @@ html_theme = 'sphinxdoc'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = u"Notas de Modelación y Simulación"
+html_title = u"Programación y Simulación en Python"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = u"Notas de Modelación y Simulación"
+html_short_title = u"Programación y Simulación en Python"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
