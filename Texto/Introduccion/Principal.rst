@@ -14,7 +14,7 @@ familiarice con ellas a través de una serie de ejercicios.
 .. toctree::
    :maxdepth: 2
 
-   Introduccion.rst
+   Instalacion.rst
    Primer programa.rst
    Tipos de datos.rst
    Funciones.rst
