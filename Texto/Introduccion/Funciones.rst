@@ -9,7 +9,7 @@ Funciones
 
    In [1]: from __future__ import division
 
-Como en cualquier otro lenguaje, en Python también es posible definir
+Como en cualquier otro lenguaje, en *Python* también es posible definir
 funciones, es decir, secuencias de enunciados que reciben ciertos datos,
 ejecutan algunas operaciones sobre ellos y devuelven un resultado.
 
@@ -65,12 +65,11 @@ En el último caso vemos que si intentamos pasarle a la función un argumento qu
 no puede ser procesado, Python simplemente retorna un error.
 
 **Ejercicios**
-  * Definir una función ``potencia`` que tome dos argumentos ``x,y`` y
-    devuelva
-
-    .. math::
-
-       x^y
+  .. _funcion-mediana:
+  
+  * Definir una función ``mediana`` que pueda calcular la :ref:`mediana
+    <mediana>` de cualquier lista, y aplicarla a la lista del ejemplo anterior
+    para comprobar.
 
   * Definir una función ``imprimir_doble`` que tome un argumento ``x`` y lo
     imprima dos veces, con un espacio entre el una palabra y la siguiente. Por
@@ -115,6 +114,13 @@ no puede ser procesado, Python simplemente retorna un error.
 
        In [2]: distancia([1,5], [2,2])
 
+  * Definir una función ``media_movil`` que calcule la i-ésima :ref:`media
+    móvil <media-movil>` de una lista ``li``, dado un periodo de tiempo ``t`` y
+    el valor ``i`` de la media móvil que se desee obtener.
+
+    Comparar que la función está devolviendo los valores correctos, con las
+    respuestas dadas en el ejercicio :ref:`anterior <media-movil>`.
+
   * .. _digitos:
     
     Definir una función ``digitos`` que tome un numero ``x`` y retorne los
@@ -136,16 +142,17 @@ no puede ser procesado, Python simplemente retorna un error.
 
        In [2]: digitos(99861)
 
-    *Sugerencia*: Utilizar los comandos de conversión entre tipos y el comando
-    ``map`` para aplicar una función a todos los elementos de una lista. Por
-    ejemplo, podemos usar ``map`` con ``cuadrado`` de la siguiente forma:
+    *Sugerencia*: Utilizar los comandos de conversión entre tipos de datos y el
+    comando ``map`` para aplicar una función a todos los elementos de una
+    lista. Por ejemplo, podemos usar ``map`` con ``cuadrado`` de la siguiente
+    forma:
 
     .. ipython::
        
-       In [1]: map(cuadrado, [2, 3, 4, 5]) 
+       In [1]: map(cuadrado, [2, 3, 4, 5])
 
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing return def suppress Out in elif else if range False li
-..  LocalWords:  True append while for class init self split Imagenes
+..  LocalWords:  True append while for class init self split Imagenes ref
