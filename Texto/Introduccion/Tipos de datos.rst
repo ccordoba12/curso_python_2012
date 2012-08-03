@@ -189,6 +189,8 @@ lista, así:
   * Construir una lista que tenga un ``1`` rodeado de dos listas, cada una con
     20 ceros.
 
+  .. _media-movil:
+
   * La media móvil es un concepto usado en economía para tratar de observar si
     existe una tendencia al alza o a la baja en los precios de las acciones de
     una empresa. Para ello, lo que hace es crear una serie de promedios de
@@ -604,7 +606,8 @@ podemos usar los siguientes métodos:
         {0: 3, 1: -1, 2: 5}
 
     Definir un diccionario para el polinomio :math:`4x^{7} - 2x^{3} + 3x` y
-    obtener cuál es su valor cuando :math:`x = 2`
+    obtener cuál es su valor cuando :math:`x = 2` (Tomado de *A Primer on
+    Scientific Programming with Python*, de Hans Petter Langtangen)
 
     *R./*::
 
