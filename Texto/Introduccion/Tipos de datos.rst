@@ -15,7 +15,7 @@ datos. Los más importantes son:
 Números enteros y flotantes
 ---------------------------
 
-Con los números uno puede realizar los siguientes tipos de operaciones:
+Con los números se pueden realizar los siguientes tipos de operaciones:
 
     =========   =========
     Operación   Resultado
@@ -43,11 +43,14 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
        1./2.
 
    Python brinda una alternativa más sencilla para poder olvidarse de si los
-   números con los que estamos trabajando son enteros o flotantes. Para ello
+   números con los que estemos trabajando son enteros o flotantes. Para ello
    debe introducirse la siguiente instrucción en la **primera línea** del
    archivo en el que estemos programando::
 
        from __future__ import division
+
+   lo que hará que el resultado de **todas** las divisiones sea el que se
+   esperaría si los números involucrados son flotantes.
 
 **Ejercicios**
     Realizar las siguientes operaciones
@@ -67,6 +70,11 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
     * Cuántos milímetros hay en la distancia de la Tierra a la Luna, que es de
       380.000 kilómetros?
 
+      .. note::
+
+         La notación científica en Python se introduce con una ``e``. Por
+         ejemplo: 1e6 = 1000000
+
     * Cuántos segundos hay en un siglo?
 
     * Cuál es el número más grande que puede calcularse con tres dígitos, los
@@ -80,12 +88,9 @@ Con los números uno puede realizar los siguientes tipos de operaciones:
 
       .. note::
 
-         Para interrumpir un cálculo en la consola debe oprimirse el botón
-         |kill_img| **Kill**. Después de hacerlo debe oprimirse el botón
-         |run_img| **Run** para reiniciarla.
-
-         .. |kill_img| image:: ../Imagenes/kill.png
-         .. |run_img| image:: ../Imagenes/run_small.png
+         Para interrumpir un cálculo en la Terminal de IPython, debe oprimirse
+         el la combinación de teclas Ctrl+C, o elegir la opción "Reinicia el
+         núcleo", que aparece en la esquina superior derecha de la terminal.
 
 
 .. _listas-label:
@@ -103,7 +108,7 @@ veremos más abajo). Un ejemplo de una lista en Python es:
 
 La operación más importante que se hace con las listas es la extracción de sus
 elementos en distintas posiciones. Es muy importante tener en cuenta que las
-listas en Python siempre empiezan con el índice 0, como los arreglos de C y
+listas en Python siempre empiezan con el índice ``0``, como los arreglos de C y
 C++.
 
 .. ipython::
@@ -113,8 +118,8 @@ C++.
    In [2]: li[3]
 
 Lo bueno de las listas en Python es que si usamos un índice más grande que
-*n-1*, donde *n* es el número de elementos, Python nos da un error (en lugar de
-darnos basura de la memoria)
+``n-1``, donde ``n`` es el número de elementos, Python nos da un error (en
+lugar de darnos basura de la memoria, como en C o C++)
 
 .. ipython::
 
@@ -160,22 +165,67 @@ que uno quiera hasta el final:
 
    In [1]: li[2:]
 
-o que se pare en un índice menos que el que se use como último:
+o lo opuesto: que la selección vaya desde el principio hasta un índice menos
+que el que se use como último:
 
 .. ipython::
 
-   In [2]: li[:-3]
+   In [2]: li[:4]
 
-Finalmente, pueden usarse las operaciones aritméticas + para concatenar dos
-listas, y * para repetir varias veces los elementos de una lista, así:
+Finalmente cabe decir que se pueden usar las operaciones aritméticas + para
+concatenar dos listas, y * para repetir varias veces los elementos de una
+lista, así:
 
 .. ipython::
 
    In [1]: [0, 4, 7] + [2, 3]
 
-   In [2]: [0, 1] * 4
+   In [2]: [0] * 4
 
 **Ejercicios**:
+  * Construir una lista que tenga ``100`` repeticiones de los números ``-1``,
+    ``0`` y ``1``, en ese orden exacto.
+
+  * Construir una lista que tenga un ``1`` rodeado de dos listas, cada una con
+    20 ceros.
+
+  * La media móvil es un concepto usado en economía para tratar de observar si
+    existe una tendencia al alza o a la baja en los precios de las acciones de
+    una empresa. Para ello, lo que hace es crear una serie de promedios de
+    distintos subconjuntos del conjunto de datos original.
+
+    Por ejemplo, si en siete días las acciones de una empresa tuvieron los
+    siguientes precios:
+
+      *Precios*: 11, 12, 13, 14, 15, 16, 17
+
+    Podemos calcular la media móvil, en periodos de cinco días, de la siguiente
+    forma:
+
+      *Primera media móvil de 5 días*: (11 + 12 + 13 + 14 + 15) / 5 = 13
+
+      *Segunda media móvil de 5 días*: (12 + 13 + 14 + 15 + 16) / 5 = 14
+
+      *Tercera media móvil de 5 días*: (13 + 14 + 15 + 16 + 17) / 5 = 15
+
+
+    Con esta descripción, encontrar de la cuarta, séptima y décima medias
+    móviles, en periodos de 10 días, para los siguientes precios de las
+    acciones de Intel registrados entre el 24 de Marzo y el 5 de Mayo de 2010::
+
+      intel = [22.27, 22.19, 22.08, 22.17, 22.18, 22.13, 22.23, 22.43, 22.24,\
+      22.29, 22.15, 22.39, 22.38, 22.61, 23.36, 24.05, 23.75, 23.83, 23.95,\
+      23.63, 23.82, 23.87, 23.65, 23.19, 23.10, 23.33, 22.68, 23.10, 22.40,\
+      22.17]
+
+   *R/*::
+
+     22.259, 22.613, 23.377
+
+   *Sugerencia* Utilizar las operaciones de rebanado descritas arriba.
+
+  .. _lista_ejemplo:
+
   * Calcular el promedio de la siguiente lista::
 
       li = [3, 18, 17, 44, 14, 12, 29, 19, 4, 6, 17, 7, 14, 6, 8, 17, 17, 21, 65,\
@@ -218,41 +268,6 @@ listas, y * para repetir varias veces los elementos de una lista, así:
     
     - Utilizar división entera en operaciones como :math:`\frac{n}{2}`, al
       momento de tomar los elementos correspondientes de ``li``.
-
-  * La media móvil es un concepto usado en economía para tratar de observar si
-    existe una tendencia al alza o a la baja en los precios de las acciones de
-    una empresa. Para ello, lo que hace es crear una serie de promedios de
-    distintos subconjuntos del conjunto de datos original.
-
-    Por ejemplo, si en siete días las acciones de una empresa tuvieron los
-    siguientes precios:
-
-      *Precios*: 11, 12, 13, 14, 15, 16, 17
-
-    Podemos calcular la media móvil, en periodos de cinco días, de la siguiente
-    forma:
-
-      *Primera media móvil de 5 días*: (11 + 12 + 13 + 14 + 15) / 5 = 13
-
-      *Segunda media móvil de 5 días*: (12 + 13 + 14 + 15 + 16) / 5 = 14
-
-      *Tercera media móvil de 5 días*: (13 + 14 + 15 + 16 + 17) / 5 = 15
-
-
-    Con esta descripción, encontrar de la cuarta, séptima y décima medias
-    móviles, en periodos de 10 días, para los siguientes precios de las
-    acciones de Intel registrados entre el 24 de Marzo y el 5 de Mayo de 2010::
-
-      intel = [22.27, 22.19, 22.08, 22.17, 22.18, 22.13, 22.23, 22.43, 22.24,\
-      22.29, 22.15, 22.39, 22.38, 22.61, 23.36, 24.05, 23.75, 23.83, 23.95,\
-      23.63, 23.82, 23.87, 23.65, 23.19, 23.10, 23.33, 22.68, 23.10, 22.40,\
-      22.17]
-
-   *R/*::
-
-     22.259, 22.613, 23.377
-
-   *Sugerencia* Utilizar las operaciones de rebanado descritas arriba.
 
    
 
@@ -309,34 +324,16 @@ punto, veremos que aparece:
    
    @verbatim
    In [5]: fruta.
-   fruta.__add__                      fruta.__mod__                      fruta.decode                       fruta.partition
-   fruta.__class__                    fruta.__mul__                      fruta.encode                       fruta.replace
-   fruta.__contains__                 fruta.__ne__                       fruta.endswith                     fruta.rfind
-   fruta.__delattr__                  fruta.__new__                      fruta.expandtabs                   fruta.rindex
-   fruta.__doc__                      fruta.__reduce__                   fruta.find                         fruta.rjust
-   fruta.__eq__                       fruta.__reduce_ex__                fruta.format                       fruta.rpartition
-   fruta.__format__                   fruta.__repr__                     fruta.index                        fruta.rsplit
-   fruta.__ge__                       fruta.__rmod__                     fruta.isalnum                      fruta.rstrip
-   fruta.__getattribute__             fruta.__rmul__                     fruta.isalpha                      fruta.split
-   fruta.__getitem__                  fruta.__setattr__                  fruta.isdigit                      fruta.splitlines
-   fruta.__getnewargs__               fruta.__sizeof__                   fruta.islower                      fruta.startswith
-   fruta.__getslice__                 fruta.__str__                      fruta.isspace                      fruta.strip
-   fruta.__gt__                       fruta.__subclasshook__             fruta.istitle                      fruta.swapcase
-   fruta.__hash__                     fruta._formatter_field_name_split  fruta.isupper                      fruta.title
-   fruta.__init__                     fruta._formatter_parser            fruta.join                         fruta.translate
-   fruta.__le__                       fruta.capitalize                   fruta.ljust                        fruta.upper
-   fruta.__len__                      fruta.center                       fruta.lower                        fruta.zfill
-   fruta.__lt__                       fruta.count                        fruta.lstrip 
+   fruta.capitalize  fruta.endswith    fruta.isalnum     fruta.istitle     fruta.lstrip      fruta.rjust       fruta.splitlines  fruta.translate
+   fruta.center      fruta.expandtabs  fruta.isalpha     fruta.isupper     fruta.partition   fruta.rpartition  fruta.startswith  fruta.upper
+   fruta.count       fruta.find        fruta.isdigit     fruta.join        fruta.replace     fruta.rsplit      fruta.strip       fruta.zfill
+   fruta.decode      fruta.format      fruta.islower     fruta.ljust       fruta.rfind       fruta.rstrip      fruta.swapcase    
+   fruta.encode      fruta.index       fruta.isspace     fruta.lower       fruta.rindex      fruta.split       fruta.title  
 
 .. warning::
 
-   1. Los métodos que empiezan con dos guiones abajo (``__``) son métodos
-      internos de la clase, es decir que no han sido diseñados para ser usados
-      directamente por el programador, y por tanto no hay que tenerlos en
-      cuenta.
-
-   2. **Ninguno** de estos métodos **modifican** a la cadena original, pues
-      como ya dijimos, las cadenas son inmutables.
+   **Ninguno** de estos métodos **modifican** a la cadena original, pues
+   como ya dijimos, las cadenas son inmutables.
 
 Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:
 
@@ -379,8 +376,8 @@ Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:
 
 **Ejercicios**
   * Tomar la variable ``dulce``, hacer que se repita 50 veces, y separar las
-    palabras con un espacio, de tal forma que obtengamos algo como, pero
-    **sin** generar un espacio al final.
+    palabras con un espacio, de tal forma que obtengamos algo como lo
+    siguiente, pero **sin** generar un espacio al final.
 
     ``'bocadillo bocadillo ...'``
 
@@ -449,7 +446,7 @@ de tupla sería:
 
 .. ipython::
 
-   In [3]: tp = (1,2,3,4,'a')
+   In [3]: tp = (1, 2, 3, 4, 'a')
 
    In [6]: tp[3]
 
@@ -476,6 +473,24 @@ Pero no podemos modificar sus valores mediante nuevas asignaciones:
 
       In [4]: tp1
 
+**Ejercicios**
+  * ¿Es posible calcularle el promedio a la lista de :ref:`este
+    <lista_ejemplo>` ejercicio si está definida como una tupla?
+
+  * Crear una tupla que tenga un sólo elemento
+
+  * ¿Qué efecto tiene esta operación::
+
+        x, y, z = tp1
+
+    dado el valor de tp1 definido arriba?
+
+    ¿Por qué, en cambio, esta operación falla?::
+
+        u, v = tp1
+
+  * ¿Cómo se calcula el máximo de una tupla?
+
 
 Diccionarios
 ------------
@@ -483,17 +498,17 @@ Diccionarios
 Los diccionarios son una estructura de datos muy usada en Python. Ya hemos
 visto que los elementos de listas, cadenas y tuplas están indexados por
 números, es decir, li[0], fruta[1] o tp[2]. En su lugar, los diccionarios están
-indexados por *claves* (o keys en inglés), que pueden ser no sólo números, sino
-también cadenas, tuplas o cualquier otro tipo de datos que sea
+indexados por *claves* (o *keys* en inglés), que pueden ser no sólo números,
+sino también cadenas, tuplas o cualquier otro tipo de datos que sea
 **inmutable**.
 
 Lo interesante de los diccionarios es que nos sirven para relacionar dos tipos
-distintos de datos: las claves con sus *valores* (o values en inglés), que
+distintos de datos: las claves con sus *valores* (o *values* en inglés), que
 pueden ser mutables o inmutables.
 
-Por ejemplo, supongamos que queremos guardar las contraseñas que varias
-personas están utilizando para entrar a un servicio web. Esto lo podemos hacer
-muy fácilmente con un diccionario, en el que las claves sean el nombre de cada
+Por ejemplo, supongamos que queremos guardar los códigos que varias personas
+están utilizando para entrar a un servicio web. Esto lo podemos hacer muy
+fácilmente con un diccionario, en el que las claves sean el nombre de cada
 persona y sus valores sean las contraseñas que estén usando.
 
 Para ello, en Python podemos escribir algo como:
@@ -506,8 +521,8 @@ Como podemos ver, los diccionarios se definen con llaves (``{ }``). Las claves
 son los elementos que están a la izquierda de los ``:``, mientras que los que
 están a la derecha son los *valores*.
 
-Como ya se mencionó, para extraer un elemento del diccionario es necesario usar
-alguna de sus claves. En nuestro caso, las claves son los nombres de las
+Como ya se mencionó, para extraer un elemento de un diccionario es necesario
+usar alguna de sus claves. En nuestro caso, las claves son los nombres de las
 personas. Por ejemplo, para extraer el código que le corresponde a ``Carlos``
 debemos escribir:
 
@@ -573,6 +588,29 @@ podemos usar los siguientes métodos:
 
    In [4]: codigos.values()
 
+**Ejercicios**
+  * Definir un diccionario que represente una función que sólo puede tomar los
+    valores del producto cartesiano de los conjuntos :math:`\{0\}` con
+    :math:`\{1\}` (i.e. :math:`\{0, 0\}, \{0, 1\}`, etc), y que retorna el
+    segundo valor de cada tupla.
+
+  * Una forma eficiente de definir y evaluar polinomios, es a través de un
+    diccionario. En éste las claves corresponden a las potencias del polinomio
+    y sus valores al coeficiente de la potencia correspondiente.
+
+    Por ejemplo, el polinomio :math:`5x^{2} - x + 3` corresponde al
+    diccionario::
+    
+        {0: 3, 1: -1, 2: 5}
+
+    Definir un diccionario para el polinomio :math:`4x^{7} - 2x^{3} + 3x` y
+    obtener cuál es su valor cuando :math:`x = 2`
+
+    *R./*::
+
+        502
+
+     
 
 Conversión entre tipos de datos
 -------------------------------
@@ -632,3 +670,4 @@ siguientes comandos:
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing return def suppress Out in elif else if range False li
 ..  LocalWords:  True append while for class init self split Imagenes label
+..  LocalWords:  IPython
