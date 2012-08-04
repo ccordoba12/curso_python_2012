@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Instalación y uso &mdash; Programación y Simulación en Python</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" />
+    <link rel="up" title="Introducción" href="Principal.html" />
+    <link rel="next" title="Primer programa en Python" href="Primer programa.html" />
+    <link rel="prev" title="Introducción" href="Principal.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="Primer programa.html" title="Primer programa en Python"
+             accesskey="N">siguiente</a></li>
+        <li class="right" >
+          <a href="Principal.html" title="Introducción"
+             accesskey="P">anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" accesskey="U">Introducción</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Instalación y uso</a><ul>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#macos-x">MacOS X</a></li>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#como-utilizar-spyder">Como utilizar Spyder</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="Principal.html"
+                        title="Capítulo anterior">Introducción</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="Primer programa.html"
+                        title="Próximo capítulo">Primer programa en Python</a></p>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="instalacion-y-uso">
+<h1>Instalación y uso<a class="headerlink" href="#instalacion-y-uso" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La forma más fácil de instalar <em>Python</em> en Windows es descargando <a class="reference external" href="http://www.pythonxy.com/">Python(x,y)</a>, un programa que además instala las librerías
+científicas más importantes del lenguaje. Durante el curso vamos a usar algunas
+de ellas para desarrollar varias simulaciones.</p>
+<p>Para instalar <em>Spyder</em> deben seguirse estos pasos:</p>
+<ol class="arabic simple">
+<li>Descargar e instalar <em>IPython</em> usando este <a class="reference external" href="https://github.com/downloads/ipython/ipython/ipython-0.13.py2-win32.exe">archivo</a>.</li>
+<li>Descargar e instalar <em>Spyder</em> usando este archivo.</li>
+</ol>
+</div>
+<div class="section" id="macos-x">
+<h2>MacOS X<a class="headerlink" href="#macos-x" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Aunque <em>Python</em> viene pre-instalado en las últimas versiones de Mac, no cuenta
+con todas las librerías necesarias para realizar computación científica. Por
+ello se recomienda descargar el DMG de <em>Spyder</em>, que aparece en este <a class="reference external" href="http://code.google.com/p/spyderlib/downloads/list">sitio web</a>. y que viene con la
+versión más reciente de Python y de las librerías mencionadas.</p>
+</div>
+<div class="section" id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las personas que trabajen en Linux deben seguir los pasos que aparecen a
+continuación, los cuales son válidos si están usando Ubuntu o cualquier otra
+distribución basada en Ubuntu o Debian:</p>
+<ol class="arabic">
+<li><p class="first">Ejecutar el siguiente comando en una terminal:</p>
+<div class="highlight-python"><pre>sudo apt-get install python-nose</pre>
+</div>
+</li>
+<li><p class="first">Descargar este <a class="reference external" href="http://www.fperez.org/py4science/workshop_checklist.py">archivo</a> de Python. (Para
+ello hacer click derecho sobre el enlace y elegir la opción <em>Guardar
+enlace/vínculo como...</em> )</p>
+</li>
+<li><p class="first">Abrir una terminal en el directorio en que fue descargado el archivo
+anterior.</p>
+</li>
+<li><p class="first">Ejecutar el siguiente comando:</p>
+<div class="highlight-python"><pre>python workshop_checklist.py</pre>
+</div>
+</li>
+<li><p class="first">Después de que haya concluido de ejecutarse este archivo (puede tomar varios
+minutos), ejecutar estos comandos:</p>
+<div class="highlight-python"><pre>sudo apt-get install virtualenvwrapper
+
+sudo apt-get install spyder
+
+sudo apt-get install mercurial
+
+mkvirtualenv --system-site-packages spyder
+
+workon spyder
+
+pip install ipython
+
+pip install hg+https://code.google.com/p/spyderlib/
+
+spyder&amp;</pre>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="como-utilizar-spyder">
+<h2>Como utilizar Spyder<a class="headerlink" href="#como-utilizar-spyder" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><a class="reference external" href="http://code.google.com/p/spyderlib/">Spyder</a> es un Entorno de Desarrollo Integrado (o IDE por sus siglas en inglés)
+que ha sido creado para hacer más sencilla y agradable la creación de programas
+científicos en <em>Python</em>. Este es el programa que vamos a utilizar para aprender
+<em>Python</em> y para realizar varios tipos de simulaciones.</p>
+<p>Al iniciar <em>Spyder</em> veremos que está compuesto de tres paneles, cada uno de los
+cuales consta de uno o más componentes. En la mitad izquierda se encuentra el
+<strong>Editor</strong>, que es el componente que se utiliza para escribir el código. Como
+puede verse de la imagen, el Editor resalta el código con colores, y completa
+nombres de funciones y variables, al oprimir la combinación de teclas
+<em>Ctrl+Espacio</em>. Además, el Editor reporta errores de sintaxis y omisiones
+comunes, para que puedan ser corregidas por el programador antes de intentar
+correr su código.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure align-center">
+<img alt="../../_images/editor.png" src="../../_images/editor.png" />
+<p class="caption">Editor con varios archivos abiertos</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>La parte derecha está dividida en dos paneles, cada uno de las cuales contiene
+varios componentes organizados en pestañas. En la parte de abajo se encuentra
+la <strong>Terminal</strong>, que sirve para correr el código que se haya escrito en el
+Editor. Para ello se utiliza la tecla <em>F5</em>, la cual (si el archivo se corre por
+primera vez) abre un cuadro de diálogo que le permite al usuario elegir entre
+varias alternativas de ejecución. Además, la Terminal permite interactuar con
+las variables del programa (redefinirlas o graficarlas) y correr porciones
+código de código que se encuentren en el Editor, para lo cual se seleccione la
+porción deseada y se oprime la tecla <em>F9</em>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure align-center">
+<img alt="../../_images/consola.png" src="../../_images/consola.png" />
+<p class="caption">Terminal</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>A su lado se encuentra el <strong>Historial de Comandos</strong>, que almacena la historia
+de todos los comandos introducidos en la Terminal.</p>
+<p>Por otro lado, en la parte superior derecha está el <strong>Inspector de Objetos</strong>
+que muestra la ayuda asociada a la función o comando que se desee utilizar en
+el momento, por medio de la combinación de teclas <em>Ctrl+I</em>. Este componente
+también se actualiza automáticamente al escribir un paréntesis después del
+nombre de un comando, por lo que es bastante útil.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure align-center">
+<img alt="../../_images/object_inspector.png" src="../../_images/object_inspector.png" />
+<p class="caption">Inspector de Objetos</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>A su lado se encuentra el <strong>Explorador de Variables</strong>, que permite revisar,
+editar y graficar las variables de los programas que se hayan corrido en la
+Terminal.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure align-center">
+<img alt="../../_images/variable_explorer.png" src="../../_images/variable_explorer.png" />
+<p class="caption">Explorador de Variables</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="Primer programa.html" title="Primer programa en Python"
+             >siguiente</a></li>
+        <li class="right" >
+          <a href="Principal.html" title="Introducción"
+             >anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" >Introducción</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Carlos Cordoba.
+      Creado con <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

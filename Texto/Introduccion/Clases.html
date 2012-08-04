@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Clases &mdash; Programación y Simulación en Python</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Clases</a><ul>
+<li><a class="reference internal" href="#definicion-e-inicializacion">Definición e inicialización</a></li>
+<li><a class="reference internal" href="#metodos">Métodos</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="clases">
+<h1>Clases<a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Python es un muy buen lenguaje orientado a objetos (como Java) en el que es muy
+sencillo definir y trabajar con clases. En las secciones anteriores hemos
+tenido la oportunidad de utilizar los métodos de cadenas y listas para resolver
+varios ejercicios, lo que indica que en su implementación ambos tipos son
+clases, cosa que también es cierta para los demás (aún los números son
+clases!).</p>
+<p>En esta sección veremos como definir nuestras propias clases y vamos a aprender
+cómo asociarle sus correspondientes atributos y métodos.</p>
+<div class="section" id="definicion-e-inicializacion">
+<h2>Definición e inicialización<a class="headerlink" href="#definicion-e-inicializacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En general, una clase es un objeto en el que se reúnen varias funciones
+(llamadas métodos) y variables (llamadas atributos), con el objeto de que los
+métodos puedan compartir un mismo conjunto de datos, sobre el que puedan operar
+de cierta forma para llegar al resultado que desea el usuario.</p>
+<p>En Python las clases se definen con la palabra <tt class="docutils literal"><span class="pre">class</span></tt> y se inicializan
+usando el método <tt class="docutils literal"><span class="pre">__init__</span></tt>, que es una función cuyo primer argumento
+<strong>siempre</strong> debe ser la palabra <tt class="docutils literal"><span class="pre">self</span></tt>. Los argumentos que vengan después de
+<tt class="docutils literal"><span class="pre">self</span></tt> van a usarse para darle valores iniciales a los atributos de la
+clase. Miremos como se hace con un ejemplo:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">NumeroComplejo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">img</span> <span class="o">=</span> <span class="n">i</span>
+</pre></div>
+</div>
+<p>Como se infiere de su nombre, esta clase se ha definifo para representar
+números complejos, por lo que debe tener dos atributos: una parte real y una
+parte imaginaria. En este caso, éstos están dados por <tt class="docutils literal"><span class="pre">real</span></tt> e <tt class="docutils literal"><span class="pre">img</span></tt>,
+respectivamente.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Es muy importante notar que para diferenciar los atributos de una clase de
+las variables locales, en Python todo atributo debe ir precedido de
+<tt class="docutils literal"><span class="pre">self.</span></tt>, como en <tt class="docutils literal"><span class="pre">self.real</span></tt> y <tt class="docutils literal"><span class="pre">self.img</span></tt>.</p>
+</div>
+<p>Además de <tt class="docutils literal"><span class="pre">self</span></tt>, podemos ver que <tt class="docutils literal"><span class="pre">__init__</span></tt> recibe los argumentos <tt class="docutils literal"><span class="pre">r</span></tt> e
+<tt class="docutils literal"><span class="pre">i</span></tt>, que se utilizan para inicializar los atributos mencionados.</p>
+<p>Para crear una instancia de la clase es necesario llamarla por su nombre, con
+el número de argumentos declarados en <tt class="docutils literal"><span class="pre">__init__</span></tt> (sin contar <tt class="docutils literal"><span class="pre">self</span></tt>) y
+asignársela a una variable, así:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">z</span> <span class="o">=</span> <span class="n">NumeroComplejo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Para comprobar que la inicialización ha funcionado correctamente, podemos
+inspeccionar los atributos de la clase directamente:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">z</span><span class="o">.</span><span class="n">real</span>
+<span class="gr">Out[2]: </span><span class="mi">1</span>
+
+<span class="gp">In [3]: </span><span class="n">z</span><span class="o">.</span><span class="n">img</span>
+<span class="gr">Out[3]: </span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>De esta forma puede certificarse que, efectivamente, <tt class="docutils literal"><span class="pre">z</span></tt> es un número
+complejo con parte real <tt class="docutils literal"><span class="pre">1</span></tt> y parte imaginaria <tt class="docutils literal"><span class="pre">2</span></tt>.</p>
+<p>Una vez definida una instancia, también es posible modificar sus atributos por
+medio de asignación, así:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">z</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="gp">In [5]: </span><span class="n">z</span><span class="o">.</span><span class="n">real</span>
+<span class="gr">Out[5]: </span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metodos">
+<h2>Métodos<a class="headerlink" href="#metodos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Como ya dijimos, los métodos son funciones asociadas a una clase que operan
+sobre sus atributos. Por ejemplo, a la clase anterior le podemos añadir un
+método que calcule el módulo de un número complejo con la fórmula:</p>
+<div class="math">
+<p><img src="../../_images/math/9c8cfea5b157f92f71104cb331dc758f9e9f71a2.png" alt="\left| z \right|=\sqrt{\textrm{Re}\left(z\right)^{2}+\textrm{Im}\left(z\right)^{2}}"/></p>
+</div><p>Para ello redefinimos <tt class="docutils literal"><span class="pre">NumeroComplejo</span></tt> para agregarle un nuevo método
+<tt class="docutils literal"><span class="pre">modulo</span></tt>, así:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">NumeroComplejo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">img</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">def</span> <span class="nf">modulo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">img</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Al igual que para <tt class="docutils literal"><span class="pre">__init__</span></tt>, el primer argumento de todo método debe ser
+<tt class="docutils literal"><span class="pre">self</span></tt>, para que indicar que hace parte de la clase.</p>
+</div>
+<p>Con ello obtenemos el siguiente resultado para el módulo del número complejo
+que habíamos definido arriba:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">z</span><span class="o">.</span><span class="n">modulo</span><span class="p">()</span>
+<span class="gr">Out[6]: </span><span class="mf">2.23606797749979</span>
+</pre></div>
+</div>
+<p>Aquí puede parecer un poco extraño que <tt class="docutils literal"><span class="pre">modulo</span></tt> se llame sin argumentos,
+cuando al definirlo en la clase se le había pasado a <tt class="docutils literal"><span class="pre">self</span></tt> como primer
+argumento. Esto se debe a que <tt class="docutils literal"><span class="pre">self</span></tt> no es un argumento en sí, sino que sólo
+se usa para señalar que una función es un método de la clase, como ya se
+mencionó.</p>
+<p>Otra operación que puede hacerse con números complejos es obtener su
+<em>conjugado</em>. El conjugado de un complejo <img class="math" src="../../_images/math/b13f21416d84e13708696f34dea81026cda583c9.png" alt="z"/>, es un nuevo número complejo
+que se denota <img class="math" src="../../_images/math/e2af86094c2d1dd57039c8e83bcc4193cf421714.png" alt="\bar{z}"/> y se define como</p>
+<div class="math">
+<p><img src="../../_images/math/fe5c8fd511a321a23d412a402b3b3a3cae594a9a.png" alt="z=a+ib \longrightarrow \bar{z}=a-ib"/></p>
+</div><p>Para obtener el conjugado podemos entonces agregar un nuevo método a nuestra
+clase, de la siguiente forma:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">NumeroComplejo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">img</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">def</span> <span class="nf">modulo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">img</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">conjugado</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">return</span> <span class="n">NumeroComplejo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">img</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Para calcular el conjugado de <tt class="docutils literal"><span class="pre">z</span></tt> sólo debemos llamar el método:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">z1</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">conjugado</span><span class="p">()</span>
+
+<span class="gp">In [8]: </span><span class="n">z1</span><span class="o">.</span><span class="n">real</span>
+<span class="gr">Out[8]: </span><span class="mi">1</span>
+
+<span class="gp">In [9]: </span><span class="n">z1</span><span class="o">.</span><span class="n">img</span>
+<span class="gr">Out[9]: </span><span class="o">-</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Finalmente, vamos a añadir una función que retorne el producto de dos números
+complejos. Dados dos números</p>
+<div class="math">
+<p><img src="../../_images/math/f948c2b195ed02e1ef535c230d8f0bc06fd1f712.png" alt="z = a + ib
+
+w = c + id"/></p>
+</div><p>su producto está dado por:</p>
+<div class="math">
+<p><img src="../../_images/math/a3cc51f51a37332a953f4c66b814a0320f3d5caf.png" alt="z \times w = (ac - bd) + i(ad + bc)"/></p>
+</div><p>Para ello podemos escribir el siguiente método, llamado <tt class="docutils literal"><span class="pre">producto</span></tt>, en
+nuestra clase:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">NumeroComplejo</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">img</span> <span class="o">=</span> <span class="n">i</span>
+    <span class="k">def</span> <span class="nf">modulo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">img</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">conjugado</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="k">return</span> <span class="n">NumeroComplejo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">producto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">*</span> <span class="n">w</span><span class="o">.</span><span class="n">real</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">img</span> <span class="o">*</span> <span class="n">w</span><span class="o">.</span><span class="n">img</span>
+         <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">real</span> <span class="o">*</span> <span class="n">w</span><span class="o">.</span><span class="n">img</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">img</span> <span class="o">*</span> <span class="n">w</span><span class="o">.</span><span class="n">real</span>
+         <span class="k">return</span> <span class="n">NumeroComplejo</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">w</span> <span class="o">=</span> <span class="n">NumeroComplejo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">x</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">producto</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+<span class="gp">In [12]: </span><span class="n">x</span><span class="o">.</span><span class="n">real</span>
+<span class="gr">Out[12]: </span><span class="mi">18</span>
+
+<span class="gp">In [13]: </span><span class="n">x</span><span class="o">.</span><span class="n">img</span>
+<span class="gr">Out[13]: </span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Para comprobar que <tt class="docutils literal"><span class="pre">producto</span></tt> está funcionando correctamente podemos usar la
+siguiente fórmula, que relaciona el módulo de un número complejo con su
+conjugado:</p>
+<div class="math">
+<p><img src="../../_images/math/50e3717374cee51ed41982953957771b7eb0ac19.png" alt="\left| z \right| = \sqrt{\textrm{Re} \left( z \times \bar{z} \right)}"/></p>
+</div><div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [14]: </span><span class="n">z2</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">producto</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">conjugado</span><span class="p">())</span>
+
+<span class="gp">In [15]: </span><span class="p">(</span><span class="n">z2</span><span class="o">.</span><span class="n">real</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="n">z</span><span class="o">.</span><span class="n">modulo</span><span class="p">()</span>
+<span class="gr">Out[15]: </span><span class="bp">True</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><strong>Ejercicios</strong></dt>
+<dd><ul class="first last">
+<li><p class="first">Definir una clase <tt class="docutils literal"><span class="pre">Vector3D</span></tt> para representar vectores en 3
+dimensiones, con las siguientes características:</p>
+<ol class="arabic">
+<li><p class="first">Tres atributos: <tt class="docutils literal"><span class="pre">x</span></tt>, <tt class="docutils literal"><span class="pre">y</span></tt>, y <tt class="docutils literal"><span class="pre">z</span></tt>, usados para guardar sus
+coordenadas.</p>
+</li>
+<li><p class="first">Un método llamado <tt class="docutils literal"><span class="pre">punto</span></tt> que calcule el producto punto entre dos
+vectores, mediante la fórmula:</p>
+<div class="math">
+<p><img src="../../_images/math/9e90c1a5797b89bfbc55ede43c2d7ef9df0ba2a1.png" alt="\vec{v} \cdot \vec{w} = v_{x}w_{x} + v_{y}w_{y} + v_{z}w_{z}"/></p>
+</div></li>
+</ol>
+<blockquote>
+<div><p>Por ejemplo, para los dos vectores definidos a continuación:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="n">v</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [17]: </span><span class="n">w</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Su producto punto es:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="n">v</span><span class="o">.</span><span class="n">punto</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="gr">Out[18]: </span><span class="mi">5</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">Un método llamado <tt class="docutils literal"><span class="pre">cruz</span></tt> que calcule el producto cruz entre dos
+vectores mediante la fórmula:</p>
+<div class="math">
+<p><img src="../../_images/math/aa8836615186969ad66c15cbb07f46e522635f80.png" alt="\vec{v} \times \vec{w} = \left(v_{y}w_{z}-v_{z}w_{y}\right)\hat{i} -
+\left(v_{x}w_{z}-v_{z}w_{x}\right)\hat{j} + \left(v_{x}w_{y}-
+v_{y}w_{x}\right)\hat{k}"/></p>
+</div><p>Por ejemplo, para los vectores definidos arriba el producto
+<img class="math" src="../../_images/math/5c0b3389754f5b3706b5ac606a8fbc24fefac4e9.png" alt="\vec{v} \times \vec{w}"/> es igual a:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">u1</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">cruz</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+<span class="gp">In [20]: </span><span class="n">u1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">u1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">u1</span><span class="o">.</span><span class="n">z</span>
+<span class="gr">Out[20]: </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Mientras que <img class="math" src="../../_images/math/1f06e7a83842817add132a3ddd9ab3ec6acbcefe.png" alt="\vec{w} \times \vec{v}"/> es:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="n">u2</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">cruz</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<span class="gp">In [22]: </span><span class="n">u2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">u2</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">u2</span><span class="o">.</span><span class="n">z</span>
+<span class="gr">Out[22]: </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">Redefinir la clase anterior para que en lugar de los atributos, <tt class="docutils literal"><span class="pre">x</span></tt>,
+<tt class="docutils literal"><span class="pre">y</span></tt>, y <tt class="docutils literal"><span class="pre">z</span></tt>, tenga uno sólo llamado <tt class="docutils literal"><span class="pre">coord</span></tt>, que sea una lista de tres
+elementos. También redefinir los métodos según esto.</p>
+<p><em>Sugerencia</em>: En el método <tt class="docutils literal"><span class="pre">__init__</span></tt> revisar que la lista que se va a
+guardar en <tt class="docutils literal"><span class="pre">coord</span></tt> tenga <strong>exactamente</strong> tres elementos. Si tiene más o
+menos, asignarle a <tt class="docutils literal"><span class="pre">coord</span></tt> una lista vacía.</p>
+</li>
+<li><p class="first">Definir una clase <tt class="docutils literal"><span class="pre">Tiempo</span></tt> para representar una hora del día, que tenga
+las siguientes condiciones (Tomado de <em>Aprenda a pensar como un programador
+con Python</em>):</p>
+<ol class="arabic">
+<li><p class="first">Tres atributos: <tt class="docutils literal"><span class="pre">h</span></tt>, <tt class="docutils literal"><span class="pre">m</span></tt> y <tt class="docutils literal"><span class="pre">s</span></tt>, para guardar las horas, minutos y
+segundos.</p>
+</li>
+<li><p class="first">Un método llamado <tt class="docutils literal"><span class="pre">imprimir_tiempo</span></tt> que imprima el tiempo almacenado
+en una instancia, de la siguiente forma:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">t1</span> <span class="o">=</span> <span class="n">Tiempo</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [24]: </span><span class="n">t1</span><span class="o">.</span><span class="n">imprimir_tiempo</span><span class="p">()</span>
+<span class="go">16:07:01</span>
+
+<span class="gp">In [25]: </span><span class="n">t2</span> <span class="o">=</span> <span class="n">Tiempo</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+
+<span class="gp">In [26]: </span><span class="n">t2</span><span class="o">.</span><span class="n">imprimir_tiempo</span><span class="p">()</span>
+<span class="go">02:06:32</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Un método <tt class="docutils literal"><span class="pre">sumar</span></tt> que sume dos tiempos diferentes.</p>
+<p><em>Sugerencias</em>:</p>
+<ul>
+<li><p class="first">Sumar cada atributo por separado, es decir, segundo con segundos,
+minutos con minutos y horas con horas.</p>
+</li>
+<li><p class="first">Para obtener el resultado de los segundos y los minutos, la suma debe
+realizarse módulo 60. Por ejemplo, si un Tiempo tiene 50 segundos y
+otra 15, su suma <strong>no</strong> debe darnos 65 sino 5, lo que se obtiene
+como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="mi">50</span> <span class="o">+</span> <span class="mi">15</span><span class="p">)</span><span class="o">%</span><span class="mi">60</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>Para las horas, tomar la suma módulo 24.</p>
+</li>
+<li><p class="first">Verificar si la suma de los segundos, <strong>sin</strong> tomar el módulo, es
+mayor o igual a <tt class="docutils literal"><span class="pre">60</span></tt>, y si lo es, incrementar en <tt class="docutils literal"><span class="pre">1</span></tt> el valor de
+los minutos. Tener en cuenta lo mismo para la suma de los minutos y el
+valor de las horas.</p>
+</li>
+</ul>
+<p>Un ejemplo de este método es:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">t1</span> <span class="o">=</span> <span class="n">Tiempo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+<span class="gp">In [28]: </span><span class="n">t2</span> <span class="o">=</span> <span class="n">Tiempo</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+
+<span class="gp">In [29]: </span><span class="n">t3</span> <span class="o">=</span> <span class="n">t1</span><span class="o">.</span><span class="n">sumar</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+
+<span class="gp">In [30]: </span><span class="n">t3</span><span class="o">.</span><span class="n">imprimir_tiempo</span><span class="p">()</span>
+<span class="go">03:31:25</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Carlos Cordoba.
+      Creado con <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
