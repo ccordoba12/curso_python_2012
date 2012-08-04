@@ -9,7 +9,7 @@ Estructuras de Control
 
    In [1]: from __future__ import division
 
-A continuación vamos a describir las estructuras de control más importantes en
+En esta sección vamos a describir las estructuras de control más importantes en
 Python:
 
 El condicional (if)
@@ -143,7 +143,7 @@ respectivamente.
 
        In [5]: 25%6
 
-  * Generalizar la función anterior en una función llamada
+  * Generalizar la función anterior como una nueva función llamada
     ``es_divisible_entre_n(x, n)`` que tome dos números enteros e imprima si el
     primero es divisible entre el segundo, así: (Tomado de *Aprenda a pensar
     como un programador con Python*)
@@ -217,23 +217,23 @@ Observemos algunos ejemplos:
       ...:
 
 ``range`` es un comando que muy a menudo se utiliza junto a los ciclos ``for``,
-pues sirve para generar una lista con todos los números desde 0 hasta *n*-1,
-donde *n* es el valor que recibe. También puede usarse con dos valores, uno
-como límite inferior y el otro como límite superior, así:
+pues sirve para generar una lista con todos los números desde 0 hasta cierto
+valor, . También puede usarse con dos valores, uno como límite inferior y el
+otro como límite superior, así:
 
 .. ipython::
 
-   In [1]: range(1, 20)
+   In [1]: range(10)
+
+   In [2]: range(1, 20)
       
-   In [2]: range(7, 25)
+   In [3]: range(7, 25)
 
 **Ejercicios**:
   * Construir un ciclo ``for`` que imprima todos los números pares de 1 a 100.
 
-    *Sugerencia*: Utilizar el operador módulo (``%``) y un ``if``.
-
-  * Definir una función ``es_primo(x)`` que tome un número ``x`` y verifique si
-    es divisible entre todos los números menores a ``x``. Si lo es, entonces debe
+  * Definir una función ``es_primo`` que tome un número ``x`` y verifique si es
+    divisible entre todos los números menores a ``x``. Si lo es, entonces debe
     retornar ``False`` y si no ``True``. Por ejemplo:
 
     .. ipython::
@@ -271,7 +271,7 @@ como límite inferior y el otro como límite superior, así:
     divisible entre todos ellos? ¿Hasta qué número es en realidad necesario
     revisar?
 
-    Para ello, definir una nueva función ``es_primo_veloz(x)`` y comparar los
+    Para ello, definir una nueva función ``es_primo_veloz`` y comparar los
     tiempos de ejecución entre ella y ``es_primo`` usando el comando
     ``%timeit`` en la consola, así:
 
@@ -292,7 +292,7 @@ como límite inferior y el otro como límite superior, así:
 
        In [2]: %timeit es_primo_veloz(600)
 
-  * Definir una función ``rango_intercuartil(li)`` que calcule el rango
+  * Definir una función ``rango_intercuartil`` que calcule el rango
     intercuartil de una lista. Recordar que éste se define como:
 
     .. math::
@@ -344,20 +344,8 @@ como límite inferior y el otro como límite superior, así:
 
     *Sugerencias*:
     
-    - Definir primero una función ``mediana(li)`` que calcule la mediana de una
-      lista, de la misma forma en que se hizo en el :ref:`ejercicio <mediana>`
-      de la sección de :ref:`Listas <listas-label>`. La mediana de la
-      lista anterior, por ejemplo, es:
-
-      .. ipython::
-         :suppress:
-
-         In [1]: mediana = median
-
-      .. ipython::
-         
-         In [1]: mediana(li)
-      
+    - Utilizar la función ``mediana`` definida en :ref:`uno <funcion-mediana>`
+      de los ejercicios de la sección anterior.
 
     - Dividir la lista original en dos listas ``li1`` y ``li2`` que contengan
       los elementos menores y mayores a la mediana, respectivamente, y
@@ -368,8 +356,14 @@ como límite inferior y el otro como límite superior, así:
       listas vacías y utilizar el método ``append`` de cada una para añadirles
       los elementos correspondientes.
 
-  * Definir una función ``desv_est(li)`` que calcule la desviación estándar de
-    una lista, usando la fórmula:
+  * Definir una función ``medias_moviles`` que calcule todas las medias móviles
+    de una lista ``li``, dado un periodo ``t``.
+
+    ¿Qué puede decirse sobre las acciones de Intel en el ejemplo :ref:`anterior
+    <media-movil>`?
+
+  * Definir una función ``desv_est`` que calcule la desviación estándar de una
+    lista, usando la fórmula:
 
     .. math::
 
@@ -434,6 +428,10 @@ Miremos un par de ejemplos:
    como se hace en C o C++. Otras abreviaciones que funcionan en Python son:
    ``-=``, ``*=``, ``/=``, y ``%=``.
 
+   .. note::
+
+      ¿Cuál es el efecto de ``%=`` en un asignación abreviada?
+
 2. En este ejemplo vamos a imprimir los 20 primeros números que son divisibles
    entre 4:
 
@@ -465,7 +463,8 @@ Miremos un par de ejemplos:
 
       s = "jhkdaskduwqludhlasdklashdihlasdhljakhuekysbvjkasdhlasdkhlashkdedlahskdlkbasmndkm"
 
-    Imprimir en qué posiciones se encuentra la letra ``k``.
+    Imprimir en qué posiciones se encuentra la letra ``k``, usando un ciclo
+    ``while``.
 
     *R/*::
     
@@ -474,7 +473,7 @@ Miremos un par de ejemplos:
   * Utilizar la función ``es_primo_veloz`` para definir una función
     ``lista_de_primos(n)`` que genere la lista de los ``n`` primeros números
     primos. Para que puedan comparar, a continuación aparece la lista de los 20
-    primeros números primos:
+    primeros:
 
     .. ipython::
        :suppress:
@@ -493,7 +492,7 @@ Miremos un par de ejemplos:
        
        In [1]: lista_de_primos(20)
 
-    *Sugerencia*: Definir una lista vacía y utilizar su método append para
+    *Sugerencia*: Definir una lista vacía y utilizar su método ``append`` para
     añadirle los números primos que vayamos encontrando.
 
   * Usar la función :ref:`digitos <digitos>`, para encontrar el primer número
