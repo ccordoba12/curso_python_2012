@@ -27,22 +27,17 @@ continuación veremos las distintas formas en que puede hacerse esto.
 
    Cuando queramos usar algún comando de la librería, debemos llamarla por su
    nombre seguido de ``.``. Inmediatamente deberá aparecer una lista con las
-   funciones que hace parte de la misma. así:
+   funciones que hacen parte de la misma. así:
 
    .. ipython::
       :verbatim:
 
       In [2]: math.
-      math.__class__         math.__package__       math.asin              math.e                 math.fsum              math.modf
-      math.__delattr__       math.__reduce__        math.asinh             math.erf               math.gamma             math.pi
-      math.__dict__          math.__reduce_ex__     math.atan              math.erfc              math.hypot             math.pow
-      math.__doc__           math.__repr__          math.atan2             math.exp               math.isinf             math.radians
-      math.__format__        math.__setattr__       math.atanh             math.expm1             math.isnan             math.sin
-      math.__getattribute__  math.__sizeof__        math.ceil              math.fabs              math.ldexp             math.sinh
-      math.__hash__          math.__str__           math.copysign          math.factorial         math.lgamma            math.sqrt
-      math.__init__          math.__subclasshook__  math.cos               math.floor             math.log               math.tan
-      math.__name__          math.acos              math.cosh              math.fmod              math.log10             math.tanh
-      math.__new__           math.acosh             math.degrees           math.frexp             math.log1p             math.trunc
+      math.acos       math.atan2      math.cosh       math.exp        math.fmod       math.isinf      math.log10      math.radians    math.tanh
+      math.acosh      math.atanh      math.degrees    math.expm1      math.frexp      math.isnan      math.log1p      math.sin        math.trunc
+      math.asin       math.ceil       math.e          math.fabs       math.fsum       math.ldexp      math.modf       math.sinh       
+      math.asinh      math.copysign   math.erf        math.factorial  math.gamma      math.lgamma     math.pi         math.sqrt       
+      math.atan       math.cos        math.erfc       math.floor      math.hypot      math.log        math.pow        math.tan
 
    .. note::
    
@@ -111,9 +106,11 @@ continuación veremos las distintas formas en que puede hacerse esto.
 
      from math import *
 
-   Sin embargo, esta opción no es muy recomendable ya que los comandos de
-   varias librerías pueden tener el mismo nombre, lo que puede resultar en
-   serias confusiones.
+   .. warning::
+
+      Esta opción no es muy recomendable ya que los comandos de varias
+      librerías pueden tener el mismo nombre, lo que puede resultar en serias
+      confusiones.
 
 #. La última opción es renombrar la librería al momento de importarla. Esto es
    una práctica bastante común, pues permite utilizar nombres cortos para las
@@ -122,7 +119,7 @@ continuación veremos las distintas formas en que puede hacerse esto.
 
      import math as mt
 
-   En lugar de ``math`` sólo usamos ``mt``, así:
+   De esta forma, en lugar de ``math`` sólo usamos ``mt``, así:
 
    .. ipython::
       :suppress:

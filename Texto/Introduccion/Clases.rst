@@ -13,18 +13,19 @@ Python es un muy buen lenguaje orientado a objetos (como Java) en el que es muy
 sencillo definir y trabajar con clases. En las secciones anteriores hemos
 tenido la oportunidad de utilizar los métodos de cadenas y listas para resolver
 varios ejercicios, lo que indica que en su implementación ambos tipos son
-clases, cosa que también cierta para los demás (aún los números son clases!).
+clases, cosa que también es cierta para los demás (aún los números son
+clases!).
 
-En esta sección veremos como definir nuestras propias clases y como asociarle
-sus correspondientes atributos y métodos.
+En esta sección veremos como definir nuestras propias clases y vamos a aprender
+cómo asociarle sus correspondientes atributos y métodos.
 
 Definición e inicialización
 ---------------------------
 
 En general, una clase es un objeto en el que se reúnen varias funciones
-(llamadas métodos) y variables (llamadas atributos) definidas por conveniencia
-por el usuario para resolver un problema en particular, organizar su código o
-reutilizarlo más adelante.
+(llamadas métodos) y variables (llamadas atributos), con el objeto de que los
+métodos puedan compartir un mismo conjunto de datos, sobre el que puedan operar
+de cierta forma para llegar al resultado que desea el usuario.
 
 En Python las clases se definen con la palabra ``class`` y se inicializan
 usando el método ``__init__``, que es una función cuyo primer argumento
@@ -37,9 +38,10 @@ clase. Miremos como se hace con un ejemplo::
           self.real = r
           self.img = i
 
-Vamos a usar esta clase para representar números complejos, por lo que debe
-tener dos atributos: una parte real y una parte imaginaria. En este caso, éstos
-están dados por ``real`` e ``img``, respectivamente.
+Como se infiere de su nombre, esta clase se ha definifo para representar
+números complejos, por lo que debe tener dos atributos: una parte real y una
+parte imaginaria. En este caso, éstos están dados por ``real`` e ``img``,
+respectivamente.
 
 .. note::
 
@@ -65,7 +67,7 @@ asignársela a una variable, así:
 
 .. ipython::
 
-   In [2]: z = NumeroComplejo(1,2)
+   In [2]: z = NumeroComplejo(1, 2)
 
 Para comprobar que la inicialización ha funcionado correctamente, podemos
 inspeccionar los atributos de la clase directamente:
@@ -91,9 +93,9 @@ medio de asignación, así:
 Métodos
 -------
 
-Los métodos son funciones asociadas a una clase que operan sobre sus
-atributos. Por ejemplo, a la clase anterior le podemos añadir un método que
-calcule el módulo de un número complejo con la fórmula:
+Como ya dijimos, los métodos son funciones asociadas a una clase que operan
+sobre sus atributos. Por ejemplo, a la clase anterior le podemos añadir un
+método que calcule el módulo de un número complejo con la fórmula:
 
 .. math::
 
@@ -125,7 +127,7 @@ Para ello redefinimos ``NumeroComplejo`` para agregarle un nuevo método
       ...:            return (self.real**2 + self.img**2)**(0.5)
       ...:
 
-   In [1]: z = NumeroComplejo(1,2)
+   In [1]: z = NumeroComplejo(1, 2)
 
 Con ello obtenemos el siguiente resultado para el módulo del número complejo
 que habíamos definido arriba:
@@ -173,7 +175,7 @@ clase, de la siguiente forma::
       ...:            return NumeroComplejo(self.real, -self.img)
       ...:
 
-   In [3]: z = NumeroComplejo(1,2)
+   In [3]: z = NumeroComplejo(1, 2)
 
 Para calcular el conjugado de ``z`` sólo debemos llamar el método:
 
@@ -233,11 +235,11 @@ nuestra clase::
       ...:            return NumeroComplejo(r, i)
       ...: 
 
-   In [44]: z = NumeroComplejo(1,2)
+   In [44]: z = NumeroComplejo(1, 2)
 
 .. ipython::
 
-   In [52]: w = NumeroComplejo(4,-7)
+   In [52]: w = NumeroComplejo(4, -7)
 
    In [53]: x = z.producto(w)
 
@@ -294,9 +296,9 @@ conjugado:
 
       .. ipython::
 
-         In [60]: v = Vector3D(2,0,1)
+         In [60]: v = Vector3D(2, 0, 1)
 
-         In [62]: w = Vector3D(1,-1,3)
+         In [62]: w = Vector3D(1, -1, 3)
 
       Su producto punto es:
 
@@ -383,11 +385,11 @@ conjugado:
 
        .. ipython::
 
-          In [117]: t1 = Tiempo(16,7,1)
+          In [117]: t1 = Tiempo(16, 7, 1)
 
           In [118]: t1.imprimir_tiempo()
 
-          In [120]: t2 = Tiempo(2,6,32)
+          In [120]: t2 = Tiempo(2, 6, 32)
 
           In [121]: t2.imprimir_tiempo()
 
@@ -416,9 +418,9 @@ conjugado:
 
        .. ipython::
 
-          In [126]: t1 = Tiempo(23,50,45)
+          In [126]: t1 = Tiempo(23, 50, 45)
 
-          In [127]: t2 = Tiempo(3,40,40)
+          In [127]: t2 = Tiempo(3, 40, 40)
 
           In [131]: t3 = t1.sumar(t2)
 
