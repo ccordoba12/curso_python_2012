@@ -79,10 +79,27 @@
 <p>La forma más fácil de instalar <em>Python</em> en Windows es descargando <a class="reference external" href="http://www.pythonxy.com/">Python(x,y)</a>, un programa que además instala las librerías
 científicas más importantes del lenguaje. Durante el curso vamos a usar algunas
 de ellas para desarrollar varias simulaciones.</p>
-<p>Para instalar <em>Spyder</em> deben seguirse estos pasos:</p>
-<ol class="arabic simple">
-<li>Descargar e instalar <em>IPython</em> usando este <a class="reference external" href="https://github.com/downloads/ipython/ipython/ipython-0.13.py2-win32.exe">archivo</a>.</li>
-<li>Descargar e instalar <em>Spyder</em> usando este archivo.</li>
+<p>Para instalar la más reciente versión de <em>Spyder</em> deben seguirse estos pasos:</p>
+<ol class="arabic">
+<li><p class="first">Abrir una terminal de comandos o símbolo del sistema. Para ello seguir estos
+pasos:</p>
+<ul class="simple">
+<li>En Windows Vista o 7: Ir a <em>Inicio</em> &gt; <em>Buscar programas y archivos</em>,
+escribir <em>cmd</em> y abrir el programa que aparece listado.</li>
+<li>En Windows XP: Ir a <em>Inicio</em> &gt; <em>Ejecutar...</em>, escribir <em>cmd</em> y oprimir
+<em>Aceptar</em></li>
+</ul>
+</li>
+<li><p class="first">Ejecutar estos comandos en la terminal:</p>
+<div class="highlight-python"><pre>easy_install pyzmq
+
+pip install --upgrade ipython
+
+pip install --upgrade mercurial
+
+pip install --upgrade hg+https://code.google.com/p/spyderlib/</pre>
+</div>
+</li>
 </ol>
 </div>
 <div class="section" id="macos-x">
@@ -127,7 +144,7 @@ workon spyder
 
 pip install ipython
 
-pip install hg+https://code.google.com/p/spyderlib/
+pip install --upgrade hg+https://code.google.com/p/spyderlib/
 
 spyder&amp;</pre>
 </div>
