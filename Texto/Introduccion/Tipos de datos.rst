@@ -20,11 +20,12 @@ Con los números se pueden realizar los siguientes tipos de operaciones:
     =========   =========
     Operación   Resultado
     =========   =========
-    \+          Suma           
-    \-          Resta          
-    \*          Multiplicación 
-    /           División       
-    //          División entera 
+    \+          Suma
+    \-          Resta
+    \*          Multiplicación
+    /           División 
+    //          División entera
+    **          Potencia
     =========   =========
 
 .. warning::
