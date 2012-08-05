@@ -25,7 +25,7 @@ Con los números se pueden realizar los siguientes tipos de operaciones:
     \*          Multiplicación
     /           División 
     //          División entera
-    **          Potencia
+    \**          Potencia
     =========   =========
 
 .. warning::
