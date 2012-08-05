@@ -32,7 +32,7 @@ Aunque *Python* viene pre-instalado en las últimas versiones de Mac, no cuenta
 con todas las librerías necesarias para realizar computación científica. Por
 ello se recomienda descargar el DMG de *Spyder*, que aparece en este `sitio web
 <http://code.google.com/p/spyderlib/downloads/list>`_. y que viene con la
-versión más reciente de Python y de las librerías mencionadas.
+versión más reciente de *Python* y de las librerías mencionadas.
 
 Linux
 -----
