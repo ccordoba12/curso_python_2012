@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mv -f _build/html/* ./
-mv -f _build/html/.buildinfo ./
+cp -Rf _build/html/* ./
+cp -f _build/html/.buildinfo ./
