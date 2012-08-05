@@ -14,24 +14,15 @@ de ellas para desarrollar varias simulaciones.
 
 Para instalar la más reciente versión de *Spyder* deben seguirse estos pasos:
 
-#. Abrir una terminal de comandos o símbolo del sistema. Para ello seguir estos
-   pasos:
+#. Descargar e instalar este `archivo
+   <https://github.com/downloads/zeromq/pyzmq/pyzmq-2.2.0.win32-py2.7.msi>`_,
+   el cual es necesario para que *IPython* funcione correctamente.
 
-   - En Windows Vista o 7: Ir a *Inicio* > *Buscar programas y archivos*,
-     escribir *cmd* y abrir el programa que aparece listado.
+#. Descargar e instalar la última versión de *IPython* desde este `archivo
+   <https://github.com/downloads/ipython/ipython/ipython-0.13.py2-win32.exe>`_
 
-   - En Windows XP: Ir a *Inicio* > *Ejecutar...*, escribir *cmd* y oprimir
-     *Aceptar*
-
-#. Ejecutar estos comandos en la terminal::
-
-       easy_install pyzmq
-
-       pip install --upgrade ipython
-
-       pip install --upgrade mercurial
-
-       pip install --upgrade hg+https://code.google.com/p/spyderlib/
+#. Descargar e instalar la última versión de Spyder desde este
+   :download:`archivo <../Archivos/spyder-2.2.0dev.win32.exe>`.
 
 
 MacOS X 
@@ -41,7 +32,7 @@ Aunque *Python* viene pre-instalado en las últimas versiones de Mac, no cuenta
 con todas las librerías necesarias para realizar computación científica. Por
 ello se recomienda descargar el DMG de *Spyder*, que aparece en este `sitio web
 <http://code.google.com/p/spyderlib/downloads/list>`_. y que viene con la
-versión más reciente de Python y de las librerías mencionadas.
+versión más reciente de *Python* y de las librerías mencionadas.
 
 Linux
 -----
@@ -170,3 +161,4 @@ Terminal.
 ..  LocalWords:  slicing return def suppress Out in elif else if range False li
 ..  LocalWords:  True append while for class init self split Imagenes Spyder
 ..  LocalWords:  Windows MacOS script apt get install virtualenvwrapper
+..  LocalWords:  IPython download
