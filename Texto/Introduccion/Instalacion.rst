@@ -43,28 +43,12 @@ distribución basada en Ubuntu o Debian:
 
 #. Ejecutar el siguiente comando en una terminal::
 
-      sudo apt-get install python-nose
-
-#. Descargar este `archivo
-   <http://www.fperez.org/py4science/workshop_checklist.py>`_ de Python. (Para
-   ello hacer click derecho sobre el enlace y elegir la opción *Guardar
-   enlace/vínculo como...* )
-
-#. Abrir una terminal en el directorio en que fue descargado el archivo
-   anterior.
-
-#. Ejecutar el siguiente comando::
-
-       python workshop_checklist.py
+      sudo apt-get install pyflakes python-rope python-sphinx python-numpy \
+      python-scipy python-matplotlib virtualenvwrapper python-zmq python-qt4
 
 #. Después de que haya concluido de ejecutarse este archivo (puede tomar varios
-   minutos), ejecutar estos comandos::
-
-       sudo apt-get install virtualenvwrapper
-
-       sudo apt-get install spyder
-
-       sudo apt-get install mercurial
+   minutos), cerrar la terminal anterior, abrir una nueva y ejecutar estos
+   comandos::
        
        mkvirtualenv --system-site-packages spyder
 
@@ -72,7 +56,21 @@ distribución basada en Ubuntu o Debian:
 
        pip install ipython
 
-       pip install --upgrade hg+https://code.google.com/p/spyderlib/
+#. Descargar y descomprimir este :download:`archivo
+   <../Archivos/spyder-2.2.0dev.tar.gz>`
+
+#. En la misma terminal en la que se corrieron los comandos del paso **2.**, ir
+   al directorio en el que se descomprimió el archivo anterior y ejecutar estos
+   comandos::
+
+       python setup.py install
+
+       spyder&
+
+#. Para volver a ejecutar *Spyder* al reiniciar al sistema, o al abrir una
+   nueva terminal, ejecutar estos comandos::
+
+       workon spyder
 
        spyder&
 
