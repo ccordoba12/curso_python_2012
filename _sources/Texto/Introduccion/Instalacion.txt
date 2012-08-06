@@ -63,6 +63,8 @@ distribución basada en Ubuntu o Debian:
    al directorio en el que se descomprimió el archivo anterior y ejecutar estos
    comandos::
 
+       cd spyder-2.2.0dev
+
        python setup.py install
 
        spyder&
