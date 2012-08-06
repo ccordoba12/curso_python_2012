@@ -164,8 +164,8 @@ ejemplo: 1e6 = 1000000</p>
 paréntesis y los operadores +, -, *, / y **? (Tomado de <em>Introducción a
 Mathematica</em> del Prof. Jurgen Tischer). Un ejemplo de este tipo de
 operación es:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">**</span><span class="mi">7</span>
-<span class="gr">Out[1]: </span><span class="mi">78364164096</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [94]: </span><span class="p">(</span><span class="mi">6</span><span class="o">*</span><span class="mi">6</span><span class="p">)</span><span class="o">**</span><span class="mi">7</span>
+<span class="gr">Out[94]: </span><span class="mi">78364164096</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -184,27 +184,27 @@ núcleo&#8221;, que aparece en la esquina superior derecha de la terminal.</p>
 <p>Las listas son arreglos de datos. Se definen con corchetes, y pueden contener
 datos de distintos tipos (números enteros y flotantes o también los tipos que
 veremos más abajo). Un ejemplo de una lista en Python es:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [2]: </span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [95]: </span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>La operación más importante que se hace con las listas es la extracción de sus
 elementos en distintas posiciones. Es muy importante tener en cuenta que las
 listas en Python siempre empiezan con el índice <tt class="docutils literal"><span class="pre">0</span></tt>, como los arreglos de C y
 C++.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gr">Out[3]: </span><span class="o">-</span><span class="mi">5</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [96]: </span><span class="n">li</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gr">Out[96]: </span><span class="o">-</span><span class="mi">5</span>
 
-<span class="gp">In [4]: </span><span class="n">li</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="gr">Out[4]: </span><span class="mi">9</span>
+<span class="gp">In [97]: </span><span class="n">li</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="gr">Out[97]: </span><span class="mi">9</span>
 </pre></div>
 </div>
 <p>Lo bueno de las listas en Python es que si usamos un índice más grande que
 <tt class="docutils literal"><span class="pre">n-1</span></tt>, donde <tt class="docutils literal"><span class="pre">n</span></tt> es el número de elementos, Python nos da un error (en
 lugar de darnos basura de la memoria, como en C o C++)</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="n">li</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [98]: </span><span class="n">li</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
 <span class="go">---------------------------------------------------------------------------</span>
 <span class="go">IndexError                                Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-5-0a252909fc48&gt; in &lt;module&gt;()</span>
+<span class="go">&lt;ipython-input-98-0a252909fc48&gt; in &lt;module&gt;()</span>
 <span class="go">----&gt; 1 li[20]</span>
 
 <span class="go">IndexError: list index out of range</span>
@@ -212,20 +212,20 @@ lugar de darnos basura de la memoria, como en C o C++)</p>
 </div>
 <p>Las listas son objetos mutables, es decir, sus elementos pueden modificarse de
 acuerdo a la siguiente sintaxis:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [99]: </span><span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="gp">In [7]: </span><span class="n">li</span>
-<span class="gr">Out[7]: </span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="gp">In [100]: </span><span class="n">li</span>
+<span class="gr">Out[100]: </span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>El manejo de listas en Python es muy elegante gracias a varias facilidades. En
 primer lugar pueden usarse índices negativos para extraer elementos del final
 de la lista hacia adelante, de esta forma:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [8]: </span><span class="n">li</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="gr">Out[8]: </span><span class="mi">2</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [101]: </span><span class="n">li</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gr">Out[101]: </span><span class="mi">2</span>
 
-<span class="gp">In [9]: </span><span class="n">li</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
-<span class="gr">Out[9]: </span><span class="mi">1</span>
+<span class="gp">In [102]: </span><span class="n">li</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="gr">Out[102]: </span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>Además pueden seleccionarse fácilmente subconjuntos de una lista usando lo que
@@ -233,35 +233,35 @@ se conoce como <em>rebanado</em> (o slicing en inglés), que consiste en usar do
 índices separados por <tt class="docutils literal"><span class="pre">:</span></tt> al momento de tomar elementos de la lista. Al
 hacerlo, Python toma los elementos que van desde el primer índice hasta uno
 menos del último. Miremos un par de ejemplos:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="gr">Out[10]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [103]: </span><span class="n">li</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="gr">Out[103]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="gp">In [11]: </span><span class="n">li</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-<span class="gr">Out[11]: </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="gp">In [104]: </span><span class="n">li</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="gr">Out[104]: </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>El rebanado también funciona si se usa un sólo índice, bien sea el superior o
 el inferior, siempre que vaya acompañado de los <tt class="docutils literal"><span class="pre">:</span></tt>. En estos casos se
 obtiene el resultado que uno esperaría, es decir, que se tome desde el índice
 que uno quiera hasta el final:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">li</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-<span class="gr">Out[12]: </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [105]: </span><span class="n">li</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="gr">Out[105]: </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>o lo opuesto: que la selección vaya desde el principio hasta un índice menos
 que el que se use como último:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="n">li</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
-<span class="gr">Out[13]: </span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [106]: </span><span class="n">li</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+<span class="gr">Out[106]: </span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Finalmente cabe decir que se pueden usar las operaciones aritméticas + para
 concatenar dos listas, y * para repetir varias veces los elementos de una
 lista, así:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [14]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gr">Out[14]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [107]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gr">Out[107]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
-<span class="gp">In [15]: </span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
-<span class="gr">Out[15]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">In [108]: </span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="gr">Out[108]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <dl class="docutils">
@@ -355,9 +355,9 @@ momento de tomar los elementos correspondientes de <tt class="docutils literal">
 posible aplicarles rebanado y las demás operaciones que vimos en la sección
 anterior. Una cadena se puede formar usando comillas dobles o sencillas, de la
 siguiente manera:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="n">fruta</span> <span class="o">=</span> <span class="s">&quot;banano&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [109]: </span><span class="n">fruta</span> <span class="o">=</span> <span class="s">&quot;banano&quot;</span>
 
-<span class="gp">In [17]: </span><span class="n">dulce</span> <span class="o">=</span> <span class="s">&#39;bocadillo&#39;</span>
+<span class="gp">In [110]: </span><span class="n">dulce</span> <span class="o">=</span> <span class="s">&#39;bocadillo&#39;</span>
 </pre></div>
 </div>
 <p>En este caso, los operadores + y * dan los siguientes resultados:</p>
@@ -388,26 +388,26 @@ siguiente manera:</p>
 </div></blockquote>
 <p>Con las dos variables arriba definidas podemos realizar, por ejemplo, las
 siguientes operaciones:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="n">fruta</span> <span class="o">+</span> <span class="n">dulce</span>
-<span class="gr">Out[18]: </span><span class="s">&#39;bananobocadillo&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [111]: </span><span class="n">fruta</span> <span class="o">+</span> <span class="n">dulce</span>
+<span class="gr">Out[111]: </span><span class="s">&#39;bananobocadillo&#39;</span>
 
-<span class="gp">In [19]: </span><span class="n">fruta</span> <span class="o">*</span> <span class="mi">3</span>
-<span class="gr">Out[19]: </span><span class="s">&#39;bananobananobanano&#39;</span>
+<span class="gp">In [112]: </span><span class="n">fruta</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="gr">Out[112]: </span><span class="s">&#39;bananobananobanano&#39;</span>
 
-<span class="gp">In [20]: </span><span class="n">dulce</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="gr">Out[20]: </span><span class="s">&#39;b&#39;</span>
+<span class="gp">In [113]: </span><span class="n">dulce</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gr">Out[113]: </span><span class="s">&#39;b&#39;</span>
 
-<span class="gp">In [21]: </span><span class="n">dulce</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span>
-<span class="gr">Out[21]: </span><span class="s">&#39;bocadil&#39;</span>
+<span class="gp">In [114]: </span><span class="n">dulce</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span>
+<span class="gr">Out[114]: </span><span class="s">&#39;bocadil&#39;</span>
 </pre></div>
 </div>
 <p>Sin embargo, las cadenas no pueden ser modificadas, es decir, no les puede
 asignar nuevos elementos como a las listas y por tanto son inmutables. Esto lo
 podemos constatar a continuación:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [22]: </span><span class="n">fruta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;z&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [115]: </span><span class="n">fruta</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;z&#39;</span>
 <span class="go">---------------------------------------------------------------------------</span>
 <span class="go">TypeError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-22-e128f67047a6&gt; in &lt;module&gt;()</span>
+<span class="go">&lt;ipython-input-115-e128f67047a6&gt; in &lt;module&gt;()</span>
 <span class="go">----&gt; 1 fruta[2] = &#39;z&#39;</span>
 
 <span class="go">TypeError: &#39;str&#39; object does not support item assignment</span>
@@ -417,7 +417,7 @@ podemos constatar a continuación:</p>
 puede acceder colocando un punto después del nombre de la variable a la que se
 le haya asignado una cadena. Por ejemplo, si después de <tt class="docutils literal"><span class="pre">fruta</span></tt> colocamos un
 punto, veremos que aparece:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">fruta</span><span class="o">.</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [116]: </span><span class="n">fruta</span><span class="o">.</span>
 <span class="go">fruta.capitalize  fruta.endswith    fruta.isalnum     fruta.istitle     fruta.lstrip      fruta.rjust       fruta.splitlines  fruta.translate</span>
 <span class="go">fruta.center      fruta.expandtabs  fruta.isalpha     fruta.isupper     fruta.partition   fruta.rpartition  fruta.startswith  fruta.upper</span>
 <span class="go">fruta.count       fruta.find        fruta.isdigit     fruta.join        fruta.replace     fruta.rsplit      fruta.strip       fruta.zfill</span>
@@ -433,39 +433,39 @@ como ya dijimos, las cadenas son inmutables.</p>
 <p>Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:</p>
 <ul>
 <li><p class="first"><strong>upper</strong>: Convierte toda la cadena en mayúsculas</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [24]: </span><span class="n">fruta</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="gr">Out[24]: </span><span class="s">&#39;BANANO&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [117]: </span><span class="n">fruta</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="gr">Out[117]: </span><span class="s">&#39;BANANO&#39;</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first"><strong>count</strong>: Cuenta cuantas veces se repite un carácter en una cadena</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">fruta</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
-<span class="gr">Out[25]: </span><span class="mi">2</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [118]: </span><span class="n">fruta</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="gr">Out[118]: </span><span class="mi">2</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first"><strong>replace</strong>: Reemplaza un carácter o parte de una cadena por otro carácter o
 cadena</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="n">fruta</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">)</span>
-<span class="gr">Out[26]: </span><span class="s">&#39;bonono&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [119]: </span><span class="n">fruta</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">)</span>
+<span class="gr">Out[119]: </span><span class="s">&#39;bonono&#39;</span>
 
-<span class="gp">In [27]: </span><span class="n">fruta</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;ban&#39;</span><span class="p">,</span> <span class="s">&#39;en&#39;</span><span class="p">)</span>
-<span class="gr">Out[27]: </span><span class="s">&#39;enano&#39;</span>
+<span class="gp">In [120]: </span><span class="n">fruta</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;ban&#39;</span><span class="p">,</span> <span class="s">&#39;en&#39;</span><span class="p">)</span>
+<span class="gr">Out[120]: </span><span class="s">&#39;enano&#39;</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first"><strong>split</strong>: Divide una cadena según los espacios que tenga y genera una lista
 de palabras.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [28]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;Hola, mundo!&quot;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [121]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;Hola, mundo!&quot;</span>
 
-<span class="gp">In [29]: </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="gr">Out[29]: </span><span class="p">[</span><span class="s">&#39;Hola,&#39;</span><span class="p">,</span> <span class="s">&#39;mundo!&#39;</span><span class="p">]</span>
+<span class="gp">In [122]: </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="gr">Out[122]: </span><span class="p">[</span><span class="s">&#39;Hola,&#39;</span><span class="p">,</span> <span class="s">&#39;mundo!&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>También puede dividir una cadena por un determinado carácter para partirla en
 varias subcadenas:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [30]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
-<span class="gr">Out[30]: </span><span class="p">[</span><span class="s">&#39;boca&#39;</span><span class="p">,</span> <span class="s">&#39;illo&#39;</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [123]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;d&#39;</span><span class="p">)</span>
+<span class="gr">Out[123]: </span><span class="p">[</span><span class="s">&#39;boca&#39;</span><span class="p">,</span> <span class="s">&#39;illo&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
@@ -517,13 +517,13 @@ algunas de sus letras están en mayúsculas o no?</p>
 </li>
 <li><p class="first">Qué produce el método <tt class="docutils literal"><span class="pre">center</span></tt>?</p>
 <p>Experimentar con los siguientes comandos para ver que produce:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [31]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [124]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="gp">In [32]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">In [125]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-<span class="gp">In [33]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="gp">In [126]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
 
-<span class="gp">In [34]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">In [127]: </span><span class="n">dulce</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -538,23 +538,23 @@ como si fuera una lista y tiene sus mismas propiedades, pero al igual que las
 cadenas, no es posible modificar ninguno de sus valores.</p>
 <p>Las tuplas se definen con paréntesis <tt class="docutils literal"><span class="pre">(</span> <span class="pre">)</span></tt> en lugar de corchetes. Un ejemplo
 de tupla sería:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [35]: </span><span class="n">tp</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [128]: </span><span class="n">tp</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span>
 
-<span class="gp">In [36]: </span><span class="n">tp</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="gr">Out[36]: </span><span class="mi">4</span>
+<span class="gp">In [129]: </span><span class="n">tp</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="gr">Out[129]: </span><span class="mi">4</span>
 
-<span class="gp">In [37]: </span><span class="n">tp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="gr">Out[37]: </span><span class="s">&#39;a&#39;</span>
+<span class="gp">In [130]: </span><span class="n">tp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gr">Out[130]: </span><span class="s">&#39;a&#39;</span>
 
-<span class="gp">In [38]: </span><span class="n">tp</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-<span class="gr">Out[38]: </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span>
+<span class="gp">In [131]: </span><span class="n">tp</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span class="gr">Out[131]: </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Pero no podemos modificar sus valores mediante nuevas asignaciones:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [39]: </span><span class="n">tp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;b&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [132]: </span><span class="n">tp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;b&#39;</span>
 <span class="go">---------------------------------------------------------------------------</span>
 <span class="go">TypeError                                 Traceback (most recent call last)</span>
-<span class="go">&lt;ipython-input-39-3688dc6b8d2c&gt; in &lt;module&gt;()</span>
+<span class="go">&lt;ipython-input-132-3688dc6b8d2c&gt; in &lt;module&gt;()</span>
 <span class="go">----&gt; 1 tp[2] = &#39;b&#39;</span>
 
 <span class="go">TypeError: &#39;tuple&#39; object does not support item assignment</span>
@@ -565,10 +565,10 @@ de tupla sería:</p>
 <p>Es posible omitir los paréntesis al momento de definir una tupla si así se
 desea, lo cual es una práctica bastante extendida entre los programadores de
 Python. Por ejemplo, una asignación válida es:</p>
-<div class="last highlight-ipython"><div class="highlight"><pre><span class="gp">In [40]: </span><span class="n">tp1</span> <span class="o">=</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span>
+<div class="last highlight-ipython"><div class="highlight"><pre><span class="gp">In [133]: </span><span class="n">tp1</span> <span class="o">=</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span>
 
-<span class="gp">In [41]: </span><span class="n">tp1</span>
-<span class="gr">Out[41]: </span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">In [134]: </span><span class="n">tp1</span>
+<span class="gr">Out[134]: </span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -611,7 +611,7 @@ están utilizando para entrar a un servicio web. Esto lo podemos hacer muy
 fácilmente con un diccionario, en el que las claves sean el nombre de cada
 persona y sus valores sean las contraseñas que estén usando.</p>
 <p>Para ello, en Python podemos escribir algo como:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [42]: </span><span class="n">codigos</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Luis&#39;</span><span class="p">:</span> <span class="mi">2257</span><span class="p">,</span> <span class="s">&#39;Juan&#39;</span><span class="p">:</span> <span class="mi">9739</span><span class="p">,</span> <span class="s">&#39;Carlos&#39;</span><span class="p">:</span> <span class="mi">5591</span><span class="p">}</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [135]: </span><span class="n">codigos</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Luis&#39;</span><span class="p">:</span> <span class="mi">2257</span><span class="p">,</span> <span class="s">&#39;Juan&#39;</span><span class="p">:</span> <span class="mi">9739</span><span class="p">,</span> <span class="s">&#39;Carlos&#39;</span><span class="p">:</span> <span class="mi">5591</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Como podemos ver, los diccionarios se definen con llaves (<tt class="docutils literal"><span class="pre">{</span> <span class="pre">}</span></tt>). Las claves
@@ -621,21 +621,21 @@ están a la derecha son los <em>valores</em>.</p>
 usar alguna de sus claves. En nuestro caso, las claves son los nombres de las
 personas. Por ejemplo, para extraer el código que le corresponde a <tt class="docutils literal"><span class="pre">Carlos</span></tt>
 debemos escribir:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [43]: </span><span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Carlos&#39;</span><span class="p">]</span>
-<span class="gr">Out[43]: </span><span class="mi">5591</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [136]: </span><span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Carlos&#39;</span><span class="p">]</span>
+<span class="gr">Out[136]: </span><span class="mi">5591</span>
 </pre></div>
 </div>
 <p>o para el de <tt class="docutils literal"><span class="pre">Juan</span></tt></p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Juan&#39;</span><span class="p">]</span>
-<span class="gr">Out[44]: </span><span class="mi">9739</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [137]: </span><span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Juan&#39;</span><span class="p">]</span>
+<span class="gr">Out[137]: </span><span class="mi">9739</span>
 </pre></div>
 </div>
 <p>Si alguien cambia de contraseña, podemos actualizar nuestro diccionario
 fácilmente haciendo una nueva asignación, por ejemplo:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [45]: </span><span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Luis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1627</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [138]: </span><span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Luis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1627</span>
 
-<span class="gp">In [46]: </span><span class="n">codigos</span>
-<span class="gr">Out[46]: </span><span class="p">{</span><span class="s">&#39;Carlos&#39;</span><span class="p">:</span> <span class="mi">5591</span><span class="p">,</span> <span class="s">&#39;Juan&#39;</span><span class="p">:</span> <span class="mi">9739</span><span class="p">,</span> <span class="s">&#39;Luis&#39;</span><span class="p">:</span> <span class="mi">1627</span><span class="p">}</span>
+<span class="gp">In [139]: </span><span class="n">codigos</span>
+<span class="gr">Out[139]: </span><span class="p">{</span><span class="s">&#39;Carlos&#39;</span><span class="p">:</span> <span class="mi">5591</span><span class="p">,</span> <span class="s">&#39;Juan&#39;</span><span class="p">:</span> <span class="mi">9739</span><span class="p">,</span> <span class="s">&#39;Luis&#39;</span><span class="p">:</span> <span class="mi">1627</span><span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -647,36 +647,36 @@ principio. No hay que preocuparse por ello.</p>
 </div>
 <p>O si una persona se retira del servicio, podemos eliminarla del diccionario
 usando el comando <tt class="docutils literal"><span class="pre">del</span></tt>, así</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [47]: </span><span class="k">del</span> <span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Juan&#39;</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [140]: </span><span class="k">del</span> <span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Juan&#39;</span><span class="p">]</span>
 
-<span class="gp">In [48]: </span><span class="n">codigos</span>
-<span class="gr">Out[48]: </span><span class="p">{</span><span class="s">&#39;Carlos&#39;</span><span class="p">:</span> <span class="mi">5591</span><span class="p">,</span> <span class="s">&#39;Luis&#39;</span><span class="p">:</span> <span class="mi">1627</span><span class="p">}</span>
+<span class="gp">In [141]: </span><span class="n">codigos</span>
+<span class="gr">Out[141]: </span><span class="p">{</span><span class="s">&#39;Carlos&#39;</span><span class="p">:</span> <span class="mi">5591</span><span class="p">,</span> <span class="s">&#39;Luis&#39;</span><span class="p">:</span> <span class="mi">1627</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Si queremos introducir el nombre y la contraseña de una nueva persona, sólo es
 necesario usar una nueva clave y asignarle un valor, así</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [49]: </span><span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Jorge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6621</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [142]: </span><span class="n">codigos</span><span class="p">[</span><span class="s">&#39;Jorge&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6621</span>
 
-<span class="gp">In [50]: </span><span class="n">codigos</span>
-<span class="gr">Out[50]: </span><span class="p">{</span><span class="s">&#39;Carlos&#39;</span><span class="p">:</span> <span class="mi">5591</span><span class="p">,</span> <span class="s">&#39;Jorge&#39;</span><span class="p">:</span> <span class="mi">6621</span><span class="p">,</span> <span class="s">&#39;Luis&#39;</span><span class="p">:</span> <span class="mi">1627</span><span class="p">}</span>
+<span class="gp">In [143]: </span><span class="n">codigos</span>
+<span class="gr">Out[143]: </span><span class="p">{</span><span class="s">&#39;Carlos&#39;</span><span class="p">:</span> <span class="mi">5591</span><span class="p">,</span> <span class="s">&#39;Jorge&#39;</span><span class="p">:</span> <span class="mi">6621</span><span class="p">,</span> <span class="s">&#39;Luis&#39;</span><span class="p">:</span> <span class="mi">1627</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Para saber si una persona ya está en el diccionario o no, usamos el siguiente
 método:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [51]: </span><span class="n">codigos</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;Carlos&#39;</span><span class="p">)</span>
-<span class="gr">Out[51]: </span><span class="bp">True</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [144]: </span><span class="n">codigos</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;Carlos&#39;</span><span class="p">)</span>
+<span class="gr">Out[144]: </span><span class="bp">True</span>
 
-<span class="gp">In [52]: </span><span class="n">codigos</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;José&#39;</span><span class="p">)</span>
-<span class="gr">Out[52]: </span><span class="bp">False</span>
+<span class="gp">In [145]: </span><span class="n">codigos</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="s">&#39;José&#39;</span><span class="p">)</span>
+<span class="gr">Out[145]: </span><span class="bp">False</span>
 </pre></div>
 </div>
 <p>Finalmente, para extraer todas las claves y los valores de un diccionario
 podemos usar los siguientes métodos:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [53]: </span><span class="n">codigos</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="gr">Out[53]: </span><span class="p">[</span><span class="s">&#39;Luis&#39;</span><span class="p">,</span> <span class="s">&#39;Jorge&#39;</span><span class="p">,</span> <span class="s">&#39;Carlos&#39;</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [146]: </span><span class="n">codigos</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="gr">Out[146]: </span><span class="p">[</span><span class="s">&#39;Luis&#39;</span><span class="p">,</span> <span class="s">&#39;Jorge&#39;</span><span class="p">,</span> <span class="s">&#39;Carlos&#39;</span><span class="p">]</span>
 
-<span class="gp">In [54]: </span><span class="n">codigos</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="gr">Out[54]: </span><span class="p">[</span><span class="mi">1627</span><span class="p">,</span> <span class="mi">6621</span><span class="p">,</span> <span class="mi">5591</span><span class="p">]</span>
+<span class="gp">In [147]: </span><span class="n">codigos</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="gr">Out[147]: </span><span class="p">[</span><span class="mi">1627</span><span class="p">,</span> <span class="mi">6621</span><span class="p">,</span> <span class="mi">5591</span><span class="p">]</span>
 </pre></div>
 </div>
 <dl class="docutils">
@@ -714,50 +714,50 @@ siguientes comandos:</p>
 <ol class="arabic">
 <li><p class="first"><tt class="docutils literal"><span class="pre">int</span></tt>: Da la parte entera de un número flotante, y también covierte cadenas
 que sean enteros.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [55]: </span><span class="nb">int</span><span class="p">(</span><span class="mf">3.99</span><span class="p">)</span>
-<span class="gr">Out[55]: </span><span class="mi">3</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [148]: </span><span class="nb">int</span><span class="p">(</span><span class="mf">3.99</span><span class="p">)</span>
+<span class="gr">Out[148]: </span><span class="mi">3</span>
 
-<span class="gp">In [56]: </span><span class="nb">int</span><span class="p">(</span><span class="s">&#39;6&#39;</span><span class="p">)</span>
-<span class="gr">Out[56]: </span><span class="mi">6</span>
+<span class="gp">In [149]: </span><span class="nb">int</span><span class="p">(</span><span class="s">&#39;6&#39;</span><span class="p">)</span>
+<span class="gr">Out[149]: </span><span class="mi">6</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">float</span></tt>: Convierte enteros y cadenas a números flotantes.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [57]: </span><span class="nb">float</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="gr">Out[57]: </span><span class="mf">12.0</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [150]: </span><span class="nb">float</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="gr">Out[150]: </span><span class="mf">12.0</span>
 
-<span class="gp">In [58]: </span><span class="nb">float</span><span class="p">(</span><span class="s">&#39;4.23&#39;</span><span class="p">)</span>
-<span class="gr">Out[58]: </span><span class="mf">4.23</span>
+<span class="gp">In [151]: </span><span class="nb">float</span><span class="p">(</span><span class="s">&#39;4.23&#39;</span><span class="p">)</span>
+<span class="gr">Out[151]: </span><span class="mf">4.23</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">str</span></tt>: Convierte números y cualquier otro objeto a una cadena.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [59]: </span><span class="nb">str</span><span class="p">(</span><span class="mf">36.1</span><span class="p">)</span>
-<span class="gr">Out[59]: </span><span class="s">&#39;36.1&#39;</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [152]: </span><span class="nb">str</span><span class="p">(</span><span class="mf">36.1</span><span class="p">)</span>
+<span class="gr">Out[152]: </span><span class="s">&#39;36.1&#39;</span>
 
-<span class="gp">In [60]: </span><span class="nb">str</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="gr">Out[60]: </span><span class="s">&#39;[1, 2, 3]&#39;</span>
+<span class="gp">In [153]: </span><span class="nb">str</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gr">Out[153]: </span><span class="s">&#39;[1, 2, 3]&#39;</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">list</span></tt>: Convierte tuplas, diccionarios y cadenas a una lista.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [61]: </span><span class="nb">list</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="gr">Out[61]: </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [154]: </span><span class="nb">list</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gr">Out[154]: </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-<span class="gp">In [62]: </span><span class="nb">list</span><span class="p">(</span><span class="s">&#39;1457&#39;</span><span class="p">)</span>
-<span class="gr">Out[62]: </span><span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#39;7&#39;</span><span class="p">]</span>
+<span class="gp">In [155]: </span><span class="nb">list</span><span class="p">(</span><span class="s">&#39;1457&#39;</span><span class="p">)</span>
+<span class="gr">Out[155]: </span><span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;5&#39;</span><span class="p">,</span> <span class="s">&#39;7&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Para los diccionarios, <tt class="docutils literal"><span class="pre">list</span></tt> sólo extrae las claves y no los valores</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [63]: </span><span class="nb">list</span><span class="p">({</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
-<span class="gr">Out[63]: </span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [156]: </span><span class="nb">list</span><span class="p">({</span><span class="s">&#39;a&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="gr">Out[156]: </span><span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first"><tt class="docutils literal"><span class="pre">dict</span></tt>: Convierte una lista de listas, donde cada una tiene dos elementos,
 a un diccionario.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [64]: </span><span class="nb">dict</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="s">&#39;t&#39;</span><span class="p">]])</span>
-<span class="gr">Out[64]: </span><span class="p">{</span><span class="mi">10</span><span class="p">:</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span> <span class="s">&#39;t&#39;</span><span class="p">}</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [157]: </span><span class="nb">dict</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="s">&#39;t&#39;</span><span class="p">]])</span>
+<span class="gr">Out[157]: </span><span class="p">{</span><span class="mi">10</span><span class="p">:</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">:</span> <span class="s">&#39;t&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 </li>

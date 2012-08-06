@@ -102,35 +102,33 @@ continuación, los cuales son válidos si están usando Ubuntu o cualquier otra
 distribución basada en Ubuntu o Debian:</p>
 <ol class="arabic">
 <li><p class="first">Ejecutar el siguiente comando en una terminal:</p>
-<div class="highlight-python"><pre>sudo apt-get install python-nose</pre>
-</div>
-</li>
-<li><p class="first">Descargar este <a class="reference external" href="http://www.fperez.org/py4science/workshop_checklist.py">archivo</a> de Python. (Para
-ello hacer click derecho sobre el enlace y elegir la opción <em>Guardar
-enlace/vínculo como...</em> )</p>
-</li>
-<li><p class="first">Abrir una terminal en el directorio en que fue descargado el archivo
-anterior.</p>
-</li>
-<li><p class="first">Ejecutar el siguiente comando:</p>
-<div class="highlight-python"><pre>python workshop_checklist.py</pre>
+<div class="highlight-python"><pre>sudo apt-get install pyflakes python-rope python-sphinx python-numpy \
+python-scipy python-matplotlib virtualenvwrapper python-zmq python-qt4</pre>
 </div>
 </li>
 <li><p class="first">Después de que haya concluido de ejecutarse este archivo (puede tomar varios
-minutos), ejecutar estos comandos:</p>
-<div class="highlight-python"><pre>sudo apt-get install virtualenvwrapper
-
-sudo apt-get install spyder
-
-sudo apt-get install mercurial
-
-mkvirtualenv --system-site-packages spyder
+minutos), cerrar la terminal anterior, abrir una nueva y ejecutar estos
+comandos:</p>
+<div class="highlight-python"><pre>mkvirtualenv --system-site-packages spyder
 
 workon spyder
 
-pip install ipython
+pip install ipython</pre>
+</div>
+</li>
+<li><p class="first">Descargar y descomprimir este <a class="reference download internal" href="../../_downloads/spyder-2.2.0dev.tar.gz"><tt class="xref download docutils literal"><span class="pre">archivo</span></tt></a></p>
+</li>
+<li><p class="first">En la misma terminal en la que se corrieron los comandos del paso <strong>2.</strong>, ir
+al directorio en el que se descomprimió el archivo anterior y ejecutar estos
+comandos:</p>
+<div class="highlight-python"><pre>python setup.py install
 
-pip install --upgrade hg+https://code.google.com/p/spyderlib/
+spyder&amp;</pre>
+</div>
+</li>
+<li><p class="first">Para volver a ejecutar <em>Spyder</em> al reiniciar al sistema, o al abrir una
+nueva terminal, ejecutar estos comandos:</p>
+<div class="highlight-python"><pre>workon spyder
 
 spyder&amp;</pre>
 </div>
