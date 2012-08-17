@@ -9,12 +9,12 @@ Clases
 
    In [1]: from __future__ import division
 
-Python es un muy buen lenguaje orientado a objetos (como Java) en el que es muy
-sencillo definir y trabajar con clases. En las secciones anteriores hemos
-tenido la oportunidad de utilizar los métodos de cadenas y listas para resolver
-varios ejercicios, lo que indica que en su implementación ambos tipos son
-clases, cosa que también es cierta para los demás (aún los números son
-clases!).
+Python es un muy buen lenguaje orientado a objetos (como Java), por lo que en
+él es muy sencillo definir y trabajar con clases. En las secciones anteriores
+hemos tenido la oportunidad de utilizar los métodos de cadenas y listas para
+resolver varios ejercicios, lo que indica que, en su implementación, ambos
+tipos son clases, cosa que también es cierta para los demás (aún los números
+son clases!).
 
 En esta sección veremos como definir nuestras propias clases y vamos a aprender
 cómo asociarle sus correspondientes atributos y métodos.
