@@ -336,9 +336,11 @@ conjugado:
     ``y``, y ``z``, tenga uno sólo llamado ``coord``, que sea una lista de tres
     elementos. También redefinir los métodos según esto.
 
-    *Sugerencia*: En el método ``__init__`` revisar que la lista que se va a
-    guardar en ``coord`` tenga **exactamente** tres elementos. Si tiene más o 
-    menos, asignarle a ``coord`` una lista vacía.
+    .. note::
+    
+       En el método ``__init__`` revisar que la lista que se va a guardar en
+       ``coord`` tenga **exactamente** tres elementos. Si tiene más o menos,
+       asignarle a ``coord`` una lista vacía.
 
   * Definir una clase ``Tiempo`` para representar una hora del día, que tenga
     las siguientes condiciones (Tomado de *Aprenda a pensar como un programador
@@ -395,24 +397,24 @@ conjugado:
 
     3. Un método ``sumar`` que sume dos tiempos diferentes.
 
-       *Sugerencias*:
+       .. note::
 
-       - Sumar cada atributo por separado, es decir, segundo con segundos,
-         minutos con minutos y horas con horas.
+          - Sumar cada atributo por separado, es decir, segundo con segundos,
+            minutos con minutos y horas con horas.
 
-       - Para obtener el resultado de los segundos y los minutos, la suma debe
-         realizarse módulo 60. Por ejemplo, si un Tiempo tiene 50 segundos y
-         otra 15, su suma **no** debe darnos 65 sino 5, lo que se obtiene
-         como::
+          - Para obtener el resultado de los segundos y los minutos, la suma
+            debe realizarse módulo 60. Por ejemplo, si un Tiempo tiene 50
+            segundos y otra 15, su suma **no** debe darnos 65 sino 5, lo que se
+            obtiene como::
 
-           (50 + 15)%60 = 5
+                (50 + 15)%60 = 5
          
-         Para las horas, tomar la suma módulo 24.
+            Para las horas, tomar la suma módulo 24.
 
-       - Verificar si la suma de los segundos, **sin** tomar el módulo, es
-         mayor o igual a ``60``, y si lo es, incrementar en ``1`` el valor de
-         los minutos. Tener en cuenta lo mismo para la suma de los minutos y el
-         valor de las horas.
+          - Verificar si la suma de los segundos, **sin** tomar el módulo, es
+            mayor o igual a ``60``, y si lo es, incrementar en ``1`` el valor
+            de los minutos. Tener en cuenta lo mismo para la suma de los
+            minutos y el valor de las horas.
 
        Un ejemplo de este método es:
 

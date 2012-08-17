@@ -141,15 +141,17 @@ no puede ser procesado, Python simplemente retorna un error.
        In [1]: digitos(1234)
 
        In [2]: digitos(99861)
+    
+    .. note::
+    
+        Utilizar los comandos de conversión entre tipos de datos y el comando
+        ``map`` para aplicar una función a todos los elementos de una
+        lista. Por ejemplo, podemos usar ``map`` con ``cuadrado`` de la
+        siguiente forma:
 
-    *Sugerencia*: Utilizar los comandos de conversión entre tipos de datos y el
-    comando ``map`` para aplicar una función a todos los elementos de una
-    lista. Por ejemplo, podemos usar ``map`` con ``cuadrado`` de la siguiente
-    forma:
-
-    .. ipython::
+        .. ipython::
        
-       In [1]: map(cuadrado, [2, 3, 4, 5])
+           In [1]: map(cuadrado, [2, 3, 4, 5])
 
 
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
