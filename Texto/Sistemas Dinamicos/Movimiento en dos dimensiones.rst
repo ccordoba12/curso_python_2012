@@ -5,7 +5,7 @@ Movimiento en dos dimensiones
 =============================
 
 En Física, el movimiento en dos o más dimensiones se descompone como
-movimientos diferentes, o desligados entre sí, en cada dimensión. En esta
+movimientos diferentes, que evolucionan en cada dimensión por separado. En esta
 sección vamos a apreciar como se modelan dos fenómenos de este tipo.
 
 
@@ -34,10 +34,11 @@ donde :math:`v_{0x}` y :math:`v_{0y}` son las velocidades iniciales en *x* e
 *y* respectivamente, las cuales se calculan con las fórmulas:
 
 .. math::
+   :label: cond-ini
 
-   v_{0x} = v_{0} * \cos \theta
+   v_{0x} = v_{0} \times \cos \theta
 
-   v_{0y} = v_{0} * \sin \theta
+   v_{0y} = v_{0} \times \sin \theta
 
 siendo :math:`v_{0}` la magnitud del vector velocidad inicial.
 
@@ -50,25 +51,26 @@ Ejercicios
 #. Crear un programa que calcule la evolución de un objeto que siga las
    ecuaciones :eq:`tiro`, con el método de Verlet.
 
-   *Sugerencias*:
+   .. note::
 
-   * Crear dos listas ``posiciones_x`` y ``posiciones_y``, para guardar las
-     posiciones en cada eje de coordenadas.
+      * Crear dos listas ``posiciones_x`` y ``posiciones_y``, para guardar las
+        posiciones en cada eje de coordenadas.
 
-   * Para obtener las nuevas posiciones en *y*, usar el mismo código que se usó
-     para la caída de la bola, pero cambiando la posición y velocidad
-     iniciales.
+      * Para obtener las nuevas posiciones en *y*, usar el mismo código que se
+        usó para la caída de la bola, pero cambiando la posición y velocidad
+        iniciales, según la ecuación :eq:`cond-ini`
 
-     Además, cambiar el nombre de ``velocidades``  a ``velocidades_y``.
+        Además, cambiar el nombre de ``velocidades``  a ``velocidades_y``.
 
-   * Para obtener las nuevas posiciones en *x*, no es necesario determinar
-     nuevas velocidades y añadirlas a ``velocidades_x``, porque la velocidad es
-     *constante*. En otras palabras, las nuevas posiciones debe calcularse como:
+      * Para obtener las nuevas posiciones en *x*, no es necesario determinar
+        nuevas velocidades y añadirlas a ``velocidades_x``, porque la velocidad
+        es *constante*. En otras palabras, estas nuevas posiciones deben
+        calcularse como:
 
-     .. math::
+        .. math::
 
-        x_{i+1} = x_{i} + v_{0x} \, \Delta t
+           x_{i+1} = x_{i} + v_{0x} \, \Delta t
 
 #. Hacer una animación con VPython de este sistema dinámico.
 
-..  LocalWords:  math LocalWords cos theta label eq Verlet VPython
+..  LocalWords:  math LocalWords cos theta label eq Verlet VPython cond ini
