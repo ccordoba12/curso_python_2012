@@ -5,9 +5,7 @@ Simulación de Sistemas Dinámicos
 ================================
 
 .. toctree::
-    :maxdepth: 2
-
-.. ifconfig:: render in ('yes')
+   :maxdepth: 2
 
    Introduccion.rst
    Ecuaciones de mvto.rst
@@ -16,4 +14,7 @@ Simulación de Sistemas Dinámicos
    Simulacion mas realista.rst
    Simulacion mas precisa.rst
    Movimiento en dos dimensiones.rst
+
+.. ifconfig:: render in ('yes')
+   
    Proyectos.rst
