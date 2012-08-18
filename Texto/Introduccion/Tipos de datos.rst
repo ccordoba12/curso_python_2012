@@ -190,9 +190,26 @@ lista, así:
   * Construir una lista que tenga un ``1`` rodeado de dos listas, cada una con
     20 ceros.
 
-  .. _media-movil:
+  * .. _lista_ejemplo:
 
-  * La media móvil es un concepto usado en economía para tratar de observar si
+    Calcular el promedio de la siguiente lista::
+
+      li = [3, 18, 17, 44, 14, 12, 29, 19, 4, 6, 17, 7, 14, 6, 8, 17, 17, 21, 65,\
+      19, 10, 31, 92, 17, 5, 15, 3, 14, 20, 12, 29, 57, 15, 2, 17, 1, 6, 17, 2,\
+      71, 12, 11, 62, 14, 9, 20, 43, 19, 4, 15]
+
+    *R/*::
+
+      20.04
+    
+    .. note::
+       
+       Usar el comando ``sum(li)`` para obtener la suma de los elementos de la
+       lista, y el comando ``len(li)`` para obtener cuantos elementos tiene.
+
+  * .. _media-movil:
+
+    La media móvil es un concepto usado en economía para tratar de observar si
     existe una tendencia al alza o a la baja en los precios de las acciones de
     una empresa. Para ello, lo que hace es crear una serie de promedios de
     distintos subconjuntos del conjunto de datos original.
@@ -223,28 +240,11 @@ lista, así:
 
    *R/*::
 
-     22.259, 22.613, 23.377
+     22.259, 22.613, 23.076
    
    .. note::
       
       Utilizar las operaciones de rebanado descritas arriba.
-
-  .. _lista_ejemplo:
-
-  * Calcular el promedio de la siguiente lista::
-
-      li = [3, 18, 17, 44, 14, 12, 29, 19, 4, 6, 17, 7, 14, 6, 8, 17, 17, 21, 65,\
-      19, 10, 31, 92, 17, 5, 15, 3, 14, 20, 12, 29, 57, 15, 2, 17, 1, 6, 17, 2,\
-      71, 12, 11, 62, 14, 9, 20, 43, 19, 4, 15]
-
-    *R/*::
-
-      20.04
-    
-    .. note::
-       
-       Usar el comando ``sum(li)`` para obtener la suma de los elementos de la
-       lista, y el comando ``len(li)`` para obtener cuantos elementos tiene.
 
   * .. _mediana:
     
@@ -422,11 +422,7 @@ Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:
 
       239
 
-    .. note::
-       
-       Utilizar el método ``split``
-
-  * Qué produce el método ``center``?
+  * ¿Qué produce el método ``center``?
 
     Experimentar con los siguientes comandos para ver que produce:
 
@@ -679,4 +675,4 @@ siguientes comandos:
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing return def suppress Out in elif else if range False li
 ..  LocalWords:  True append while for class init self split Imagenes label
-..  LocalWords:  IPython
+..  LocalWords:  IPython center
