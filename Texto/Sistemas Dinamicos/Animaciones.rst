@@ -78,11 +78,14 @@ Ejercicios
      evolucionar el sistema durante al menos 20 segundos. Tratar de entender
      qué es lo que está pasando en este caso.
 
+
 VPython
 -------
 
-VPython es una librería para hacer animaciones tridimensionales en OpenGL. Para
-cargar la librería usamos el comando::
+*VPython* es una librería para hacer animaciones tridimensionales de sistemas
+físicos en OpenGL con gran sencillez.
+
+Para cargar la librería usamos el comando::
 
   import visual as vis
 
@@ -95,32 +98,44 @@ escena, y definir algunas propiedades de la misma, de la siguiente manera::
   escena.select()                                   # Selecciona la escena para añadirle objetos
   escena.autoscale = False                          # Evita que se reajuste el tamaño de la escena a medida que avanza la simulación
 
-Después de esto podemos pasar a añadirle una caja a la escena, la cual va
-representar el suelo, de la siguiente forma::
+Después de esto procedemos a añadir una caja, para representar el suelo contra
+el que choca la bola. Para ello usamos la siguiente instrucción::
 
-  piso = vis.box(pos=(0, 0, 0), length=4, height=0.5, width=4, color=vis.color.blue)
+    piso = vis.box(pos=(0, 0, 0), length=4, height=0.5, width=4, color=vis.color.blue)
 
 donde ``pos`` define el centro de la caja (que en este caso lo colocamos en el
-origen de coordenadas), ``length`` es el largo de la caja, ``height`` y
+origen de coordenadas), ``length`` es su largo, ``height`` su altura y
 ``width`` su profundidad.
 
-En último término creamos una esfera para representar la bola como::
+Finalmente creamos una esfera para representar la bola, con el siguiente
+comando::
 
-  bola = vis.sphere(pos=(0, p0, 0), radius=1, color=vis.color.red)
+    bola = vis.sphere(pos=(0, p0, 0), radius=1, color=vis.color.red)
 
 donde ``pos`` define el centro de la esfera, ``radius`` su radio y ``color`` su
 color, que en este caso hemos elegido como ``red``.
 
-Para generar la animación vamos a actualizar el atributo ``pos`` de ``bola``
-con los valores guardados en la lista ``posiciones``. Por ejemplo, para cambiar
-la posición de la bola al primer lugar de ``posiciones`` usamos el comando::
+Para generar la animación del movimiento de la bola, debemos actualizar el
+atributo ``pos`` de la variable ``bola`` con los valores guardados en la lista
+``posiciones``. Por ejemplo, para cambiar la posición de la bola al primer
+lugar de ``posiciones`` usamos el comando::
 
-  bola.pos = vector(0, posiciones[0], 0) 
+    bola.pos = vis.vector(0, posiciones[1], 0)
+
+Instalación en Linux
+~~~~~~~~~~~~~~~~~~~~
+
+Las personas que trabajen en Linux deben correr los siguientes comandos en una
+terminal para instalar *VPython*::
+
+    sudo apt-get install python-visual
+
+    sudo apt-get install libgtkglextmm-x11-1.2-dev
 
 Ejercicios
 ~~~~~~~~~~
 
-.. warning::
+.. warning
 
    Para poder correr simulaciones hechas con VPython con Spyder debe irse al
    menú :menuselection:`Run --> Open Interpreter`, para abrir un tipo especial
@@ -137,12 +152,12 @@ Ejercicios
    .. note::
 
       Usar ``vis.rate(n)`` (donde ``n`` es un número entero) dentro del ciclo
-      ``for`` para no tener que graficar todas las posiciones sino sólo unas
-      cuantas. Experimentar con varios valores ``n`` para ver cuál es el que
-      mejor se ajusta.
+      ``for`` para no tener que dibujar todas las posiciones, sino las que sean
+      necesarias para apreciar una animación fluida. Experimentar con varios
+      valores de ``n`` para ver cuál es el que mejor se ajusta.
 
 #. Hacer que el borde inferior de la bola sea el que choque contra el suelo y
-   no su centro, como está sucediendo hasta el momento.
+   no su centro, si eso es lo que se está observado en el momento.
 
 ..  LocalWords:  math LocalWords Python Euler dt label euler for if Matplotlib
 ..  LocalWords:  VPython import matplotlib pyplot plt plot graficar range png
