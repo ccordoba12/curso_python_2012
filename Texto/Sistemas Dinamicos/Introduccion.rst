@@ -4,7 +4,7 @@
 Introducción
 ============
 
-El propósito de la rama conocida como *Simulación* es reproducir en un
+El propósito del área científica conocida como *Simulación* es reproducir en un
 computador los fenómenos que se observan a nuestro alrededor (el fuego, el
 movimiento del océano o el pasar del viento sobre la hierba), usando para ello
 las leyes físicas de la mecánica, el electromagnetismo y la termodinámica.
@@ -29,9 +29,9 @@ continuación podemos ver dos ejemplos muy sencillos:
 
 |
 
-En esta sección vamos a empezar con una simulación muy sencilla: una bola que
-cae y golpea contra el suelo, pero antes de hacerlo necesitamos recordar algo de
-Física.
+En esta sección vamos a empezar simulando un fenómeno muy sencillo: una bola
+que cae y golpea contra el suelo, pero antes de hacerlo necesitamos recordar
+algo de Física.
 
  
 
