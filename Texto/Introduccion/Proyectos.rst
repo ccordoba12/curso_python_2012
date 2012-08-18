@@ -326,4 +326,14 @@ evolución del autómata durante 100 pasos, se debe imprimir la misma usando
 cadenas para obtener una imagen similar a `esta
 <http://upload.wikimedia.org/wikipedia/commons/9/9d/CA_rule30s.png>`_.
 
-..  LocalWords:  open LocalWords codecs readlines
+.. note::
+
+   #. Convertir los 1's a ``'x'`` y los ceros a ``' '`` (espacios en blanco).
+
+   #. Usar el método ``join`` de una cadena vacía para convertir la lista
+      anterior en una sola cadena.
+
+   #. Usar ``print`` para imprimir una cadena tras otra, de las listas que
+      conforman la evolución del autómata.
+
+..  LocalWords:  open LocalWords codecs readlines join print
