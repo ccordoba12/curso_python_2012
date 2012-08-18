@@ -38,18 +38,18 @@ ecuación
 .. math::
    :label: pos_diff
 
-   \frac{dr}{dt} = v
+   \frac{dx}{dt} = v
  
 lo que es igual a
 
 .. math::
 
-   r\left(t\right) = \int v \, dt + r\left(0\right)
+   x\left(t\right) = \int v \, dt + x\left(0\right)
 
 Ahora bien, para simular el movimiento descrito por estas ecuaciones en un
 computador, es necesario *discretizarlas*, es decir, expresarlas en forma de
 diferencias entre valores sucesivos de la posición y la velocidad, para así
-poder obtener un valor a partir del anterior.
+poder obtener el siguiente valor a partir del anterior.
 
 De esta forma no es necesario resolver las ecuaciones diferenciales anteriores
 (lo que en la gran mayoría de los casos no es posible), sino tan sólo simular
@@ -69,7 +69,7 @@ discretizan de la siguiente forma:
 
    \frac{v\left(t+\Delta t\right) - v(t)}{\Delta t} = a(t)
 
-   \frac{r\left(t+\Delta t\right) - r(t)}{\Delta t} = v(t)
+   \frac{x\left(t+\Delta t\right) - x(t)}{\Delta t} = v(t)
 
 donde :math:`\Delta t` representa una pequeña diferencia de tiempo entre un
 instante y el siguiente. Como puede verse, lo único que se ha hecho es expresar
@@ -83,17 +83,17 @@ t` se tiene que
 
    v\left(t+\Delta t\right) = v(t) + a(t) \Delta t
 
-   r\left(t+\Delta t\right) = r(t) + v(t) \Delta t
+   x\left(t+\Delta t\right) = x(t) + v(t) \Delta t
 
-Si guardamos las posiciones y velocidades en dos listas, cuyo elemento i-ésimo
-nos da la posición después de *i* pasos de tiempo, entonces las ecuaciones
-anteriores se pueden reescribir como
+Si las posiciones y velocidades se guardan en dos listas diferentes, cuyo
+elemento i-ésimo nos de la posición y velocidad después de *i* pasos de tiempo,
+entonces las ecuaciones anteriores se pueden reescribir como
 
 .. math::
 
    v_{i+1} = v_{i} + a_{i} \Delta t
 
-   r_{i+1} = r_{i} + v_{i} \Delta t
+   x_{i+1} = x_{i} + v_{i} \Delta t
 
 Estas son las ecuaciones que definen el método de Euler. De ellas puede verse
 que la posición y la velocidad en el siguiente instante de tiempo se calculan a
