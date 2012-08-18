@@ -240,6 +240,7 @@ lista, así:
     *R/*::
 
       20.04
+    
     .. note::
        
        Usar el comando ``sum(li)`` para obtener la suma de los elementos de la
