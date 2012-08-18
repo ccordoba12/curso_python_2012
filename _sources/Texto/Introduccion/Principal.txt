@@ -18,9 +18,6 @@ familiarice con ellas a través de una serie de ejercicios.
    Primer programa.rst
    Tipos de datos.rst
    Funciones.rst
-
-.. ifconfig:: render in ('yes')
-
    Estructuras de control.rst
    Clases.rst
    Importar librerias.rst

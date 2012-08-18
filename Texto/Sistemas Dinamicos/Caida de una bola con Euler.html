@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Simulación del movimiento de caída de una bola &mdash; Programación y Simulación en Python</title>
+    
+    <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/translations.js"></script>
+    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" />
+    <link rel="up" title="Simulación de Sistemas Dinámicos" href="Principal.html" />
+    <link rel="next" title="Generar gráficas y animaciones de la simulación" href="Animaciones.html" />
+    <link rel="prev" title="Integración de las ecuaciones de movimiento" href="Ecuaciones de mvto.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="Animaciones.html" title="Generar gráficas y animaciones de la simulación"
+             accesskey="N">siguiente</a></li>
+        <li class="right" >
+          <a href="Ecuaciones de mvto.html" title="Integración de las ecuaciones de movimiento"
+             accesskey="P">anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" accesskey="U">Simulación de Sistemas Dinámicos</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Simulación del movimiento de caída de una bola</a><ul>
+<li><a class="reference internal" href="#codigo-en-python">Código en Python</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="Ecuaciones de mvto.html"
+                        title="Capítulo anterior">Integración de las ecuaciones de movimiento</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="Animaciones.html"
+                        title="Próximo capítulo">Generar gráficas y animaciones de la simulación</a></p>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="simulacion-del-movimiento-de-caida-de-una-bola">
+<h1>Simulación del movimiento de caída de una bola<a class="headerlink" href="#simulacion-del-movimiento-de-caida-de-una-bola" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>En esta sección vamos a simular la caída vertical de una bola desde una altura
+dada hasta que golpea el suelo y vuelve a subir debido al golpe.  Como dijimos
+en la sección anterior, para llevar a cabo esta simulación lo único que
+necesitamos son las ecuaciones del método de Euler:</p>
+<div class="math" id="equation-euler">
+<p><span class="eqno">(1)</span><img src="../../_images/math/42a471e839ff2f55a41713345b00a1f1cbe452d4.png" alt="v_{i+1} = v_{i} + a_{i} \Delta t
+
+x_{i+1} = x_{i} + v_{i} \Delta t"/></p>
+</div><p>Por ejemplo, con ellas podemos calcular la primera posición que va a tener el
+objeto haciendo <img class="math" src="../../_images/math/3468ccd41bc761dcc455140089e3224a4b1b95e3.png" alt="i=0"/>, con lo que tenemos</p>
+<div class="math">
+<p><img src="../../_images/math/abc8362f86bc01fad69794bf50d5595b7dee03d5.png" alt="v_{1} = v_{0} + a_{0} \Delta t
+
+x_{1} = x_{0} + v_{0} \Delta t"/></p>
+</div><p>Los valores de <img class="math" src="../../_images/math/17a2bc7787c20b229572a171b66e408e7cd66f19.png" alt="v_{0}"/> y <img class="math" src="../../_images/math/41e669253c4e7faee3f83a492830f13b68c47b98.png" alt="x_{0}"/> no pueden obtenerse a partir del
+método, sino que deben ser definidos por el usuario <em>antes</em> de empezar la
+simulación. Éstos corresponden a la velocidad y la posición iniciales de la
+bola, respectivamente. Para nuestro caso vamos a asumir que:</p>
+<div class="math">
+<p><img src="../../_images/math/5870a7ab1566b463e79a185b826ef87c20131e9b.png" alt="v_{0} = 0
+
+x_{0} = 10"/></p>
+</div><p>lo que quiere decir que la bola se deja caer sin velocidad desde una altura de
+10 m.</p>
+<p>Por su parte, el valor de <img class="math" src="../../_images/math/b0aeaf146217e6bebf22b3bc00c18edc0ef35bf4.png" alt="a_{0}"/> es la aceleración que experimenta la
+bola durante su recorrido, que es igual al valor de la gravedad, es decir que</p>
+<div class="math">
+<p><img src="../../_images/math/8daa5078cb0dc29d355a4bb6c4022646c560296c.png" alt="a_{0} = -9.8"/></p>
+</div><p>Si la distancia desde la cual se deja caer el objeto no es muy grande, este
+valor se puede asumir como constante durante todo el recorrido, es decir que
+para cualquier valor de <img class="math" src="../../_images/math/34857b3ba74ce5cd8607f3ebd23e9015908ada71.png" alt="i"/> siempre se va a tener que</p>
+<div class="math">
+<p><img src="../../_images/math/24b76c30c387cee35375886631be79452c90a762.png" alt="a_{i} = -9.8"/></p>
+</div><p>Con estos valores y las ecuaciones del método de Euler, podemos desarrollar un
+programa en Python que realice la simulación.</p>
+<div class="section" id="codigo-en-python">
+<h2>Código en Python<a class="headerlink" href="#codigo-en-python" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para programar el código en Python vamos a seguir estos pasos:</p>
+<ol class="arabic">
+<li><p class="first">Definir las siguientes constantes, que nos van a servir para guardar los
+valores necesarios para correr la simulación:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c"># Para el radio de la bola</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c"># Para la posición inicial</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c"># Para la velocidad inicial</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c"># Para el tiempo inicial.</span>
+<span class="n">g</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.8</span>   <span class="c"># Para la aceleración de la gravedad.</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">10</span>     <span class="c"># para el tiempo total de la simulación en segundos</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.1</span>   <span class="c"># Para el intervalo de tiempo</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>El valor que se le asigne a esta última variable debe ser pequeño, pero
+no tanto como para que la simulación se demore mucho tiempo en
+correr. Por ejemplo, si se elige:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p class="last">quiere decir que la simulación avanza en pasos de 1 segundo.</p>
+</div>
+</li>
+<li><p class="first">Definir tres listas: <tt class="docutils literal"><span class="pre">posiciones</span></tt>, <tt class="docutils literal"><span class="pre">velocidades</span></tt> y <tt class="docutils literal"><span class="pre">tiempos</span></tt>, para
+guardar los valores de posición, velocidad y tiempo, respectivamente, que se
+vayan calculando con el método de Euler. Hacer que estas listas contengan
+como primer elemento los valores de <tt class="docutils literal"><span class="pre">x0</span></tt>, <tt class="docutils literal"><span class="pre">v0</span></tt> y <tt class="docutils literal"><span class="pre">t0</span></tt>,
+respectivamente.</p>
+</li>
+<li><p class="first">Determinar el número de pasos que se van a calcular con el método de Euler
+como:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Usar un ciclo <tt class="docutils literal"><span class="pre">for</span></tt> que vaya desde <tt class="docutils literal"><span class="pre">0</span></tt> hasta <tt class="docutils literal"><span class="pre">n</span></tt> para calcular las nuevas
+velocidades y posiciones que va tomando la bola en su caída con las
+ecuaciones de Euler <a href="#equation-euler">(1)</a>.</p>
+<ul class="simple">
+<li>Dentro de este ciclo incluir un <tt class="docutils literal"><span class="pre">if</span></tt> para determinar el momento en que
+la bola toca el suelo. En ese instante se hace que la bola cambie su
+velocidad del valor que tiene a su valor opuesto. Esto provocará que
+rebote contra el suelo y vuelva a subir debido a ello.</li>
+<li>Después de este condicional, guardar los valores obtenidos en las listas
+de <tt class="docutils literal"><span class="pre">posiciones</span></tt>, <tt class="docutils literal"><span class="pre">velocidades</span></tt> y <tt class="docutils literal"><span class="pre">tiempos</span></tt>.</li>
+</ul>
+</li>
+<li><p class="first">Finalmente, imprimir la lista de <tt class="docutils literal"><span class="pre">posiciones</span></tt> por fuera de este ciclo
+<tt class="docutils literal"><span class="pre">for</span></tt>, para ver si todo está funcionando correctamente.</p>
+</li>
+</ol>
+<hr class="docutils" />
+<p>Una vez realizadas la simulación, pueden usarse otras librerías para generar
+una animación de la misma, como veremos a continuación.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="Animaciones.html" title="Generar gráficas y animaciones de la simulación"
+             >siguiente</a></li>
+        <li class="right" >
+          <a href="Ecuaciones de mvto.html" title="Integración de las ecuaciones de movimiento"
+             >anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" >Simulación de Sistemas Dinámicos</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Carlos Cordoba.
+      Creado con <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

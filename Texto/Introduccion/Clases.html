@@ -26,13 +26,23 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
-    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" /> 
+    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" />
+    <link rel="up" title="Introducción" href="Principal.html" />
+    <link rel="next" title="Importar librerías" href="Importar librerias.html" />
+    <link rel="prev" title="Estructuras de Control" href="Estructuras de control.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navegación</h3>
       <ul>
-        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li> 
+        <li class="right" style="margin-right: 10px">
+          <a href="Importar librerias.html" title="Importar librerías"
+             accesskey="N">siguiente</a></li>
+        <li class="right" >
+          <a href="Estructuras de control.html" title="Estructuras de Control"
+             accesskey="P">anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" accesskey="U">Introducción</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -46,6 +56,12 @@
 </li>
 </ul>
 
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="Estructuras de control.html"
+                        title="Capítulo anterior">Estructuras de Control</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="Importar librerias.html"
+                        title="Próximo capítulo">Importar librerías</a></p>
         </div>
       </div>
 
@@ -56,12 +72,12 @@
             
   <div class="section" id="clases">
 <h1>Clases<a class="headerlink" href="#clases" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Python es un muy buen lenguaje orientado a objetos (como Java) en el que es muy
-sencillo definir y trabajar con clases. En las secciones anteriores hemos
-tenido la oportunidad de utilizar los métodos de cadenas y listas para resolver
-varios ejercicios, lo que indica que en su implementación ambos tipos son
-clases, cosa que también es cierta para los demás (aún los números son
-clases!).</p>
+<p>Python es un muy buen lenguaje orientado a objetos (como Java), por lo que en
+él es muy sencillo definir y trabajar con clases. En las secciones anteriores
+hemos tenido la oportunidad de utilizar los métodos de cadenas y listas para
+resolver varios ejercicios, lo que indica que, en su implementación, ambos
+tipos son clases, cosa que también es cierta para los demás (aún los números
+son clases!).</p>
 <p>En esta sección veremos como definir nuestras propias clases y vamos a aprender
 cómo asociarle sus correspondientes atributos y métodos.</p>
 <div class="section" id="definicion-e-inicializacion">
@@ -282,9 +298,12 @@ v_{y}w_{x}\right)\hat{k}"/></p>
 <li><p class="first">Redefinir la clase anterior para que en lugar de los atributos, <tt class="docutils literal"><span class="pre">x</span></tt>,
 <tt class="docutils literal"><span class="pre">y</span></tt>, y <tt class="docutils literal"><span class="pre">z</span></tt>, tenga uno sólo llamado <tt class="docutils literal"><span class="pre">coord</span></tt>, que sea una lista de tres
 elementos. También redefinir los métodos según esto.</p>
-<p><em>Sugerencia</em>: En el método <tt class="docutils literal"><span class="pre">__init__</span></tt> revisar que la lista que se va a
-guardar en <tt class="docutils literal"><span class="pre">coord</span></tt> tenga <strong>exactamente</strong> tres elementos. Si tiene más o
-menos, asignarle a <tt class="docutils literal"><span class="pre">coord</span></tt> una lista vacía.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">En el método <tt class="docutils literal"><span class="pre">__init__</span></tt> revisar que la lista que se va a guardar en
+<tt class="docutils literal"><span class="pre">coord</span></tt> tenga <strong>exactamente</strong> tres elementos. Si tiene más o menos,
+asignarle a <tt class="docutils literal"><span class="pre">coord</span></tt> una lista vacía.</p>
+</div>
 </li>
 <li><p class="first">Definir una clase <tt class="docutils literal"><span class="pre">Tiempo</span></tt> para representar una hora del día, que tenga
 las siguientes condiciones (Tomado de <em>Aprenda a pensar como un programador
@@ -308,26 +327,28 @@ en una instancia, de la siguiente forma:</p>
 </div>
 </li>
 <li><p class="first">Un método <tt class="docutils literal"><span class="pre">sumar</span></tt> que sume dos tiempos diferentes.</p>
-<p><em>Sugerencias</em>:</p>
-<ul>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<ul class="last">
 <li><p class="first">Sumar cada atributo por separado, es decir, segundo con segundos,
 minutos con minutos y horas con horas.</p>
 </li>
-<li><p class="first">Para obtener el resultado de los segundos y los minutos, la suma debe
-realizarse módulo 60. Por ejemplo, si un Tiempo tiene 50 segundos y
-otra 15, su suma <strong>no</strong> debe darnos 65 sino 5, lo que se obtiene
-como:</p>
+<li><p class="first">Para obtener el resultado de los segundos y los minutos, la suma
+debe realizarse módulo 60. Por ejemplo, si un Tiempo tiene 50
+segundos y otra 15, su suma <strong>no</strong> debe darnos 65 sino 5, lo que se
+obtiene como:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="mi">50</span> <span class="o">+</span> <span class="mi">15</span><span class="p">)</span><span class="o">%</span><span class="mi">60</span> <span class="o">=</span> <span class="mi">5</span>
 </pre></div>
 </div>
 <p>Para las horas, tomar la suma módulo 24.</p>
 </li>
 <li><p class="first">Verificar si la suma de los segundos, <strong>sin</strong> tomar el módulo, es
-mayor o igual a <tt class="docutils literal"><span class="pre">60</span></tt>, y si lo es, incrementar en <tt class="docutils literal"><span class="pre">1</span></tt> el valor de
-los minutos. Tener en cuenta lo mismo para la suma de los minutos y el
-valor de las horas.</p>
+mayor o igual a <tt class="docutils literal"><span class="pre">60</span></tt>, y si lo es, incrementar en <tt class="docutils literal"><span class="pre">1</span></tt> el valor
+de los minutos. Tener en cuenta lo mismo para la suma de los
+minutos y el valor de las horas.</p>
 </li>
 </ul>
+</div>
 <p>Un ejemplo de este método es:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [27]: </span><span class="n">t1</span> <span class="o">=</span> <span class="n">Tiempo</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
 
@@ -357,7 +378,14 @@ valor de las horas.</p>
     <div class="related">
       <h3>Navegación</h3>
       <ul>
-        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li> 
+        <li class="right" style="margin-right: 10px">
+          <a href="Importar librerias.html" title="Importar librerías"
+             >siguiente</a></li>
+        <li class="right" >
+          <a href="Estructuras de control.html" title="Estructuras de Control"
+             >anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" >Introducción</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

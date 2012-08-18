@@ -26,13 +26,23 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
-    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" /> 
+    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" />
+    <link rel="up" title="Introducción" href="Principal.html" />
+    <link rel="next" title="Clases" href="Clases.html" />
+    <link rel="prev" title="Funciones" href="Funciones.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navegación</h3>
       <ul>
-        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li> 
+        <li class="right" style="margin-right: 10px">
+          <a href="Clases.html" title="Clases"
+             accesskey="N">siguiente</a></li>
+        <li class="right" >
+          <a href="Funciones.html" title="Funciones"
+             accesskey="P">anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" accesskey="U">Introducción</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -47,6 +57,12 @@
 </li>
 </ul>
 
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="Funciones.html"
+                        title="Capítulo anterior">Funciones</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="Clases.html"
+                        title="Próximo capítulo">Clases</a></p>
         </div>
       </div>
 
@@ -172,11 +188,13 @@ como los siguientes:</p>
 <span class="go">21 es divisible entre 7</span>
 </pre></div>
 </div>
-<p><em>Sugerencia</em>: Utilizar el operador módulo (<tt class="docutils literal"><span class="pre">%</span></tt>) para decidir si un número
-es múltiplo de otro. Este operador retorna el resto de la división entre
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>Utilizar el operador módulo (<tt class="docutils literal"><span class="pre">%</span></tt>) para decidir si un número es
+múltiplo de otro. Este operador retorna el resto de la división entre
 dos números. Por tanto, si un número divide exactamente a otro, retorna
 <tt class="docutils literal"><span class="pre">0</span></tt>, sino retorna cualquier otro número. Veamos algunos ejemplos:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="mi">12</span><span class="o">%</span><span class="mi">4</span>
+<div class="last highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="mi">12</span><span class="o">%</span><span class="mi">4</span>
 <span class="gr">Out[44]: </span><span class="mi">0</span>
 
 <span class="gp">In [45]: </span><span class="mi">12</span><span class="o">%</span><span class="mi">6</span>
@@ -191,6 +209,7 @@ dos números. Por tanto, si un número divide exactamente a otro, retorna
 <span class="gp">In [48]: </span><span class="mi">25</span><span class="o">%</span><span class="mi">6</span>
 <span class="gr">Out[48]: </span><span class="mi">1</span>
 </pre></div>
+</div>
 </div>
 </li>
 <li><p class="first">Generalizar la función anterior como una nueva función llamada
@@ -304,8 +323,11 @@ retornar <tt class="docutils literal"><span class="pre">False</span></tt> y si n
 <span class="gr">Out[64]: </span><span class="bp">True</span>
 </pre></div>
 </div>
-<p><em>Sugerencia</em>: Modificar la función <tt class="docutils literal"><span class="pre">es_divisible_entre_n</span></tt> para que
-en lugar de imprimir oraciones, retorne <tt class="docutils literal"><span class="pre">True</span></tt> o <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Modificar la función <tt class="docutils literal"><span class="pre">es_divisible_entre_n</span></tt> para que en lugar de
+imprimir oraciones, retorne <tt class="docutils literal"><span class="pre">True</span></tt> o <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
+</div>
 </li>
 <li><p class="first">Optimizar la función anterior, respondiendo a la siguiente pregunta: ¿Es
 necesario revisar todos los números menores a <tt class="docutils literal"><span class="pre">x</span></tt> para verificar si es
@@ -315,10 +337,10 @@ revisar?</p>
 tiempos de ejecución entre ella y <tt class="docutils literal"><span class="pre">es_primo</span></tt> usando el comando
 <tt class="docutils literal"><span class="pre">%timeit</span></tt> en la consola, así:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [65]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">es_primo</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
-<span class="go">100000 loops, best of 3: 17.6 us per loop</span>
+<span class="go">100000 loops, best of 3: 18 us per loop</span>
 
 <span class="gp">In [66]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">es_primo_veloz</span><span class="p">(</span><span class="mi">600</span><span class="p">)</span>
-<span class="go">100000 loops, best of 3: 8.24 us per loop</span>
+<span class="go">100000 loops, best of 3: 8.1 us per loop</span>
 </pre></div>
 </div>
 </li>
@@ -341,20 +363,21 @@ intercuartil de una lista. Recordar que éste se define como:</p>
 <span class="gr">Out[67]: </span><span class="mf">16.15</span>
 </pre></div>
 </div>
-<p><em>Sugerencias</em>:</p>
-<ul>
-<li><p class="first">Utilizar la función <tt class="docutils literal"><span class="pre">mediana</span></tt> definida en <a class="reference internal" href="Funciones.html#funcion-mediana"><em>uno</em></a>
-de los ejercicios de la sección anterior.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<ul class="last">
+<li><p class="first">Utilizar la función <tt class="docutils literal"><span class="pre">mediana</span></tt> definida en <a class="reference internal" href="Funciones.html#funcion-mediana"><em>uno</em></a> de los ejercicios de la sección anterior.</p>
 </li>
-<li><p class="first">Dividir la lista original en dos listas <tt class="docutils literal"><span class="pre">li1</span></tt> y <tt class="docutils literal"><span class="pre">li2</span></tt> que contengan
-los elementos menores y mayores a la mediana, respectivamente, y
-calcularles a éstas nuevamente la mediana para obtener <img class="math" src="../../_images/math/4d10fa4b5534c69b3b35c9f3ce31686d2d514260.png" alt="Q_{3}"/> y
-<img class="math" src="../../_images/math/9ff97a2bba217fae35b1416a20689953687d22a8.png" alt="Q_{1}"/>.</p>
-<p>Para ello, definir <tt class="docutils literal"><span class="pre">li1</span> <span class="pre">=</span> <span class="pre">[]</span></tt> y <tt class="docutils literal"><span class="pre">li2</span> <span class="pre">=</span> <span class="pre">[]</span></tt> para que empiecen siendo
-listas vacías y utilizar el método <tt class="docutils literal"><span class="pre">append</span></tt> de cada una para añadirles
-los elementos correspondientes.</p>
+<li><p class="first">Dividir la lista original en dos listas <tt class="docutils literal"><span class="pre">li1</span></tt> y <tt class="docutils literal"><span class="pre">li2</span></tt> que
+contengan los elementos menores y mayores a la mediana,
+respectivamente, y calcularles a éstas nuevamente la mediana para
+obtener <img class="math" src="../../_images/math/4d10fa4b5534c69b3b35c9f3ce31686d2d514260.png" alt="Q_{3}"/> y <img class="math" src="../../_images/math/9ff97a2bba217fae35b1416a20689953687d22a8.png" alt="Q_{1}"/>.</p>
+<p>Para ello, definir <tt class="docutils literal"><span class="pre">li1</span> <span class="pre">=</span> <span class="pre">[]</span></tt> y <tt class="docutils literal"><span class="pre">li2</span> <span class="pre">=</span> <span class="pre">[]</span></tt> para que empiecen
+siendo listas vacías y utilizar el método <tt class="docutils literal"><span class="pre">append</span></tt> de cada una para
+añadirles los elementos correspondientes.</p>
 </li>
 </ul>
+</div>
 </li>
 <li><p class="first">Definir una función <tt class="docutils literal"><span class="pre">medias_moviles</span></tt> que calcule todas las medias móviles
 de una lista <tt class="docutils literal"><span class="pre">li</span></tt>, dado un periodo <tt class="docutils literal"><span class="pre">t</span></tt>.</p>
@@ -481,8 +504,11 @@ primeros:</p>
 <span class="gr">Out[75]: </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">71</span><span class="p">]</span>
 </pre></div>
 </div>
-<p><em>Sugerencia</em>: Definir una lista vacía y utilizar su método <tt class="docutils literal"><span class="pre">append</span></tt> para
-añadirle los números primos que vayamos encontrando.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Definir una lista vacía y utilizar su método <tt class="docutils literal"><span class="pre">append</span></tt> para añadirle
+los números primos que vayamos encontrando.</p>
+</div>
 </li>
 <li><p class="first">Usar la función <a class="reference internal" href="Funciones.html#digitos"><em>digitos</em></a>, para encontrar el primer número
 de 4 cifras que sea divisible entre 8 y cuya primera y última cifras sean
@@ -491,10 +517,13 @@ iguales.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="mi">2032</span>
 </pre></div>
 </div>
-<p><em>Sugerencia</em>: Definir dos contadores: uno que empiece en <tt class="docutils literal"><span class="pre">1000</span></tt> para ir
-revisando todos los números de 4 cifras, y otro para detener el ciclo
-<tt class="docutils literal"><span class="pre">while</span></tt> tan pronto se encuentre el primer número que cumpla la condición
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Definir dos contadores: uno que empiece en <tt class="docutils literal"><span class="pre">1000</span></tt> para ir revisando
+todos los números de 4 cifras, y otro para detener el ciclo <tt class="docutils literal"><span class="pre">while</span></tt>
+tan pronto se encuentre el primer número que cumpla la condición
 deseada.</p>
+</div>
 </li>
 </ul>
 </dd>
@@ -511,7 +540,14 @@ deseada.</p>
     <div class="related">
       <h3>Navegación</h3>
       <ul>
-        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li> 
+        <li class="right" style="margin-right: 10px">
+          <a href="Clases.html" title="Clases"
+             >siguiente</a></li>
+        <li class="right" >
+          <a href="Funciones.html" title="Funciones"
+             >anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" >Introducción</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

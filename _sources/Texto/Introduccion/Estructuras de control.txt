@@ -126,22 +126,24 @@ respectivamente.
 
        In [4]: es_divisible_entre_siete(21)
 
-    *Sugerencia*: Utilizar el operador módulo (``%``) para decidir si un número
-    es múltiplo de otro. Este operador retorna el resto de la división entre
-    dos números. Por tanto, si un número divide exactamente a otro, retorna
-    ``0``, sino retorna cualquier otro número. Veamos algunos ejemplos:
-
-    .. ipython::
+    .. note::
        
-       In [1]: 12%4
+        Utilizar el operador módulo (``%``) para decidir si un número es
+        múltiplo de otro. Este operador retorna el resto de la división entre
+        dos números. Por tanto, si un número divide exactamente a otro, retorna
+        ``0``, sino retorna cualquier otro número. Veamos algunos ejemplos:
 
-       In [2]: 12%6
+        .. ipython::
+       
+           In [1]: 12%4
 
-       In [3]: 12%5
+           In [2]: 12%6
+           
+           In [3]: 12%5
 
-       In [4]: 25%5
+           In [4]: 25%5
 
-       In [5]: 25%6
+           In [5]: 25%6
 
   * Generalizar la función anterior como una nueva función llamada
     ``es_divisible_entre_n(x, n)`` que tome dos números enteros e imprima si el
@@ -263,8 +265,10 @@ otro como límite superior, así:
 
        In [4]: es_primo(23)
 
-    *Sugerencia*: Modificar la función ``es_divisible_entre_n`` para que
-    en lugar de imprimir oraciones, retorne ``True`` o ``False``.
+    .. note::
+
+       Modificar la función ``es_divisible_entre_n`` para que en lugar de
+       imprimir oraciones, retorne ``True`` o ``False``.
 
   * Optimizar la función anterior, respondiendo a la siguiente pregunta: ¿Es
     necesario revisar todos los números menores a ``x`` para verificar si es
@@ -341,20 +345,19 @@ otro como límite superior, así:
        
        In [1]: rango_intercuartil(li)
        
-
-    *Sugerencias*:
+    .. note::
     
-    - Utilizar la función ``mediana`` definida en :ref:`uno <funcion-mediana>`
-      de los ejercicios de la sección anterior.
+       - Utilizar la función ``mediana`` definida en :ref:`uno
+         <funcion-mediana>` de los ejercicios de la sección anterior.
 
-    - Dividir la lista original en dos listas ``li1`` y ``li2`` que contengan
-      los elementos menores y mayores a la mediana, respectivamente, y
-      calcularles a éstas nuevamente la mediana para obtener :math:`Q_{3}` y
-      :math:`Q_{1}`.
+       - Dividir la lista original en dos listas ``li1`` y ``li2`` que
+         contengan los elementos menores y mayores a la mediana,
+         respectivamente, y calcularles a éstas nuevamente la mediana para
+         obtener :math:`Q_{3}` y :math:`Q_{1}`.
 
-      Para ello, definir ``li1 = []`` y ``li2 = []`` para que empiecen siendo
-      listas vacías y utilizar el método ``append`` de cada una para añadirles
-      los elementos correspondientes.
+         Para ello, definir ``li1 = []`` y ``li2 = []`` para que empiecen
+         siendo listas vacías y utilizar el método ``append`` de cada una para
+         añadirles los elementos correspondientes.
 
   * Definir una función ``medias_moviles`` que calcule todas las medias móviles
     de una lista ``li``, dado un periodo ``t``.
@@ -492,8 +495,10 @@ Miremos un par de ejemplos:
        
        In [1]: lista_de_primos(20)
 
-    *Sugerencia*: Definir una lista vacía y utilizar su método ``append`` para
-    añadirle los números primos que vayamos encontrando.
+    .. note::    
+
+       Definir una lista vacía y utilizar su método ``append`` para añadirle
+       los números primos que vayamos encontrando.
 
   * Usar la función :ref:`digitos <digitos>`, para encontrar el primer número
     de 4 cifras que sea divisible entre 8 y cuya primera y última cifras sean
@@ -502,11 +507,13 @@ Miremos un par de ejemplos:
     *R/*::
     
       2032
-
-    *Sugerencia*: Definir dos contadores: uno que empiece en ``1000`` para ir
-    revisando todos los números de 4 cifras, y otro para detener el ciclo
-    ``while`` tan pronto se encuentre el primer número que cumpla la condición
-    deseada. 
+    
+    .. note::
+       
+       Definir dos contadores: uno que empiece en ``1000`` para ir revisando
+       todos los números de 4 cifras, y otro para detener el ciclo ``while``
+       tan pronto se encuentre el primer número que cumpla la condición
+       deseada.
 
 
 

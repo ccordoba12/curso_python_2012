@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Proyectos para el primer corte &mdash; Programación y Simulación en Python</title>
+    <title>Proyectos para la primera sección &mdash; Programación y Simulación en Python</title>
     
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -26,20 +26,30 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/translations.js"></script>
-    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" /> 
+    <link rel="top" title="Programación y Simulación en Python" href="../../index.html" />
+    <link rel="up" title="Introducción" href="Principal.html" />
+    <link rel="next" title="Simulación de Sistemas Dinámicos" href="../Sistemas Dinamicos/Principal.html" />
+    <link rel="prev" title="Importar librerías" href="Importar librerias.html" /> 
   </head>
   <body>
     <div class="related">
       <h3>Navegación</h3>
       <ul>
-        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li> 
+        <li class="right" style="margin-right: 10px">
+          <a href="../Sistemas Dinamicos/Principal.html" title="Simulación de Sistemas Dinámicos"
+             accesskey="N">siguiente</a></li>
+        <li class="right" >
+          <a href="Importar librerias.html" title="Importar librerías"
+             accesskey="P">anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" accesskey="U">Introducción</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Contenidos</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Proyectos para el primer corte</a><ul>
+<li><a class="reference internal" href="#">Proyectos para la primera sección</a><ul>
 <li><a class="reference internal" href="#realizar-una-tabla-de-frecuencias">1. Realizar una tabla de frecuencias</a><ul>
 <li><a class="reference internal" href="#a-calcular-el-numero-de-intervalos">a) Calcular el número de intervalos</a></li>
 <li><a class="reference internal" href="#b-calcular-el-tamano-de-cada-intervalo">b) Calcular el tamaño de cada intervalo</a></li>
@@ -53,10 +63,17 @@
 </li>
 <li><a class="reference internal" href="#construir-la-tabla-de-intereses-para-el-pago-de-un-prestamo-al-banco">2. Construir la tabla de intereses para el pago de un préstamo al banco</a></li>
 <li><a class="reference internal" href="#identificar-el-lenguaje-de-un-texto">3. Identificar el lenguaje de un texto</a></li>
+<li><a class="reference internal" href="#simular-un-automata-celular-elemental">4. Simular un autómata celular elemental</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="Importar librerias.html"
+                        title="Capítulo anterior">Importar librerías</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="../Sistemas Dinamicos/Principal.html"
+                        title="Próximo capítulo">Simulación de Sistemas Dinámicos</a></p>
         </div>
       </div>
 
@@ -65,8 +82,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="proyectos-para-el-primer-corte">
-<h1>Proyectos para el primer corte<a class="headerlink" href="#proyectos-para-el-primer-corte" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="section" id="proyectos-para-la-primera-seccion">
+<h1>Proyectos para la primera sección<a class="headerlink" href="#proyectos-para-la-primera-seccion" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="realizar-una-tabla-de-frecuencias">
 <h2>1. Realizar una tabla de frecuencias<a class="headerlink" href="#realizar-una-tabla-de-frecuencias" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La idea de este proyecto es definir una clase o una función que reciba un lista
@@ -296,7 +313,7 @@ construir la tabla:</p>
 <h2>2. Construir la tabla de intereses para el pago de un préstamo al banco<a class="headerlink" href="#construir-la-tabla-de-intereses-para-el-pago-de-un-prestamo-al-banco" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La idea de este proyecto es determinar cuál es la forma en que una persona le
 cancela un préstamo a un banco. Para ello es necesario definir una clase o un
-conjunto de funciones que determinen cuántas debe pagar una persona para
+conjunto de funciones que determinen cuántas cuotas debe pagar una persona para
 cancelar su préstamo, dado el valor del mismo, el valor de la cuota y los
 intereses que el banco propone cobrarle.</p>
 <p>Por ejemplo, si una persona pide un préstamo de 40 millones, y debe cancelar
@@ -451,8 +468,8 @@ persona al banco.</p>
 calculan los intereses y el abono a capital para el siguiente mes. Así que, aún
 si la persona cancela la <strong>misma</strong> cuota durante el tiempo que dure el
 préstamo, la cantidad de dinero que uno paga en intereses y en capital va
-variando según el saldo, pues mientras los primeros van disminuyendo los
-segundos van aumentando.</p>
+variando según el saldo, pues mientras los primeros van disminuyendo, el
+segundo va aumentando.</p>
 </div>
 <div class="section" id="identificar-el-lenguaje-de-un-texto">
 <h2>3. Identificar el lenguaje de un texto<a class="headerlink" href="#identificar-el-lenguaje-de-un-texto" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -605,6 +622,98 @@ acuerdo a esta técnica.</p>
 <li><a class="reference download internal" href="../../_downloads/3.txt"><tt class="xref download docutils literal"><span class="pre">Texto</span> <span class="pre">3</span></tt></a></li>
 </ul>
 </div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p>Usar la función <tt class="docutils literal"><span class="pre">open</span></tt> de la librería <tt class="docutils literal"><span class="pre">codecs</span></tt>, de la forma:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;1.txt&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="s">&quot;utf-8&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">para cargar un archivo en memoria. Después utilizar el método <tt class="docutils literal"><span class="pre">readlines</span></tt>
+de <tt class="docutils literal"><span class="pre">file</span></tt> para extraer sus líneas.</p>
+</div>
+</div>
+<div class="section" id="simular-un-automata-celular-elemental">
+<h2>4. Simular un autómata celular elemental<a class="headerlink" href="#simular-un-automata-celular-elemental" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Los autómatas celulares son el equivalente discreto de las ecuaciones
+diferenciales parciales, pues el espacio, el tiempo y los valores de las
+variables de estado sólo pueden tomar ciertos valores en el conjunto de los
+enteros y no todos los valores de los números reales. Han sido bastante
+estudiados en los últimos 20 años porque con ellos se han podido simular con
+éxito gran cantidad de fenómenos físicos.</p>
+<p>Los autómatas celulares más sencillos que existen son los <a class="reference external" href="http://en.wikipedia.org/wiki/Elementary_cellular_automaton">autómatas
+elementales</a>, en
+los que el espacio es una grilla unidimensional, en la que cada punto sólo
+puede tomar los valores 0 o 1, y el tiempo avanza en pasos de una unidad.</p>
+<p>Para simularlo, el estado del autómata se define como una lista de 0&#8217;s y 1&#8217;s,
+así:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Esta lista se modifica en el siguiente paso de tiempo según a una regla que le
+asigna un nuevo valor a cada sitio de acuerdo a los valores que posea el mismo
+y sus vecinos a izquierda y derecha. Hay muchas de estas reglas, pero una de
+las conocidas se llama la <em>regla 30</em>, y corresponde a la tabla que se aprecia a
+continuación:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="59%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Estado actual</td>
+<td>111</td>
+<td>110</td>
+<td>101</td>
+<td>100</td>
+<td>011</td>
+<td>010</td>
+<td>001</td>
+<td>000</td>
+</tr>
+<tr class="row-even"><td>Nuevo estado para el sitio central</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Según esta regla, la lista anterior toma el siguiente valor después de
+aplicársela:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>en donde se han tomado condiciones de frontera periódicas para poder obtener
+los valores de los extremos.</p>
+<p>El objetivo de este proyecto es definir un conjunto de funciones para simular
+este autómata, con un estado inicial que corresponda a sólo 1 rodeado de 20
+ceros a izquierda y a derecha.</p>
+<p>Una vez que se cuente con una lista de listas en la que esté guardada la
+evolución del autómata durante 100 pasos, se debe imprimir la misma usando
+cadenas para obtener una imagen similar a <a class="reference external" href="http://upload.wikimedia.org/wikipedia/commons/9/9d/CA_rule30s.png">esta</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<ol class="last arabic simple">
+<li>Convertir los 1&#8217;s a <tt class="docutils literal"><span class="pre">'x'</span></tt> y los ceros a <tt class="docutils literal"><span class="pre">'</span> <span class="pre">'</span></tt> (espacios en blanco).</li>
+<li>Usar el método <tt class="docutils literal"><span class="pre">join</span></tt> de una cadena vacía para convertir la lista
+anterior en una sola cadena.</li>
+<li>Usar <tt class="docutils literal"><span class="pre">print</span></tt> para imprimir una cadena tras otra, de las listas que
+conforman la evolución del autómata.</li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -617,7 +726,14 @@ acuerdo a esta técnica.</p>
     <div class="related">
       <h3>Navegación</h3>
       <ul>
-        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li> 
+        <li class="right" style="margin-right: 10px">
+          <a href="../Sistemas Dinamicos/Principal.html" title="Simulación de Sistemas Dinámicos"
+             >siguiente</a></li>
+        <li class="right" >
+          <a href="Importar librerias.html" title="Importar librerías"
+             >anterior</a> |</li>
+        <li><a href="../../index.html">Programación y Simulación en Python</a> &raquo;</li>
+          <li><a href="Principal.html" >Introducción</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -224,8 +224,10 @@ lista, así:
    *R/*::
 
      22.259, 22.613, 23.377
-
-   *Sugerencia* Utilizar las operaciones de rebanado descritas arriba.
+   
+   .. note::
+      
+      Utilizar las operaciones de rebanado descritas arriba.
 
   .. _lista_ejemplo:
 
@@ -238,10 +240,11 @@ lista, así:
     *R/*::
 
       20.04
-
-    *Sugerencia*: Usar el comando ``sum(li)`` para obtener la suma de los
-    elementos de la lista, y el comando ``len(li)`` para obtener cuantos
-    elementos tiene.
+    
+    .. note::
+       
+       Usar el comando ``sum(li)`` para obtener la suma de los elementos de la
+       lista, y el comando ``len(li)`` para obtener cuantos elementos tiene.
 
   * .. _mediana:
     
@@ -263,14 +266,14 @@ lista, así:
     *R/*::
 
       15.0
+     
+    .. note::
 
-    *Sugerencias*:
-
-    - Usar el comando ``sorted(li)`` para organizar los elementos
-      de la lista de menor a mayor.
+       - Usar el comando ``sorted(li)`` para organizar los elementos de la
+         lista de menor a mayor.
     
-    - Utilizar división entera en operaciones como :math:`\frac{n}{2}`, al
-      momento de tomar los elementos correspondientes de ``li``.
+       - Utilizar división entera en operaciones como :math:`\frac{n}{2}`, al
+         momento de tomar los elementos correspondientes de ``li``.
 
    
 
@@ -419,7 +422,9 @@ Entre estos métodos, vamos a mirar que comportamiento tienen los siguientes:
 
       239
 
-    *Sugerencia*: Utilizar el método ``split``
+    .. note::
+       
+       Utilizar el método ``split``
 
   * Qué produce el método ``center``?
 

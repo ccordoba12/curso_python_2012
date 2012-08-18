@@ -131,7 +131,35 @@ continuación veremos las distintas formas en que puede hacerse esto.
       In [1]: mt.sin(mt.pi/2) 
 
 
+**Ejercicios**:
+  * Importar la librería ``numpy`` con el nombre np. Después utilizar la
+    función ``arange`` de la misma para generar una lista de números entre
+    ``0`` y ``1``, en pasos de ``0.01``.
+
+    .. note::
+
+       Mirar la ayuda de ``arange`` en el Inspector de Objetos para aprender
+       como se usa.
+
+  * De la misma librería anterior, importar únicamente la función ``linspace``
+    y la constante ``pi``. Utilizar estas dos expresiones para generar una
+    lista de 100 números entre 0 y :math:`2 \pi`.
+
+  * Usar la función ``sin`` de ``numpy`` para calcular el seno de los números
+    generados por ``linspace`` en el ejercicio anterior.
+
+    .. note::
+
+       #. **No** es necesario usar un ciclo ``for``. Mirar detenidamente los
+          ejemplos de ``numpy.sin`` en el Inspector de Objetos.
+
+       #. ¿Puede hacerse lo mismo con ``math.sin``?
+
+  * Generar una lista de 50 puntos aleatorios en 2D, usando la función ``rand``
+    de la librería ``numpy.random``.
+
 ..  LocalWords:  Python print Run LocalWords warning from future import math In
 ..  LocalWords:  division Mathematica image png kill img run ipython verbatim
 ..  LocalWords:  slicing return def suppress Out in elif else if range False li
-..  LocalWords:  True append while for class init self split Imagenes
+..  LocalWords:  True append while for class init self split Imagenes numpy np
+..  LocalWords:  arange linspace rand random

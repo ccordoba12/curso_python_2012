@@ -1,8 +1,8 @@
 .. -*- mode: rst; mode: flyspell; mode: auto-fill; mode: wiki-nav-*-
 
-==============================
-Proyectos para el primer corte
-==============================
+=================================
+Proyectos para la primera sección
+=================================
 
 1. Realizar una tabla de frecuencias
 ------------------------------------
@@ -177,7 +177,7 @@ construir la tabla:
 
 La idea de este proyecto es determinar cuál es la forma en que una persona le
 cancela un préstamo a un banco. Para ello es necesario definir una clase o un
-conjunto de funciones que determinen cuántas debe pagar una persona para
+conjunto de funciones que determinen cuántas cuotas debe pagar una persona para
 cancelar su préstamo, dado el valor del mismo, el valor de la cuota y los
 intereses que el banco propone cobrarle.
 
@@ -219,8 +219,9 @@ Es muy importante tener en cuenta que es sobre este nuevo saldo es que se
 calculan los intereses y el abono a capital para el siguiente mes. Así que, aún
 si la persona cancela la **misma** cuota durante el tiempo que dure el
 préstamo, la cantidad de dinero que uno paga en intereses y en capital va
-variando según el saldo, pues mientras los primeros van disminuyendo los
-segundos van aumentando.
+variando según el saldo, pues mientras los primeros van disminuyendo, el
+segundo va aumentando.
+
 
 3. Identificar el lenguaje de un texto
 --------------------------------------
@@ -267,3 +268,72 @@ acuerdo a esta técnica.
      * :download:`Texto 2 <Documentos/2.txt>`
      * :download:`Texto 3 <Documentos/3.txt>`
 
+.. note::
+
+   Usar la función ``open`` de la librería ``codecs``, de la forma::
+
+       f = codecs.open("1.txt", "r", "utf-8")
+
+   para cargar un archivo en memoria. Después utilizar el método ``readlines``
+   de ``file`` para extraer sus líneas.
+
+
+4. Simular un autómata celular elemental
+----------------------------------------
+
+Los autómatas celulares son el equivalente discreto de las ecuaciones
+diferenciales parciales, pues el espacio, el tiempo y los valores de las
+variables de estado sólo pueden tomar ciertos valores en el conjunto de los
+enteros y no todos los valores de los números reales. Han sido bastante
+estudiados en los últimos 20 años porque con ellos se han podido simular con
+éxito gran cantidad de fenómenos físicos.
+
+Los autómatas celulares más sencillos que existen son los `autómatas
+elementales <http://en.wikipedia.org/wiki/Elementary_cellular_automaton>`_, en
+los que el espacio es una grilla unidimensional, en la que cada punto sólo
+puede tomar los valores 0 o 1, y el tiempo avanza en pasos de una unidad.
+
+Para simularlo, el estado del autómata se define como una lista de 0's y 1's,
+así::
+
+     [0, 0, 0, 0, 1, 1, 0, 1, 0]
+
+Esta lista se modifica en el siguiente paso de tiempo según a una regla que le
+asigna un nuevo valor a cada sitio de acuerdo a los valores que posea el mismo
+y sus vecinos a izquierda y derecha. Hay muchas de estas reglas, pero una de
+las conocidas se llama la *regla 30*, y corresponde a la tabla que se aprecia a
+continuación:
+
+  ==================================     ===     ===     ===     ===     ===     ===     ===     ===
+  Estado actual	                         111     110     101     100     011     010     001     000
+  Nuevo estado para el sitio central 	  0       0       0       1       1       1       1       0
+  ==================================     ===     ===     ===     ===     ===     ===     ===     ===
+
+Según esta regla, la lista anterior toma el siguiente valor después de
+aplicársela::
+
+    [0, 0, 0, 1, 1, 0, 0, 1, 1]
+
+en donde se han tomado condiciones de frontera periódicas para poder obtener
+los valores de los extremos.
+
+El objetivo de este proyecto es definir un conjunto de funciones para simular
+este autómata, con un estado inicial que corresponda a sólo 1 rodeado de 20
+ceros a izquierda y a derecha.
+
+Una vez que se cuente con una lista de listas en la que esté guardada la
+evolución del autómata durante 100 pasos, se debe imprimir la misma usando
+cadenas para obtener una imagen similar a `esta
+<http://upload.wikimedia.org/wikipedia/commons/9/9d/CA_rule30s.png>`_.
+
+.. note::
+
+   #. Convertir los 1's a ``'x'`` y los ceros a ``' '`` (espacios en blanco).
+
+   #. Usar el método ``join`` de una cadena vacía para convertir la lista
+      anterior en una sola cadena.
+
+   #. Usar ``print`` para imprimir una cadena tras otra, de las listas que
+      conforman la evolución del autómata.
+
+..  LocalWords:  open LocalWords codecs readlines join print
